@@ -20,7 +20,7 @@ function VideoDownloader() {
     setProgress(0)
 
     try {
-      const response = await fetch('http://localhost:3001/api/download', {
+      const response = await fetch('https://kumpihub.onrender.com/api/download', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ function VideoDownloader() {
 
     try {
       const downloadUrl =
-        `http://localhost:3001/api/download-file?url=${encodeURIComponent(
+        `https://kumpihub.onrender.com/api/download-file?url=${encodeURIComponent(
           result.downloadUrl
         )}`
 
