@@ -153,7 +153,7 @@ if (window.location.pathname.startsWith('/s/')) {
       <header className="header">
         <div className="logo">
           <span className="logo-icon">⚡</span>
-          <span>ToolHub</span>
+          <span>KumpiHub</span>
         </div>
 
         <nav className="nav">
@@ -215,7 +215,7 @@ if (window.location.pathname.startsWith('/s/')) {
         ← Back to Tools
       </button>
 
-      <span>ToolHub Workspace</span>
+      <span>KumpiHub Workspace</span>
 
     </div>
 
@@ -437,7 +437,7 @@ if (window.location.pathname.startsWith('/s/')) {
 
       <footer id="about">
         <div className="footer-brand">
-          <h2>⚡ ToolHub</h2>
+          <h2>⚡ KumpiHub</h2>
           <p>Your all-in-one free online tools hub.</p>
           <p>Simple. Fast. Useful.</p>
         </div>
