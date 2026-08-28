@@ -1,5 +1,7 @@
 import { useState } from 'react'
-import './App.css'
+import './AppV2.css'
+
+
 import VideoDownloader from './tools/VideoDownloader'
 import PDFTools from './tools/PDFTools'
 import ImageResizer from './tools/ImageResizer'
@@ -206,6 +208,8 @@ if (window.location.pathname.startsWith('/s/')) {
          {selectedTool ? (
   <div className="tool-workspace">
 
+  <div className="tool-workspace-card">
+
     <div className="tool-workspace-header">
 
       <button
@@ -214,8 +218,6 @@ if (window.location.pathname.startsWith('/s/')) {
       >
         ← Back to Tools
       </button>
-
-      <span>KumpiHub Workspace</span>
 
     </div>
 
@@ -381,8 +383,8 @@ if (window.location.pathname.startsWith('/s/')) {
     </div>
 
   )}
-
-</div>
+  </div>
+ </div>
 </div>
          ) : null}
 
