@@ -16,7 +16,12 @@ import JSONFormatter from './tools/JSONFormatter'
 import UnitConverter from './tools/UnitConverter'
 import LoanCalculator from './tools/LoanCalculator'
 import CurrencyConverter from './tools/CurrencyConverter'
+import PercentageCalculator from './tools/PercentageCalculator'
+import ImageCompressor from './tools/ImageCompressor'
 import URLRedirect from './URLRedirect'
+import ImageCompressorPage from './pages/ImageCompressorPage'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import LandingPage from './pages/LandingPage'
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('')
@@ -171,6 +176,11 @@ const downloadCompressedImage = () => {
      name: 'Currency Converter',
      description: 'Convert currencies using the latest available exchange rates.',
     },
+    {
+      icon: '📊',
+      name: 'Percentage Calculator',
+      description: 'Calculate percentages, percentage changes, increases and decreases easily.',
+    },
   ]
 const filteredTools = tools.filter((tool) =>
   (tool.name + ' ' + tool.description)
@@ -180,6 +190,23 @@ const filteredTools = tools.filter((tool) =>
 if (window.location.pathname.startsWith('/s/')) {
   return <URLRedirect />
 }
+if (window.location.pathname.startsWith('/tools/')) {
+  return <LandingPage />
+}
+const path = window.location.pathname
+
+  if (path.startsWith('/tools/')) {
+    return (
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/tools/:toolSlug"
+            element={<LandingPage />}
+          />
+        </Routes>
+      </BrowserRouter>
+    )
+  }
   return (
     <div className="app">
       <header className="header">
@@ -257,163 +284,50 @@ if (window.location.pathname.startsWith('/s/')) {
 
     <VideoDownloader />
 
-  ) : selectedTool === 'Image Compressor' ? (
+) : selectedTool === 'Image Compressor' ? (
+    <ImageCompressor />
 
-    <div className="selected-tool">
-
-      <div className="tool-icon">🖼️</div>
-
-      <h2>Image Compressor</h2>
-
-      <p className="tool-subtitle">
-        Compress your images while keeping great quality.
-      </p>
-
-      <div className="upload-area">
-
-        {!selectedImage ? (
-
-          <>
-            <div className="upload-icon">☁️</div>
-
-            <h3>Upload your image</h3>
-
-            <p>
-              Drag & drop your image here or choose a file
-            </p>
-
-            <label className="upload-button">
-              Choose Image
-
-              <input
-                type="file"
-                accept="image/png, image/jpeg, image/webp"
-                hidden
-                onChange={(e) => setSelectedImage(e.target.files[0])}
-              />
-            </label>
-
-            <small>
-              JPG, PNG, WEBP • Max 10MB
-            </small>
-          </>
-
-        ) : (
-
-          <>
-            <div className="image-preview">
-
-              <img
-                src={URL.createObjectURL(selectedImage)}
-                alt="Selected preview"
-              />
-
-              <p>{selectedImage.name}</p>
-
-              <p>
-                Original size:{' '}
-                {(selectedImage.size / 1024 / 1024).toFixed(2)} MB
-              </p>
-
-            </div>
-
-            <div className="quality-control">
-
-              <div className="quality-header">
-                <span>Compression Quality</span>
-                <strong>{quality}%</strong>
-              </div>
-
-              <input
-                type="range"
-                min="10"
-                max="100"
-                value={quality}
-                onChange={(e) => setQuality(e.target.value)}
-              />
-
-              <button
-                className="compress-button"
-                onClick={
-                  compressedImage
-                    ? chooseAnotherImage
-                    : compressImage
-                }
-              >
-                {compressedImage
-                  ? 'Choose Another Image'
-                  : 'Compress Image'}
-              </button>
-
-            </div>
-
-            {compressedImage && (
-
-              <div className="compressed-result">
-
-                <h3>Compression Complete 🎉</h3>
-
-                <p>
-                  Compressed size:{' '}
-                  {(compressedImage.size / 1024 / 1024).toFixed(2)} MB
-                </p>
-
-                <button
-                  className="download-button"
-                  onClick={downloadCompressedImage}
-                >
-                  Download Image
-                </button>
-
-              </div>
-
-            )}
-
-          </>
-
-        )}
-
-      </div>
-
-    </div>
-
-  ) : selectedTool === 'PDF Tools' ? (
-
+) : selectedTool === 'PDF Tools' ? (
     <PDFTools />
-  ) : selectedTool === 'Image Resizer' ? (
+
+) : selectedTool === 'Image Resizer' ? (
     <ImageResizer />
-  ) : selectedTool === 'URL Shortener' ? (
+
+) : selectedTool === 'URL Shortener' ? (
     <URLShortener />
 
-  ) : selectedTool === 'Password Generator' ? (
-  <PasswordGenerator />
+) : selectedTool === 'Password Generator' ? (
+    <PasswordGenerator />
 
 ) : selectedTool === 'Text Tools' ? (
-  <TextTools />
+    <TextTools />
 
 ) : selectedTool === 'Color Picker' ? (
-  <ColorPicker />
+    <ColorPicker />
 
 ) : selectedTool === 'QR Code Generator' ? (
-  <QRCodeGenerator />
+    <QRCodeGenerator />
 
 ) : selectedTool === 'File Converter' ? (
-   <FileConverter />
+    <FileConverter />
 
 ) : selectedTool === 'Name Generator' ? (
     <NameGenerator />  
 
 ) : selectedTool === 'Loan Calculator' ? (
-  <LoanCalculator />  
+    <LoanCalculator />  
   
 ) : selectedTool === 'Currency Converter' ? (
-  <CurrencyConverter />  
+    <CurrencyConverter />  
 
 ) : selectedTool === 'JSON Formatter' ? (
     <JSONFormatter /> 
     
 ) : selectedTool === 'Unit Converter' ? (
-    <UnitConverter />   
+    <UnitConverter /> 
+    
+) : selectedTool === 'Percentage Calculator' ? (
+    <PercentageCalculator />    
 
   ) : (
 
@@ -445,7 +359,13 @@ if (window.location.pathname.startsWith('/s/')) {
   <article
     className="tool-card"
     key={tool.name}
-    onClick={() => setSelectedTool(tool.name)}
+     onClick={() =>
+   window.location.href =
+     `/tools/${tool.name
+      .toLowerCase()
+      .replace(/\s+/g, '-')
+      .replace(/\//g, '-')}`
+}
   >
     <div className="tool-icon">{tool.icon}</div>
 
@@ -456,9 +376,14 @@ if (window.location.pathname.startsWith('/s/')) {
     <button
       className="open-tool"
       onClick={(e) => {
-        e.stopPropagation()
-        setSelectedTool(tool.name)
-      }}
+    e.stopPropagation()
+
+    window.location.href =
+      `/tools/${tool.name
+       .toLowerCase()
+       .replace(/\s+/g, '-')
+       .replace(/\//g, '-')}`
+    }}
     >
       Open Tool →
     </button>

@@ -1,0 +1,370 @@
+/* =========================================
+   KumpiHub - Percentage Calculator
+   ========================================= */
+
+.percentage-calculator-page {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 16px 20px 25px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Icon */
+
+.percentage-calculator-page .tool-page-icon {
+  font-size: 36px;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+/* Title */
+
+.percentage-calculator-page h2 {
+  margin: 0;
+  font-size: 25px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.percentage-subtitle {
+  margin: 6px auto 16px;
+  max-width: 520px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #6b7280;
+}
+
+/* Main Card */
+
+.percentage-card {
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+
+  box-shadow:
+    0 4px 14px rgba(15, 23, 42, 0.06);
+
+  text-align: left;
+}
+
+/* Calculation Type */
+
+.percentage-mode {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.percentage-mode label,
+.percentage-field label {
+  display: block;
+  margin-bottom: 7px;
+
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.percentage-mode select {
+  width: 100%;
+  height: 45px;
+
+  padding: 0 12px;
+  box-sizing: border-box;
+
+  border: 1px solid #d1d5db;
+  border-radius: 9px;
+
+  background: #ffffff;
+  color: #111827;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  outline: none;
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.percentage-mode select:focus {
+  border-color: #60a5fa;
+
+  box-shadow:
+    0 0 0 3px rgba(96, 165, 250, 0.14);
+}
+
+/* Inputs */
+
+.percentage-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+
+  width: 100%;
+}
+
+.percentage-field {
+  width: 100%;
+}
+
+.percentage-field input {
+  width: 100%;
+  height: 45px;
+
+  padding: 0 12px;
+  box-sizing: border-box;
+
+  border: 1px solid #d1d5db;
+  border-radius: 9px;
+
+  background: #ffffff;
+  color: #111827;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  text-align: center;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.percentage-field input:focus {
+  border-color: #60a5fa;
+
+  box-shadow:
+    0 0 0 3px rgba(96, 165, 250, 0.14);
+}
+
+/* Buttons */
+
+.percentage-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 18px;
+}
+
+.percentage-calculate-button,
+.percentage-clear-button {
+  height: 43px;
+
+  padding: 0 24px;
+
+  border-radius: 9px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.percentage-calculate-button {
+  border: none;
+
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.percentage-calculate-button:hover {
+  background: #1d4ed8;
+
+  box-shadow:
+    0 4px 10px rgba(37, 99, 235, 0.18);
+
+  transform: translateY(-1px);
+}
+
+.percentage-calculate-button:active {
+  transform: translateY(0);
+}
+
+.percentage-clear-button {
+  border: 1px solid #d1d5db;
+
+  background: #ffffff;
+  color: #374151;
+}
+
+.percentage-clear-button:hover {
+  background: #f9fafb;
+  border-color: #9ca3af;
+}
+
+/* Result */
+
+.percentage-result {
+  width: 100%;
+
+  margin-top: 15px;
+  padding: 15px 18px;
+
+  box-sizing: border-box;
+
+  background: #f8fafc;
+
+  border: 1px solid #dbeafe;
+  border-radius: 11px;
+
+  text-align: center;
+}
+
+.percentage-result span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  color: #6b7280;
+}
+
+.percentage-result strong {
+  display: block;
+
+  font-size: 21px;
+  font-weight: 700;
+
+  color: #2563eb;
+
+  line-height: 1.35;
+  word-break: break-word;
+}
+
+/* Tablet */
+
+@media (max-width: 700px) {
+  .percentage-calculator-page {
+    max-width: 100%;
+    padding: 15px 15px 22px;
+  }
+
+  .percentage-card {
+    padding: 18px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 520px) {
+  .percentage-calculator-page {
+    padding: 12px 12px 20px;
+  }
+
+  .percentage-calculator-page .tool-page-icon {
+    font-size: 33px;
+    margin-bottom: 5px;
+  }
+
+  .percentage-calculator-page h2 {
+    font-size: 22px;
+  }
+
+  .percentage-subtitle {
+    margin-top: 5px;
+    margin-bottom: 13px;
+    font-size: 12px;
+  }
+
+  .percentage-card {
+    padding: 14px;
+    border-radius: 12px;
+  }
+
+  .percentage-mode {
+    margin-bottom: 13px;
+  }
+
+  .percentage-mode label,
+  .percentage-field label {
+    font-size: 12px;
+  }
+
+  .percentage-mode select {
+    height: 43px;
+    font-size: 12px;
+  }
+
+  .percentage-inputs {
+    gap: 8px;
+  }
+
+  .percentage-field input {
+    height: 43px;
+    font-size: 14px;
+  }
+
+  .percentage-buttons {
+    margin-top: 15px;
+    gap: 8px;
+  }
+
+  .percentage-calculate-button,
+  .percentage-clear-button {
+    height: 41px;
+    padding: 0 20px;
+    font-size: 13px;
+  }
+
+  .percentage-result {
+    margin-top: 12px;
+    padding: 13px 14px;
+  }
+
+  .percentage-result span {
+    font-size: 12px;
+  }
+
+  .percentage-result strong {
+    font-size: 19px;
+  }
+}
+
+/* Very Small Phone */
+
+@media (max-width: 380px) {
+  .percentage-inputs {
+    gap: 6px;
+  }
+
+  .percentage-field input {
+    font-size: 13px;
+  }
+
+  .percentage-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .percentage-calculate-button,
+  .percentage-clear-button {
+    width: 100%;
+  }
+
+  .percentage-result strong {
+    font-size: 18px;
+  }
+}

@@ -582,21 +582,22 @@
     font-size: 8px;
   }
     .name-generator-options {
-    min-height: 38px;
+    min-height: 42px;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   }
 
   .name-option {
-    padding: 2px 7px;
-    gap: 2px;
+    padding: 3px 8px;
+    gap: 3px;
   }
 
   .name-option label {
-    font-size: 9px;
+    font-size: 11px;
+    
   }
 
   .name-option select {
-    height: 28px;
-    font-size: 9px;
+    height: 30px;
+    font-size: 11px;
   }
 }

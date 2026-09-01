@@ -1,0 +1,195 @@
+/* KumpiHub Header */
+
+.seo-page-header {
+  width: 100%;
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px 18px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 30px;
+}
+
+.seo-page-logo {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.seo-page-logo span {
+  font-size: 22px;
+}
+
+.seo-page-logo strong {
+  color: #2563eb;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.seo-page-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.seo-page-nav a {
+  color: #374151;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.seo-page-nav a:hover {
+  color: #2563eb;
+}
+.seo-tool-page {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 20px 40px;
+  box-sizing: border-box;
+}
+
+.seo-tool-intro {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.seo-tool-intro h1 {
+  margin: 0;
+  color: #111827;
+  font-size: 34px;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.seo-tool-intro p {
+  max-width: 700px;
+  margin: 10px auto 0;
+  color: #6b7280;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.seo-tool-content {
+  padding: 24px;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.05);
+}
+
+.seo-tool-content h2 {
+  margin: 0 0 10px;
+  color: #111827;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.seo-tool-content h2:not(:first-child) {
+  margin-top: 26px;
+}
+
+.seo-tool-content h3 {
+  margin: 18px 0 6px;
+  color: #374151;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.seo-tool-content p,
+.seo-tool-content li {
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.seo-tool-content p {
+  margin: 0;
+}
+
+.seo-tool-content ol,
+.seo-tool-content ul {
+  margin: 8px 0 0;
+  padding-left: 22px;
+}
+
+.seo-tool-workspace {
+  margin-top: 28px;
+  padding: 24px;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.05);
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .seo-tool-page {
+    padding: 18px 12px 30px;
+  }
+
+  .seo-tool-intro {
+    margin-bottom: 18px;
+  }
+
+  .seo-tool-intro h1 {
+    font-size: 25px;
+  }
+
+  .seo-tool-intro p {
+    margin-top: 8px;
+    font-size: 12px;
+  }
+
+  .seo-tool-content {
+    padding: 16px;
+    border-radius: 13px;
+  }
+
+  .seo-tool-content h2 {
+    font-size: 17px;
+  }
+
+  .seo-tool-content h3 {
+    font-size: 13px;
+  }
+
+  .seo-tool-content p,
+  .seo-tool-content li {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .seo-tool-workspace {
+    margin-top: 18px;
+    padding: 14px;
+    border-radius: 13px;
+  }
+  .seo-page-header {
+    min-height: 48px;
+    padding: 0 2px 12px;
+    margin-bottom: 20px;
+  }
+
+  .seo-page-logo span {
+    font-size: 18px;
+  }
+
+  .seo-page-logo strong {
+    font-size: 17px;
+  }
+
+  .seo-page-nav {
+    gap: 12px;
+  }
+
+  .seo-page-nav a {
+    font-size: 10px;
+  }
+
+}
