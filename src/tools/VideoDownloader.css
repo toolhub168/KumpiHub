@@ -1,0 +1,337 @@
+.video-downloader-page {
+  width: min(90%, 380px);
+  max-width: 380px;
+  margin: 0 auto;
+  padding: 0 20px 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.video-downloader-page .tool-page-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    145deg,
+    #eff6ff,
+    #eef2ff
+  );
+
+  border: 1px solid #dbeafe;
+  border-radius: 18px;
+
+  font-size: 30px;
+}
+
+.video-downloader-page h2 {
+  margin: 5px 0 7px;
+
+  color: #172033;
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+.video-downloader-page > p {
+  margin: 0 0 16px;
+
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* URL input */
+
+.video-downloader-page .url-input-wrapper {
+  position: relative;
+
+  width: 100%;
+  max-width: 100%;
+
+  margin: 10px auto 0;
+
+  box-sizing: border-box;
+}
+
+.video-downloader-page .tool-input {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  padding: 14px 90px 14px 16px;
+
+  border: 1.5px solid #cbd5e1;
+  border-radius: 12px;
+
+  background: #ffffff;
+  color: #172033;
+
+  font-family: inherit;
+  font-size: 15px;
+
+  outline: none;
+
+  box-sizing: border-box;
+}
+
+.video-downloader-page .tool-input:focus {
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+/* Paste */
+
+.video-downloader-page .paste-button {
+  position: absolute;
+
+  right: 8px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  height: 38px;
+
+  padding: 0 16px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: #2563eb;
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.video-downloader-page .paste-button:hover {
+  background: #1d4ed8;
+}
+
+/* Get Video */
+
+.video-downloader-page .tool-action {
+  width: 100%;
+  max-width: 100%;
+
+  margin-top: 16px;
+
+  padding: 14px 18px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #4f46e5
+  );
+
+  color: #ffffff;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-sizing: border-box;
+}
+
+/* Result */
+
+.video-downloader-page .compressed-result {
+  width: 100%;
+  max-width: 100%;
+
+  margin-top: 16px;
+  padding: 18px;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+}
+
+.video-downloader-page .compressed-result h3 {
+  margin: 0 0 8px;
+
+  color: #172033;
+  font-size: 18px;
+}
+
+.video-downloader-page .compressed-result p {
+  margin: 6px 0;
+
+  color: #64748b;
+  font-size: 13px;
+
+  overflow-wrap: anywhere;
+}
+
+/* Video URL */
+
+.video-downloader-page .video-url-display {
+  width: 100%;
+  max-width: 100%;
+
+  margin-top: 10px;
+  padding: 10px 12px;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+
+  background: #f8fafc;
+
+  box-sizing: border-box;
+
+  text-align: left;
+}
+
+.video-downloader-page .video-url-display span {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #475569;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.video-downloader-page .video-url-display strong {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+
+  color: #172033;
+
+  font-size: 13px;
+  font-weight: 400;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Download */
+
+.video-downloader-page .download-button {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 280px;
+  max-width: 100%;
+
+  margin: 16px auto 0;
+  padding: 13px 22px;
+
+  border: none;
+  border-radius: 11px;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #4f46e5
+  );
+
+  color: #ffffff;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-sizing: border-box;
+}
+
+/* Progress */
+
+.video-downloader-page .download-progress {
+  width: 100%;
+  margin-top: 16px;
+}
+
+.video-downloader-page .progress-bar {
+  width: 100%;
+  height: 8px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background: #e2e8f0;
+}
+
+.video-downloader-page .progress-bar-fill {
+  height: 100%;
+
+  border-radius: 999px;
+
+  background: #2563eb;
+
+  transition: width 0.2s ease;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .video-downloader-page {
+    width: 90%;
+    max-width: 100%;
+
+    padding: 0 8px 16px;
+  }
+
+  .video-downloader-page .tool-page-icon {
+    width: 58px;
+    height: 58px;
+
+    font-size: 27px;
+  }
+
+  .video-downloader-page h2 {
+    font-size: 22px;
+  }
+
+  .video-downloader-page > p {
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+
+  .video-downloader-page .tool-input {
+    min-height: 48px;
+
+    padding: 12px 88px 12px 13px;
+
+    font-size: 14px;
+  }
+
+  .video-downloader-page .paste-button {
+    right: 7px;
+
+    height: 36px;
+
+    padding: 0 13px;
+
+    font-size: 12px;
+  }
+
+  .video-downloader-page .compressed-result {
+    padding: 14px;
+  }
+}

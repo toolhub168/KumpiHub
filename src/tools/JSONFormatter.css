@@ -1,0 +1,595 @@
+/* =========================================================
+   JSON FORMATTER
+   ========================================================= */
+
+.json-formatter {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 14px 10px;
+  text-align: center;
+  background: #ffffff;
+  border-radius: 16px;
+  box-sizing: border-box;
+}
+
+/* Icon */
+.json-formatter-icon {
+  width: 58px;
+  height: 58px;
+
+  margin: 0 auto 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    145deg,
+    #eff6ff,
+    #eef2ff
+  );
+
+  border: 1px solid #dbeafe;
+  border-radius: 17px;
+
+  font-size: 27px;
+
+  box-shadow:
+    0 7px 18px rgba(37, 99, 235, 0.07);
+}
+
+/* Heading */
+.json-formatter h2 {
+  margin: 4px 0 5px;
+
+  color: #172033;
+
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.json-formatter > p {
+  margin: 0 0 13px;
+
+  color: #64748b;
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Input */
+.json-input {
+  display: block;
+
+  width: 100%;
+  min-height: 210px;
+
+  padding: 14px;
+
+  border: 1.5px solid #cbd5e1;
+  border-radius: 13px;
+
+  background: #ffffff;
+  color: #172033;
+
+  font-family:
+    Consolas,
+    Monaco,
+    'Courier New',
+    monospace;
+
+  font-size: 13px;
+  line-height: 1.6;
+
+  resize: vertical;
+
+  outline: none;
+
+  box-sizing: border-box;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.json-input:focus {
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+.json-input::placeholder {
+  color: #94a3b8;
+}
+
+/* Buttons */
+/* =========================================================
+   JSON ACTION BUTTONS
+   ========================================================= */
+
+.json-actions {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr 1fr;
+
+  gap: 8px;
+
+  margin-top: 10px;
+}
+
+.json-actions button {
+  width: 100%;
+  height: 44px;
+
+  padding: 0 8px;
+
+  border-radius: 10px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+/* Format JSON */
+
+.json-format-button {
+  border: 1px solid #2563eb;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #4f46e5
+  );
+
+  color: #ffffff;
+
+  box-shadow:
+    0 5px 12px rgba(37, 99, 235, 0.16);
+}
+
+.json-format-button:hover {
+  background: linear-gradient(
+    135deg,
+    #1d4ed8,
+    #4338ca
+  );
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 16px rgba(37, 99, 235, 0.22);
+}
+
+
+/* Minify */
+
+.json-minify-button {
+  border: 1px solid #60a5fa;
+
+  background: #eff6ff;
+
+  color: #2563eb;
+
+  box-shadow:
+    0 3px 8px rgba(37, 99, 235, 0.08);
+}
+
+.json-minify-button:hover {
+  background: #dbeafe;
+
+  border-color: #2563eb;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 6px 14px rgba(37, 99, 235, 0.14);
+}
+
+
+/* Clear */
+
+.json-clear-button {
+  border: 1px solid #cbd5e1;
+
+  background: #f8fafc;
+
+  color: #475569;
+
+  box-shadow:
+    0 3px 8px rgba(15, 23, 42, 0.05);
+}
+
+.json-clear-button:hover {
+  background: #e2e8f0;
+
+  border-color: #94a3b8;
+
+  color: #334155;
+
+  transform: translateY(-2px);
+}
+
+
+/* Active */
+
+.json-actions button:active {
+  transform: translateY(0);
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+  .json-actions {
+    gap: 7px;
+  }
+
+  .json-actions button {
+    height: 42px;
+
+    padding: 0 5px;
+
+    font-size: 12px;
+  }
+}
+
+/* Error */
+.json-error {
+  margin-top: 10px;
+
+  padding: 10px 12px;
+
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+
+  background: #fef2f2;
+  color: #dc2626;
+
+  text-align: left;
+
+  font-size: 12px;
+  line-height: 1.5;
+
+  word-break: break-word;
+}
+
+/* Result */
+.json-result {
+  margin-top: 12px;
+
+  text-align: left;
+}
+
+.json-result-header {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  margin-bottom: 7px;
+}
+
+.json-result-header strong {
+  color: #334155;
+
+  font-size: 13px;
+}
+
+.json-copy-button {
+  min-width: 82px;
+  height: 34px;
+
+  padding: 0 10px;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: #2563eb;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.json-copy-button:hover {
+  background: #eff6ff;
+
+  border-color: #93c5fd;
+
+  transform: translateY(-1px);
+}
+
+/* JSON Output */
+.json-output {
+  width: 100%;
+
+  min-height: 210px;
+  max-height: 420px;
+
+  padding: 14px;
+
+  overflow: auto;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+
+  background: #f8fafc;
+  color: #172033;
+
+  font-family:
+    Consolas,
+    Monaco,
+    'Courier New',
+    monospace;
+
+  font-size: 13px;
+  line-height: 1.6;
+
+  white-space: pre;
+
+  box-sizing: border-box;
+}
+
+/* Empty state */
+.json-empty {
+  margin-top: 12px;
+
+  padding: 18px 12px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  border: 1px dashed #cbd5e1;
+  border-radius: 12px;
+
+  background: #f8fafc;
+
+  color: #64748b;
+
+  font-size: 12px;
+}
+
+.json-empty span {
+  font-size: 18px;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .json-formatter {
+    width: 100%;
+    padding: 12px 8px;
+    border-radius: 15px;
+  }
+
+  .json-formatter-icon {
+    width: 54px;
+    height: 54px;
+
+    font-size: 25px;
+  }
+
+  .json-formatter h2 {
+    font-size: 22px;
+  }
+
+  .json-formatter > p {
+    font-size: 13px;
+
+    margin-bottom: 12px;
+  }
+
+  .json-input {
+    min-height: 190px;
+
+    padding: 12px;
+
+    font-size: 12px;
+  }
+
+  .json-actions {
+    gap: 7px;
+  }
+
+  .json-actions button {
+    height: 42px;
+
+    font-size: 12px;
+  }
+
+  .json-output {
+    min-height: 190px;
+
+    padding: 12px;
+
+    font-size: 12px;
+  }
+
+  .json-result-header strong {
+    font-size: 12px;
+  }
+
+  .json-copy-button {
+    min-width: 76px;
+
+    height: 32px;
+
+    font-size: 11px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .json-formatter {
+    padding: 10px 6px;
+  }
+
+  .json-formatter h2 {
+    font-size: 21px;
+  }
+
+  .json-input,
+  .json-output {
+    font-size: 11px;
+  }
+}
+/* =========================================================
+   JSON FORMATTER - WORKSPACE ALIGNMENT FIX
+   ========================================================= */
+
+.json-formatter {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.json-formatter,
+.json-formatter * {
+  box-sizing: border-box;
+}
+
+.json-formatter h2,
+.json-formatter p {
+  text-align: center;
+}
+
+.json-formatter .json-input,
+.json-formatter .json-actions,
+.json-formatter .json-error,
+.json-formatter .json-result,
+.json-formatter .json-empty {
+  width: 100%;
+}
+
+.json-formatter .json-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.json-formatter .json-result-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* =========================================================
+   JSON INFO - COMPACT
+   ========================================================= */
+
+.json-info {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 7px;
+
+  margin-top: 10px;
+}
+
+.json-info > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 0;
+
+  padding: 7px 4px;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 9px;
+
+  background: #f8fafc;
+
+  text-align: center;
+}
+
+.json-info > div > span {
+  display: block;
+
+  margin-bottom: 2px;
+
+  font-size: 15px;
+  line-height: 1.1;
+}
+
+.json-info > div > strong {
+  display: block;
+
+  color: #334155;
+
+  font-size: 11px;
+  line-height: 1.2;
+}
+
+.json-info > div > small {
+  display: block;
+
+  margin-top: 1px;
+
+  color: #64748b;
+
+  font-size: 8px;
+  line-height: 1.2;
+
+  white-space: nowrap;
+}
+
+
+/* Mobile */
+@media (max-width: 600px) {
+
+  .json-info {
+    gap: 5px;
+    margin-top: 9px;
+  }
+
+  .json-info > div {
+    padding: 6px 3px;
+  }
+
+  .json-info > div > span {
+    font-size: 14px;
+  }
+
+  .json-info > div > strong {
+    font-size: 10px;
+  }
+
+  .json-info > div > small {
+    font-size: 8px;
+  }
+}

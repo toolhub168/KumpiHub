@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import './VideoDownloader.css'
 
 function VideoDownloader() {
   const [url, setUrl] = useState('')
@@ -143,7 +144,7 @@ function VideoDownloader() {
   }
 
   return (
-    <div className="tool-page">
+    <div className="video-downloader-page">
 
       <div className="tool-page-icon">📥</div>
 

@@ -1,0 +1,454 @@
+.loan-calculator-page {
+  width: min(620px, 100%);
+  margin: 0 auto;
+  padding: 14px 18px 25px;
+  text-align: center;
+}
+
+.loan-calculator-page .tool-page-icon {
+  font-size: 31px;
+  margin-bottom: 2px;
+}
+
+.loan-calculator-page h2 {
+  margin: 0;
+  font-size: 23px;
+  font-weight: 750;
+}
+
+.loan-subtitle {
+  margin: 5px auto 14px;
+  max-width: 500px;
+  color: #667085;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+/* Loan Amount */
+
+.loan-amount-section {
+  width: min(380px, 100%);
+  margin: 0 auto 12px;
+  text-align: left;
+}
+
+.loan-amount-section label,
+.loan-field label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 11px;
+  font-weight: 650;
+  color: #344054;
+}
+
+.loan-amount-section input {
+  width: 100%;
+  height: 38px;
+  box-sizing: border-box;
+
+  padding: 0 10px;
+
+  border: 1px solid #cfd6e1;
+  border-radius: 8px;
+
+  background: #fff;
+
+  font-size: 13px;
+  text-align: center;
+
+  outline: none;
+}
+
+/* Interest Rate + Loan Term */
+
+.loan-settings-row {
+  width: min(380px, 100%);
+  margin: 0 auto 12px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+
+  text-align: left;
+}
+
+.loan-field {
+  min-width: 0;
+}
+
+/* Interest Rate */
+
+.loan-rate-control {
+  width: 100%;
+  height: 38px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+
+  border: 1px solid #cfd6e1;
+  border-radius: 8px;
+
+  background: #fff;
+
+  overflow: hidden;
+}
+
+.loan-rate-control:focus-within {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.08);
+}
+
+.loan-rate-control input {
+  flex: 1;
+  min-width: 0;
+
+  height: 100%;
+
+  padding: 0 3px 0 7px;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  font-size: 13px;
+  text-align: center;
+}
+
+.loan-rate-control > span {
+  font-size: 11px;
+  color: #667085;
+  margin-right: 3px;
+}
+
+.loan-rate-control select {
+  width: 78px;
+  height: 100%;
+
+  padding: 0 3px;
+
+  border: none;
+  border-left: 1px solid #e4e7ec;
+
+  outline: none;
+
+  background: transparent;
+
+  font-size: 10px;
+  color: #344054;
+}
+
+/* Note */
+
+.loan-rate-note {
+  display: block;
+
+  margin-top: 4px;
+
+  font-size: 9px;
+  line-height: 1.2;
+
+  color: #667085;
+}
+
+/* Loan Term */
+
+.loan-term-control {
+  width: 100%;
+  height: 38px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+
+  border: 1px solid #cfd6e1;
+  border-radius: 8px;
+
+  background: #fff;
+
+  overflow: hidden;
+}
+
+.loan-term-control:focus-within {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.08);
+}
+
+.loan-term-control input {
+  flex: 1;
+  min-width: 0;
+
+  height: 100%;
+
+  padding: 0 7px;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  font-size: 13px;
+  text-align: center;
+}
+
+.loan-term-control select {
+  width: 78px;
+  height: 100%;
+
+  padding: 0 4px;
+
+  border: none;
+  border-left: 1px solid #e4e7ec;
+
+  outline: none;
+
+  background: transparent;
+
+  font-size: 10px;
+  color: #344054;
+}
+
+/* Calculate */
+
+.loan-calculate-button {
+  min-width: 155px;
+  height: 38px;
+
+  padding: 0 18px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #2563eb;
+  color: #fff;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+/* Result */
+
+.loan-result {
+  width: min(500px, 100%);
+  margin: 15px auto 0;
+}
+
+.loan-result > h3 {
+  margin: 0 0 8px;
+
+  font-size: 15px;
+  font-weight: 750;
+}
+
+/* Monthly Payment */
+
+.loan-main-payment {
+  padding: 9px 12px;
+  margin-bottom: 8px;
+
+  border: 1px solid #dbe3f0;
+  border-radius: 10px;
+
+  background: #f8fbff;
+}
+
+.loan-main-payment span {
+  display: block;
+
+  margin-bottom: 2px;
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  color: #667085;
+}
+
+.loan-main-payment strong {
+  display: block;
+
+  font-size: 22px;
+  line-height: 1.1;
+
+  font-weight: 800;
+
+  color: #2563eb;
+}
+
+/* Summary */
+
+.loan-summary-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 7px;
+}
+
+.loan-summary-item {
+  min-height: 49px;
+
+  padding: 7px 10px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #e1e5eb;
+  border-radius: 8px;
+
+  background: #fff;
+
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 2px;
+}
+
+.loan-summary-item span {
+  font-size: 9px;
+  font-weight: 600;
+
+  color: #667085;
+}
+
+.loan-summary-item strong {
+  font-size: 11px;
+  font-weight: 750;
+
+  color: #101828;
+}
+
+/* Total Payment */
+
+.loan-total-payment {
+  width: 100%;
+
+  min-height: 42px;
+
+  margin-top: 7px;
+  padding: 0 12px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #dbe3f0;
+  border-radius: 8px;
+
+  background: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  text-align: center;
+}
+
+.loan-total-payment span,
+.loan-total-payment strong {
+  font-size: 12px;
+  font-weight: 750;
+
+  color: #101828;
+}
+
+/* PDF */
+
+.loan-pdf-button {
+  margin-top: 9px;
+
+  height: 34px;
+
+  padding: 0 15px;
+
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+
+  background: #fff;
+
+  color: #344054;
+
+  font-size: 10px;
+  font-weight: 650;
+
+  cursor: pointer;
+}
+
+/* Phone */
+
+@media (max-width: 600px) {
+
+  .loan-calculator-page {
+    padding: 11px 13px 22px;
+  }
+
+  .loan-calculator-page .tool-page-icon {
+    font-size: 29px;
+  }
+
+  .loan-calculator-page h2 {
+    font-size: 21px;
+  }
+
+  .loan-subtitle {
+    margin-bottom: 12px;
+    font-size: 10px;
+  }
+
+  .loan-amount-section,
+  .loan-settings-row {
+    width: 100%;
+  }
+
+  .loan-settings-row {
+    gap: 9px;
+  }
+
+  .loan-rate-control select,
+  .loan-term-control select {
+    width: 72px;
+    font-size: 9px;
+  }
+
+  .loan-rate-note {
+    font-size: 9px;
+  }
+
+  .loan-main-payment strong {
+    font-size: 20px;
+  }
+
+  .loan-summary-grid {
+    gap: 6px;
+  }
+
+  .loan-summary-item {
+    min-height: 47px;
+  }
+
+  .loan-summary-item span {
+    font-size: 8px;
+  }
+
+  .loan-summary-item strong {
+    font-size: 10px;
+  }
+
+  .loan-total-payment {
+    min-height: 40px;
+  }
+
+  .loan-total-payment span,
+  .loan-total-payment strong {
+    font-size: 11px;
+  }
+}

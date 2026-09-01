@@ -1974,3 +1974,614 @@
     flex-direction: column;
   }
 }
+/* ================================= */
+/* KumpiHub - Mobile Tool Workspace */
+/* ================================= */
+
+@media (max-width: 600px) {
+
+  .tool-workspace {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100dvh;
+
+    padding: 10px;
+    box-sizing: border-box;
+
+    display: block;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    background: rgba(15, 23, 42, 0.45);
+    backdrop-filter: blur(5px);
+  }
+
+  .tool-workspace-header {
+    width: 100%;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 8px 2px 12px;
+    margin-bottom: 10px;
+  }
+
+  .tool-workspace-header span {
+    font-size: 12px;
+  }
+
+  .back-to-tools {
+    padding: 8px 11px;
+    font-size: 13px;
+    border-radius: 9px;
+  }
+
+  .tool-workspace-content {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  /* Image Compressor and other selected tools */
+
+  .selected-tool {
+    width: 100%;
+    max-width: none;
+
+    margin: 0 auto;
+    padding: 20px 14px;
+
+    box-sizing: border-box;
+
+    border-radius: 18px;
+  }
+
+  .selected-tool h2 {
+    font-size: 22px;
+    line-height: 1.25;
+  }
+
+  .selected-tool > .tool-icon {
+    margin-bottom: 12px;
+  }
+
+  .tool-subtitle {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  /* Upload */
+
+  .upload-area {
+    width: 100%;
+    max-width: none;
+
+    padding: 28px 14px;
+
+    box-sizing: border-box;
+    border-radius: 16px;
+  }
+
+  .upload-icon {
+    font-size: 42px;
+  }
+
+  .upload-area h3 {
+    font-size: 18px;
+  }
+
+  .upload-area p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* Image preview */
+
+  .image-preview {
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+  }
+
+  .image-preview img {
+    width: 100%;
+    max-width: 100%;
+    height: 220px;
+
+    object-fit: contain;
+  }
+
+  /* Quality */
+
+  .quality-control {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Buttons */
+
+  .compress-button,
+  .download-button {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* URL input */
+
+  .url-input-wrapper {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .url-input-wrapper .tool-input {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+/* ================================= */
+/* KumpiHub - Mobile Homepage Compact */
+/* ================================= */
+
+@media (max-width: 700px) {
+
+  /* Compact Hero */
+  .hero {
+    padding: 32px 16px 18px !important;
+  }
+
+  .hero h1 {
+    margin: 12px auto 8px !important;
+  }
+
+  .hero > p {
+    margin-bottom: 0 !important;
+  }
+
+  /* Compact Search */
+  .search-box {
+    margin: 14px auto 12px !important;
+  }
+
+  /* Compact Features */
+  .features {
+    gap: 8px !important;
+  }
+
+  /* Move Tools section upward */
+  .tools-section {
+    padding: 18px 15px 40px !important;
+  }
+
+  .section-title {
+    margin-bottom: 12px !important;
+  }
+
+  /* One card per row - keep width */
+  .tools-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  /* Smaller card height */
+  .tool-card {
+    min-height: 165px !important;
+    padding: 13px !important;
+  }
+
+  .tool-card p {
+    min-height: 32px !important;
+    line-height: 1.35 !important;
+  }
+}
+/* ================================= */
+/* KumpiHub - Mobile Workspace */
+/* ================================= */
+
+@media (max-width: 600px) {
+
+  .tool-workspace {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100dvh;
+
+    padding: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+  }
+
+  .tool-workspace-card {
+    width: 94%;
+    max-width: 390px;
+
+    max-height: 88dvh;
+
+    background: #ffffff;
+    border-radius: 20px;
+
+    box-sizing: border-box;
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+  }
+
+  .tool-workspace-header {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 14px;
+
+    margin: 0;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .tool-workspace-content {
+    width: 100%;
+
+    padding: 0;
+
+    margin: 0;
+
+    box-sizing: border-box;
+
+    max-height: calc(88dvh - 65px);
+
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .selected-tool {
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+
+    padding: 18px 14px;
+
+    box-sizing: border-box;
+  }
+
+}
+/* ================================= */
+/* KumpiHub - Center Workspace */
+/* ================================= */
+
+@media (max-width: 600px) {
+
+  .tool-workspace {
+    width: 100%;
+    height: 100dvh;
+    padding: 12px;
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+  }
+
+  .tool-workspace-card {
+    width: 100%;
+    max-width: 390px;
+
+    margin: 0 auto;
+    padding: 0;
+
+    box-sizing: border-box;
+
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .tool-workspace-header {
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .tool-workspace-content {
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+  }
+}
+/* ================================= */
+/* KumpiHub - Back to Tools Button */
+/* ================================= */
+
+.back-to-tools {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 9px 14px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+
+  background: #ffffff;
+  color: #4f46e5;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  box-shadow: 0 3px 10px rgba(31, 23, 66, 0.06);
+
+  transition: all 0.2s ease;
+}
+
+.back-to-tools:hover {
+  background: #f5f3ff;
+  border-color: #c7c2ff;
+  transform: translateX(-2px);
+}
+
+.back-to-tools:active {
+  transform: translateX(0);
+}
+
+
+/* ================================= */
+/* KumpiHub - Mobile Back Button */
+/* ================================= */
+
+@media (max-width: 600px) {
+
+  .tool-workspace-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 100%;
+
+    padding: 8px 10px 12px;
+    margin: 0;
+
+    box-sizing: border-box;
+  }
+
+  .back-to-tools {
+    margin: 0;
+
+    padding: 8px 12px;
+    border-radius: 9px;
+
+    font-size: 13px;
+  }
+
+}
+/* ================================= */
+/* KumpiHub - Mobile Workspace Fix */
+/* ================================= */
+
+@media (max-width: 600px) {
+
+  /* Workspace outer area */
+  .tool-workspace {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100dvh;
+
+    padding: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+
+  /* White Workspace Card */
+  .tool-workspace-card {
+    width: 100%;
+    max-width: 390px;
+
+    max-height: calc(100dvh - 24px);
+
+    margin: 0 auto;
+
+    box-sizing: border-box;
+
+    border-radius: 20px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+
+  /* Workspace Header */
+  .tool-workspace-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 100%;
+
+    padding: 8px 10px 10px;
+    margin: 0;
+
+    box-sizing: border-box;
+  }
+
+
+  /* Back Button */
+  .back-to-tools {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    margin: 0;
+
+    padding: 8px 12px;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 9px;
+
+    background: #ffffff;
+    color: #4f46e5;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    box-shadow: 0 3px 10px rgba(31, 23, 66, 0.06);
+
+    transition: all 0.2s ease;
+  }
+
+
+  /* Workspace Content */
+  .tool-workspace-content {
+    width: 100%;
+
+    margin: 0;
+    padding: 0 10px 15px;
+
+    box-sizing: border-box;
+  }
+
+
+  /* Selected Tool */
+  .selected-tool {
+    width: 100%;
+    max-width: none;
+
+    margin: 0 auto;
+
+    padding: 16px 12px;
+
+    box-sizing: border-box;
+
+    border-radius: 16px;
+  }
+
+
+  /* Tool title */
+  .selected-tool h2 {
+    margin-top: 8px;
+    margin-bottom: 8px;
+
+    font-size: 22px;
+    line-height: 1.2;
+  }
+
+
+  /* Subtitle */
+  .selected-tool .tool-subtitle {
+    margin-top: 0;
+    margin-bottom: 16px;
+
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+
+  /* Color Picker / Password Generator
+     Reduce unnecessary vertical space */
+  .selected-tool > * {
+    max-width: 100%;
+  }
+
+
+  /* URL Input Area */
+  .url-input-wrapper {
+    width: 100%;
+    max-width: 100%;
+
+    margin: 12px auto 0;
+
+    box-sizing: border-box;
+  }
+
+
+  /* Paste Video URL input */
+  .url-input-wrapper .tool-input {
+    width: 100%;
+    max-width: 100%;
+
+    min-height: 48px;
+
+    padding: 12px 90px 12px 14px;
+
+    box-sizing: border-box;
+
+    border: 2px solid #cbd5e1;
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    color: #17213c;
+
+    outline: none;
+
+    font-size: 14px;
+
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+
+  /* Input when clicked */
+  .url-input-wrapper .tool-input:focus {
+    border-color: #6338f5;
+
+    box-shadow: 0 0 0 3px rgba(99, 56, 245, 0.12);
+  }
+
+
+  /* Other inputs inside Workspace */
+  .tool-workspace-content input:not([type="range"]):not([type="file"]) {
+    border-color: #cbd5e1;
+  }
+
+
+  .tool-workspace-content input:not([type="range"]):not([type="file"]):focus {
+    border-color: #6338f5;
+
+    outline: none;
+
+    box-shadow: 0 0 0 3px rgba(99, 56, 245, 0.10);
+  }
+
+
+  /* Buttons inside Workspace */
+  .tool-workspace-content button {
+    box-sizing: border-box;
+  }
+
+}

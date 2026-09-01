@@ -1,0 +1,563 @@
+/* =========================================
+   KumpiHub - Currency Converter
+   ========================================= */
+
+.currency-converter-page {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 16px 20px 25px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+
+/* =========================================
+   Icon
+   ========================================= */
+
+.currency-converter-page .tool-page-icon {
+  font-size: 36px;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+
+/* =========================================
+   Title
+   ========================================= */
+
+.currency-converter-page h2 {
+  margin: 0;
+  font-size: 25px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.currency-subtitle {
+  margin: 6px auto 16px;
+  max-width: 520px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #6b7280;
+}
+
+
+/* =========================================
+   Main Converter Box
+   ========================================= */
+
+.currency-converter-box {
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 18px 20px;
+  box-sizing: border-box;
+
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+}
+
+
+/* =========================================
+   From / To Field
+   ========================================= */
+
+.currency-field {
+  width: 100%;
+  text-align: center;
+}
+
+.currency-field label {
+  display: block;
+  margin-bottom: 7px;
+
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+}
+
+
+/* =========================================
+   2 × 2 Currency Layout
+   ========================================= */
+
+.currency-input-row {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  width: 100%;
+  gap: 12px;
+
+  align-items: center;
+}
+
+
+/* =========================================
+   Amount Input
+   ========================================= */
+
+.currency-input-row input {
+  width: 100%;
+  height: 46px;
+
+  padding: 0 12px;
+  box-sizing: border-box;
+
+  border: 1px solid #d1d5db;
+  border-radius: 9px;
+
+  background: #ffffff;
+  color: #111827;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  text-align: center;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.currency-input-row input:focus {
+  border-color: #60a5fa;
+
+  box-shadow:
+    0 0 0 3px rgba(96, 165, 250, 0.14);
+}
+
+
+/* =========================================
+   Currency Select
+   ========================================= */
+
+.currency-input-row select {
+  width: 100%;
+  height: 46px;
+
+  padding: 0 8px;
+  box-sizing: border-box;
+
+  border: 1px solid #d1d5db;
+  border-radius: 9px;
+
+  background: #ffffff;
+  color: #111827;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  text-align: center;
+  text-align-last: center;
+
+  outline: none;
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.currency-input-row select:focus {
+  border-color: #60a5fa;
+
+  box-shadow:
+    0 0 0 3px rgba(96, 165, 250, 0.14);
+}
+
+
+/* =========================================
+   Space Between From and To
+   ========================================= */
+
+.currency-field + .currency-swap-button {
+  margin-top: 8px;
+}
+
+
+/* =========================================
+   Swap Button
+   ========================================= */
+
+.currency-swap-button {
+  width: 50px;
+  height: 50px;
+
+  margin: 7px auto 3px;
+
+  padding: 0;
+
+  border: 1px solid #d1d5db;
+  border-radius: 50%;
+
+  background: #ffffff;
+  color: #374151;
+
+  font-size: 24px;
+  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.currency-swap-button:hover {
+  background: #f3f4f6;
+  border-color: #9ca3af;
+
+  transform: rotate(180deg);
+}
+
+.currency-swap-button:active {
+  transform: scale(0.95);
+}
+
+
+/* =========================================
+   Convert Button
+   ========================================= */
+
+.currency-convert-button {
+  width: 100%;
+  max-width: 250px;
+
+  height: 43px;
+
+  margin: 17px auto 0;
+
+  padding: 0 18px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: #2563eb;
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.currency-convert-button:hover {
+  background: #1d4ed8;
+
+  box-shadow:
+    0 4px 10px rgba(37, 99, 235, 0.18);
+
+  transform: translateY(-1px);
+}
+
+.currency-convert-button:active {
+  transform: translateY(0);
+}
+
+.currency-convert-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+
+  transform: none;
+  box-shadow: none;
+}
+
+
+/* =========================================
+   Error
+   ========================================= */
+
+.currency-error {
+  width: 100%;
+  max-width: 620px;
+
+  margin: 10px auto 0;
+  padding: 10px 14px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #fecaca;
+  border-radius: 9px;
+
+  background: #fef2f2;
+  color: #b91c1c;
+
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+
+/* =========================================
+   Conversion Result
+   ========================================= */
+
+.currency-result {
+  width: 100%;
+  max-width: 620px;
+
+  margin: 6px auto 0;
+  padding: 15px 18px;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 11px;
+
+  box-shadow:
+    0 3px 10px rgba(15, 23, 42, 0.05);
+
+  text-align: center;
+}
+
+
+/* Result Label */
+
+.currency-result span {
+  display: block;
+
+  margin-bottom: 4px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  color: #6b7280;
+}
+
+
+/* Result Number */
+
+.currency-result strong {
+  display: block;
+
+  font-size: 21px;
+  font-weight: 700;
+
+  color: #2563eb;
+
+  word-break: break-word;
+}
+
+
+/* =========================================
+   Exchange Rate
+   ========================================= */
+
+.currency-rate {
+  width: 100%;
+  max-width: 620px;
+
+  margin: 7px auto 0;
+  padding: 10px 16px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  background: #f8fafc;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 9px;
+
+  text-align: left;
+}
+
+.currency-rate span {
+  font-size: 12px;
+  font-weight: 600;
+
+  color: #6b7280;
+}
+
+.currency-rate strong {
+  font-size: 13px;
+  font-weight: 600;
+
+  color: #374151;
+
+  text-align: right;
+}
+
+
+/* =========================================
+   Rate Date
+   ========================================= */
+
+.currency-rate-date {
+  margin-top: 5px;
+
+  font-size: 10px;
+  color: #9ca3af;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   Tablet
+   ========================================= */
+
+@media (max-width: 700px) {
+
+  .currency-converter-page {
+    max-width: 100%;
+    padding: 15px 15px 22px;
+  }
+
+  .currency-converter-box {
+    padding: 17px;
+  }
+
+}
+
+
+/* =========================================
+   Mobile
+   ========================================= */
+
+@media (max-width: 520px) {
+
+  .currency-converter-page {
+    padding: 12px 12px 20px;
+  }
+
+  .currency-converter-page .tool-page-icon {
+    font-size: 33px;
+    margin-bottom: 5px;
+  }
+
+  .currency-converter-page h2 {
+    font-size: 22px;
+  }
+
+  .currency-subtitle {
+    margin-top: 5px;
+    margin-bottom: 13px;
+
+    font-size: 12px;
+  }
+
+  .currency-converter-box {
+    padding: 14px;
+    border-radius: 12px;
+  }
+
+  .currency-input-row {
+    gap: 8px;
+  }
+
+  .currency-input-row input {
+    height: 43px;
+    font-size: 14px;
+  }
+
+  .currency-input-row select {
+    height: 43px;
+    font-size: 11px;
+    padding: 0 5px;
+  }
+
+  .currency-swap-button {
+    width: 46px;
+    height: 46px;
+
+    margin: 5px auto 2px;
+
+    font-size: 22px;
+  }
+
+  .currency-convert-button {
+    max-width: 230px;
+    height: 42px;
+
+    margin-top: 14px;
+
+    font-size: 13px;
+  }
+
+  .currency-result {
+    margin-top: 6px;
+    padding: 15px 18px;
+  }
+
+  .currency-result strong {
+    font-size: 19px;
+    font-weight: 700;
+  }
+
+  .currency-rate {
+    margin-top: 6px;
+    padding: 10px 13px;
+  }
+
+  .currency-rate span,
+  .currency-rate strong {
+    font-size: 11px;
+  }
+
+}
+
+
+/* =========================================
+   Very Small Phone
+   ========================================= */
+
+@media (max-width: 380px) {
+
+  .currency-input-row {
+    gap: 6px;
+  }
+
+  .currency-input-row input {
+    font-size: 13px;
+  }
+
+  .currency-input-row select {
+    font-size: 10px;
+  }
+
+  .currency-swap-button {
+    width: 44px;
+    height: 44px;
+
+    font-size: 21px;
+  }
+
+  .currency-result strong {
+    font-size: 15px;
+  }
+
+  .currency-rate {
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+  }
+
+  .currency-rate strong {
+    text-align: center;
+  }
+
+}

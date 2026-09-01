@@ -1,0 +1,545 @@
+/* =========================================================
+   KUMPIHUB - UNIT CONVERTER
+   Modern Clean UI
+   ========================================================= */
+
+.unit-converter-page {
+  width: min(92%, 720px);
+  margin: 0 auto;
+
+  padding: 24px;
+
+  text-align: center;
+
+  background: #ffffff;
+
+  border: 1px solid #edf0f5;
+  border-radius: 22px;
+
+  box-shadow:
+    0 10px 30px rgba(15, 23, 42, 0.06);
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   ICON
+   ========================================================= */
+
+.unit-converter-page .tool-page-icon {
+  width: 62px;
+  height: 62px;
+
+  margin: 0 auto 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 17px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #eff6ff,
+      #eef2ff
+    );
+
+  border: 1px solid #dbeafe;
+
+  font-size: 29px;
+
+  box-shadow:
+    0 7px 18px rgba(37, 99, 235, 0.07);
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.unit-converter-page h2 {
+  margin: 4px 0 5px;
+
+  color: #172033;
+
+  font-size: 26px;
+  line-height: 1.2;
+}
+
+.unit-converter-page > p {
+  margin: 0 0 18px;
+
+  color: #64748b;
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   CONVERTER BOX
+   ========================================================= */
+
+.unit-converter-box {
+  width: 100%;
+
+  padding: 16px;
+
+  background: #f8fafc;
+
+  border: 1px solid #e8edf3;
+
+  border-radius: 18px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   CONVERSION ROW
+   ========================================================= */
+
+.unit-converter-row {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+
+  width: 100%;
+}
+
+
+/* =========================================================
+   FIELD
+   ========================================================= */
+
+.unit-converter-field {
+  min-width: 0;
+
+  padding: 12px;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 14px;
+
+  text-align: left;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.unit-converter-field:focus-within {
+  border-color: #93c5fd;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+
+/* =========================================================
+   LABEL
+   ========================================================= */
+
+.unit-converter-field label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #64748b;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   FIELD CONTENT
+   ========================================================= */
+
+.unit-converter-control {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  width: 100%;
+}
+
+
+/* =========================================================
+   SELECT
+   ========================================================= */
+
+.unit-converter-control select {
+  flex: 1;
+
+  min-width: 0;
+
+  height: 42px;
+
+  padding: 0 10px;
+
+  border: 1px solid #dbe2ea;
+
+  border-radius: 10px;
+
+  background: #f8fafc;
+
+  color: #334155;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  outline: none;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.unit-converter-control select:hover {
+  border-color: #93c5fd;
+}
+
+.unit-converter-control select:focus {
+  border-color: #2563eb;
+
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   NUMBER INPUT
+   ========================================================= */
+
+.unit-converter-control input {
+  width: 110px;
+
+  height: 42px;
+
+  padding: 0 11px;
+
+  border: 1px solid #dbe2ea;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  color: #172033;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  outline: none;
+
+  box-sizing: border-box;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.unit-converter-control input:focus {
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+
+/* =========================================================
+   SWAP BUTTON
+   ========================================================= */
+
+.unit-swap-button {
+  width: 42px;
+  height: 42px;
+
+  margin: 12px auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #dbeafe;
+
+  border-radius: 50%;
+
+  background: #eff6ff;
+
+  color: #2563eb;
+
+  font-size: 19px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 4px 12px rgba(37, 99, 235, 0.08);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.unit-swap-button:hover {
+  background: #dbeafe;
+
+  transform: rotate(180deg);
+
+  box-shadow:
+    0 7px 16px rgba(37, 99, 235, 0.14);
+}
+
+.unit-swap-button:active {
+  transform: rotate(180deg) scale(0.94);
+}
+
+
+/* =========================================================
+   RESULT
+   ========================================================= */
+
+.unit-result {
+  margin-top: 14px;
+
+  padding: 14px;
+
+  border: 1px solid #dbeafe;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #f8fbff,
+      #f5f3ff
+    );
+
+  text-align: center;
+}
+
+.unit-result span {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #64748b;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.unit-result strong {
+  color: #2563eb;
+
+  font-size: 20px;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .unit-converter-page {
+    width: 100%;
+
+    padding: 14px 10px;
+
+    border-radius: 17px;
+
+    box-shadow: none;
+  }
+
+  .unit-converter-page .tool-page-icon {
+    width: 56px;
+    height: 56px;
+
+    font-size: 26px;
+  }
+
+  .unit-converter-page h2 {
+    font-size: 22px;
+  }
+
+  .unit-converter-page > p {
+    font-size: 12px;
+
+    margin-bottom: 14px;
+  }
+
+
+  /* Converter container */
+
+  .unit-converter-box {
+    padding: 14px 12px;
+
+    border-radius: 15px;
+  }
+
+
+  /* From / To remain side-by-side */
+
+  .unit-converter-row {
+    grid-template-columns: 1fr;
+
+    gap: 8px;
+  }
+
+
+  /* Each row */
+
+  .unit-converter-field {
+    padding: 9px;
+
+    border-radius: 12px;
+  }
+
+  .unit-converter-field label {
+    margin-bottom: 5px;
+
+    font-size: 10px;
+  }
+
+
+  /* Select + Number stay in same row */
+
+  .unit-converter-control {
+    gap: 7px;
+  }
+
+  .unit-converter-control select {
+    height: 40px;
+
+    font-size: 12px;
+  }
+
+
+  /* Swap */
+
+  .unit-swap-button {
+    width: 40px;
+    height: 40px;
+
+    margin: 11px auto;
+
+    font-size: 17px;
+  }
+
+
+  /* Result */
+
+  .unit-result {
+    margin-top: 10px;
+
+    padding: 12px;
+  }
+
+  .unit-result strong {
+    font-size: 18px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .unit-converter-page {
+    padding: 12px 8px;
+  }
+
+  .unit-converter-box {
+    padding: 8px;
+  }
+
+  .unit-converter-field {
+    padding: 8px;
+  }
+
+  .unit-converter-control select {
+    font-size: 11px;
+  }
+
+  .unit-converter-control input {
+    width: 88px;
+
+    font-size: 12px;
+  }
+
+  .unit-swap-button {
+    width: 36px;
+    height: 36px;
+  }
+}
+/* Unit Converter - Center number input */
+.unit-input-row input {
+  flex: 1;
+  min-width: 0;
+
+  height: 44px;
+  padding: 0 12px;
+
+  text-align: center !important;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+
+  background: #ffffff;
+  color: #172033;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.unit-input-row input::placeholder {
+  color: #94a3b8;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.unit-input-row input:focus {
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+.unit-input-row select {
+  flex: 1.2;
+  min-width: 0;
+
+  height: 44px;
+  padding: 0 12px;
+
+  border: 1px solid #dbe2ea;
+  border-radius: 10px;
+
+  background: #ffffff;
+  color: #172033;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  outline: none;
+}

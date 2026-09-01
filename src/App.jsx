@@ -11,6 +11,11 @@ import TextTools from './tools/TextTools'
 import ColorPicker from './tools/ColorPicker'
 import QRCodeGenerator from './tools/QRCodeGenerator'
 import FileConverter from './tools/FileConverter'
+import NameGenerator from './tools/NameGenerator'
+import JSONFormatter from './tools/JSONFormatter'
+import UnitConverter from './tools/UnitConverter'
+import LoanCalculator from './tools/LoanCalculator'
+import CurrencyConverter from './tools/CurrencyConverter'
 import URLRedirect from './URLRedirect'
 
 function App() {
@@ -140,6 +145,31 @@ const downloadCompressedImage = () => {
       icon: '▦',
       name: 'QR Code Generator',
       description: 'Create QR codes for links and text.',
+    },
+    {
+      icon: '🏷️',
+      name: 'Name Generator',
+      description: 'Generate unique names for usernames, gaming, business and creators.',
+    },
+    {
+     icon: '📋',
+     name: 'JSON Formatter',
+     description: 'Format, validate and beautify JSON data.',
+    },
+    {
+     icon: '🔄',
+     name: 'Unit Converter',
+     description: 'Convert length, weight, temperature and time units.',
+    },
+    {
+     icon: '🏦',
+     name: 'Loan Calculator',
+     description: 'Calculate monthly payments, interest and repayment schedule.',
+    },
+    {
+     icon: '💱',
+     name: 'Currency Converter',
+     description: 'Convert currencies using the latest available exchange rates.',
     },
   ]
 const filteredTools = tools.filter((tool) =>
@@ -368,7 +398,22 @@ if (window.location.pathname.startsWith('/s/')) {
   <QRCodeGenerator />
 
 ) : selectedTool === 'File Converter' ? (
-  <FileConverter />
+   <FileConverter />
+
+) : selectedTool === 'Name Generator' ? (
+    <NameGenerator />  
+
+) : selectedTool === 'Loan Calculator' ? (
+  <LoanCalculator />  
+  
+) : selectedTool === 'Currency Converter' ? (
+  <CurrencyConverter />  
+
+) : selectedTool === 'JSON Formatter' ? (
+    <JSONFormatter /> 
+    
+) : selectedTool === 'Unit Converter' ? (
+    <UnitConverter />   
 
   ) : (
 
