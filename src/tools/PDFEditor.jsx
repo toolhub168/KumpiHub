@@ -6,6 +6,7 @@ import './PDFEditor.css'
 
 function PDFEditor() {
   const [pdfFile, setPdfFile] = useState(null)
+  const [pdfStatus, setPdfStatus] = useState('')
   const [pdfPages, setPdfPages] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
 
@@ -22,18 +23,18 @@ function PDFEditor() {
   const signatureCanvasRef = useRef(null)
   const interactionRef = useRef(null)
 
-  /* =========================
-     PDF UPLOAD
-  ========================= */
+ const handlePDFChange = async (event) => {
+  const file = event.target.files?.[0]
+if (!file) return
 
-  const handlePDFChange = async (event) => {
-    const file = event.target.files?.[0]
-    if (!file) return
+setPdfStatus('1. PDF selected')
 
+  try {
     const pdfjsLib = await import('pdfjs-dist')
+    setPdfStatus('2. PDF.js loaded')
 
-pdfjsLib.GlobalWorkerOptions.workerSrc =
-  `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.mjs`
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+      `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.mjs`
 
     setPdfFile(file)
     setObjects([])
@@ -41,17 +42,32 @@ pdfjsLib.GlobalWorkerOptions.workerSrc =
     setCurrentPage(1)
 
     const arrayBuffer = await file.arrayBuffer()
-    const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise
+    setPdfStatus('3. PDF file read')
+
+    const pdf = await pdfjsLib.getDocument({
+      data: arrayBuffer,
+    }).promise
+    setPdfStatus('4. PDF opened')
 
     const pages = []
 
-    for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++) {
+    for (
+      let pageNumber = 1;
+      pageNumber <= pdf.numPages;
+      pageNumber++
+    ) {
       const page = await pdf.getPage(pageNumber)
 
-      const viewport = page.getViewport({ scale: 1.5 })
+      const viewport = page.getViewport({
+        scale: 1.5,
+      })
 
       const canvas = document.createElement('canvas')
       const context = canvas.getContext('2d')
+
+      if (!context) {
+        throw new Error('Could not create canvas context.')
+      }
 
       canvas.width = viewport.width
       canvas.height = viewport.height
@@ -68,10 +84,19 @@ pdfjsLib.GlobalWorkerOptions.workerSrc =
         height: viewport.height,
       })
     }
-
+    
+    setPdfStatus('5. PDF rendered successfully')
     setPdfPages(pages)
-  }
+  } catch (error) {
+    console.error('PDF Editor Error:', error)
 
+    alert(
+      `PDF could not be loaded.\n\n${
+        error?.message || 'Unknown error'
+      }`
+    )
+  }
+}
   /* =========================
      ADD PHOTO
   ========================= */
@@ -480,7 +505,12 @@ pdfjsLib.GlobalWorkerOptions.workerSrc =
 
   return (
     <div className="pdf-editor">
-     
+
+     {pdfStatus && (
+  <div style={{ padding: '10px', textAlign: 'center', fontSize: '13px' }}>
+    {pdfStatus}
+  </div>
+)}
 
       <div className="pdf-editor-toolbar">
        

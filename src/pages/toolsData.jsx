@@ -16,8 +16,8 @@ import CurrencyConverter from '../tools/CurrencyConverter'
 import PercentageCalculator from '../tools/PercentageCalculator'
 import InvoiceGenerator from '../tools/InvoiceGenerator'
 import PDFEditor from '../tools/PDFEditor'
-// import PDFToDOCX from '../tools/PDFToDOCX'
-// import JPGToPDF from '../tools/JPGToPDF'
+import PDFToDOCX from '../tools/PDFToDOCX'
+import JPGToPDF from '../tools/JPGToPDF'
 
 const toolsData = {
 
@@ -388,5 +388,71 @@ const toolsData = {
       }
     ]
   },
+  'pdf-to-docx': {
+  name: 'PDF to DOCX',
+  slug: 'pdf-to-docx',
+  seoTitle: 'PDF to DOCX Converter Online',
+  seoDescription:
+    'Convert PDF files to editable DOCX documents online for free with KumpiHub.',
+  description:
+    'Convert your PDF files into editable Microsoft Word DOCX documents quickly and easily.',
+  component: <PDFToDOCX />,
+  howToUse: [
+    'Upload your PDF file.',
+    'Wait for the PDF to be processed.',
+    'Convert the PDF to a DOCX document.',
+    'Download your converted DOCX file.',
+  ],
+  faqs: [
+    {
+      question: 'Can I convert PDF to DOCX for free?',
+      answer:
+        'Yes. KumpiHub provides a free PDF to DOCX conversion tool.',
+    },
+    {
+      question: 'Do I need to install software?',
+      answer:
+        'No. You can use the tool directly from your web browser.',
+    },
+    {
+      question: 'Can I use it on mobile?',
+      answer:
+        'Yes. The tool works on supported mobile and desktop browsers.',
+    },
+  ],
+},
+'jpg-to-pdf': {
+  name: 'JPG to PDF',
+  slug: 'jpg-to-pdf',
+  seoTitle: 'JPG to PDF Converter Online',
+  seoDescription:
+    'Convert JPG images to PDF online for free with KumpiHub.',
+  description:
+    'Convert JPG images into PDF documents quickly and easily without installing software.',
+  component: <JPGToPDF />,
+  howToUse: [
+    'Upload your JPG image.',
+    'Preview your image.',
+    'Convert the JPG image to PDF.',
+    'Download your PDF file.',
+  ],
+  faqs: [
+    {
+      question: 'Can I convert JPG to PDF for free?',
+      answer:
+        'Yes. KumpiHub provides a free JPG to PDF conversion tool.',
+    },
+    {
+      question: 'Do I need to install software?',
+      answer:
+        'No. You can convert JPG images to PDF directly in your browser.',
+    },
+    {
+      question: 'Can I use the JPG to PDF tool on mobile?',
+      answer:
+        'Yes. It is designed to work on both mobile and desktop browsers.',
+    },
+  ],
+},
 }
 export default toolsData
