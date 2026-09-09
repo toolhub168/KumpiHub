@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 
 function ImageCompressor() {
   const [selectedImage, setSelectedImage] = useState(null)
   const [quality, setQuality] = useState(80)
   const [compressedImage, setCompressedImage] = useState(null)
+  const fileInputRef = useRef(null)
 
   const compressImage = () => {
     if (!selectedImage) {
@@ -94,23 +95,28 @@ function ImageCompressor() {
               Drag & drop your image here or choose a file
             </p>
 
-            <label className="upload-button">
-              Choose Image
+            <button
+  type="button"
+  className="upload-button"
+  onClick={() => fileInputRef.current?.click()}
+>
+  Choose Image
+</button>
 
-              <input
-                type="file"
-                accept="image/png, image/jpeg, image/webp"
-                hidden
-                onChange={(e) => {
-                  const file = e.target.files?.[0]
+<input
+  ref={fileInputRef}
+  type="file"
+  accept="image/*"
+  style={{ display: 'none' }}
+  onChange={(e) => {
+    const file = e.target.files?.[0]
 
-                  if (file) {
-                    setSelectedImage(file)
-                    setCompressedImage(null)
-                  }
-                }}
-              />
-            </label>
+    if (!file) return
+
+    setSelectedImage(file)
+    setCompressedImage(null)
+  }}
+/>
 
             <small>
               JPG, PNG, WEBP • Max 10MB
