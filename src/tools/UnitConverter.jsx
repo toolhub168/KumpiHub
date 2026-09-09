@@ -161,15 +161,7 @@ function UnitConverter() {
   return (
     <div className="unit-converter-page">
 
-      <div className="tool-page-icon">
-        🔄
-      </div>
-
-      <h2>Unit Converter</h2>
-
-      <p>
-        Convert length, weight, temperature, time and more.
-      </p>
+     
 
       <div className="unit-category">
         <label>Conversion Type</label>

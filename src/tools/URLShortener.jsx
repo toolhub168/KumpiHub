@@ -41,13 +41,7 @@ function URLShortener() {
   return (
     <div className="selected-tool">
 
-      <div className="tool-icon">🔗</div>
-
-      <h2>URL Shortener</h2>
-
-      <p className="tool-subtitle">
-        Shorten your long URLs quickly and easily.
-      </p>
+      
 
       <div className="url-shortener">
 

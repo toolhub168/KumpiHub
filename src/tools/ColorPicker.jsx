@@ -106,13 +106,7 @@ function ColorPicker() {
   return (
     <div className="tool-page color-picker-page">
 
-      <div className="tool-page-icon">🎨</div>
-
-      <h2>Color Picker</h2>
-
-      <p>
-        Pick a color and get HEX, RGB and HSL values.
-      </p>
+      
 
       <div
         className="color-preview"

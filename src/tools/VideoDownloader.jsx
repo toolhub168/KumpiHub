@@ -146,11 +146,7 @@ function VideoDownloader() {
   return (
     <div className="video-downloader-page">
 
-      <div className="tool-page-icon">📥</div>
-
-      <h2>Video Downloader</h2>
-
-      <p>Download videos from supported platforms.</p>
+      
 
       {!result && !completed && (
         <>

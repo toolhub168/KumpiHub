@@ -137,16 +137,6 @@ function NameGenerator() {
   return (
     <div className="name-generator">
 
-      <div className="name-generator-heading">
-        <div className="name-generator-icon">🏷️</div>
-
-        <div>
-          <h2>Name Generator</h2>
-          <p>
-            Generate unique names for usernames, gaming, business and creators.
-          </p>
-        </div>
-      </div>
 
        <div className="name-generator-form">
 

@@ -64,13 +64,7 @@ const [resizedImage, setResizedImage] = useState(null)
   return (
     <div className="selected-tool">
 
-      <div className="tool-icon">🖼️</div>
-
-      <h2>Image Resizer</h2>
-
-      <p className="tool-subtitle">
-        Resize your images to any dimensions.
-      </p>
+      
 
       <div className="upload-area">
 

@@ -373,15 +373,7 @@ doc.text(
   return (
     <div className="loan-calculator-page">
 
-      <div className="tool-page-icon">
-        🏦
-      </div>
-
-      <h2>Loan Calculator</h2>
-
-      <p className="loan-subtitle">
-        Calculate your monthly payment, total interest and repayment schedule.
-      </p>
+     
 
       {/* Loan Amount */}
 

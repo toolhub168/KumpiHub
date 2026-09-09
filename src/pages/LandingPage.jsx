@@ -1,8 +1,10 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import toolsData from './toolsData.jsx'
 import './LandingPage.css'
 
 function LandingPage() {
+  const [menuOpen, setMenuOpen] = useState(false)
+
   const toolSlug = window.location.pathname
     .split('/')
     .filter(Boolean)
@@ -43,24 +45,42 @@ function LandingPage() {
 
       <header className="landing-header">
 
-        <div className="landing-logo">
+        <a href="/#tools" className="landing-back">
+          ← Back
+        </a>
+
+        <a href="/" className="landing-logo">
           <span>⚡</span>
           <strong>KumpiHub</strong>
-        </div>
+        </a>
 
-        <div className="landing-nav-row">
+        <nav className={`landing-nav ${menuOpen ? 'nav-open' : ''}`}>
+          <a href="/">Home</a>
 
-          <a href="/#tools" className="landing-back">
-            ← Back
+          <a
+            href="/#tools"
+            onClick={() => setMenuOpen(false)}
+          >
+            Tools
           </a>
 
-          <nav>
-            <a href="/">Home</a>
-            <a href="/#tools">Tools</a>
-            <a href="/#about">About</a>
-          </nav>
+          <a
+            href="/#about"
+            onClick={() => setMenuOpen(false)}
+          >
+            About
+          </a>
+        </nav>
 
-        </div>
+        <button
+          type="button"
+          className="landing-menu-button"
+          onClick={() => setMenuOpen((prev) => !prev)}
+          aria-label="Toggle menu"
+          aria-expanded={menuOpen}
+        >
+          ☰
+        </button>
 
       </header>
 
@@ -83,6 +103,15 @@ function LandingPage() {
         {tool.component}
 
       </section>
+
+      {/* Advertisement */}
+
+<div className="landing-ad-space">
+
+  <span>Advertisement</span>
+
+</div>
+
 
       {/* SEO Content */}
 

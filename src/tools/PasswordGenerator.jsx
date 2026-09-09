@@ -114,13 +114,7 @@ function PasswordGenerator() {
   return (
     <div className="tool-page password-generator-page">
 
-      <div className="tool-page-icon">🔐</div>
-
-      <h2>Password Generator</h2>
-
-      <p>
-        Generate strong and secure passwords instantly.
-      </p>
+      
 
       <div className="password-display">
         <input

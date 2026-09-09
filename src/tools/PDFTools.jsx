@@ -55,13 +55,7 @@ function PDFTools() {
   return (
     <div className="selected-tool">
 
-      <div className="tool-icon">📄</div>
-
-      <h2>PDF Tools</h2>
-
-      <p className="tool-subtitle">
-        Manage and work with your PDF files easily.
-      </p>
+      
 
       <div className="upload-area">
 

@@ -76,13 +76,7 @@ function QRCodeGenerator() {
   return (
     <div className="tool-page qr-code-page">
 
-      <div className="tool-page-icon">▦</div>
-
-      <h2>QR Code Generator</h2>
-
-      <p>
-        Create QR codes for links and text instantly.
-      </p>
+      
 
       <textarea
         className="qr-input"

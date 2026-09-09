@@ -93,15 +93,7 @@ function PercentageCalculator() {
   return (
     <div className="percentage-calculator-page">
 
-      <div className="tool-page-icon">
-        📊
-      </div>
-
-      <h2>Percentage Calculator</h2>
-
-      <p className="percentage-subtitle">
-        Calculate percentages, percentage changes, increases and decreases easily.
-      </p>
+     
 
       {/* Calculator Card */}
 

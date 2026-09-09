@@ -17,7 +17,11 @@ import UnitConverter from './tools/UnitConverter'
 import LoanCalculator from './tools/LoanCalculator'
 import CurrencyConverter from './tools/CurrencyConverter'
 import PercentageCalculator from './tools/PercentageCalculator'
+import InvoiceGenerator from './tools/InvoiceGenerator'
 import ImageCompressor from './tools/ImageCompressor'
+import PDFEditor from './tools/PDFEditor'
+import PDFToDOCX from './tools/PDFToDOCX'
+import JPGToPDF from './tools/JPGToPDF'
 import URLRedirect from './URLRedirect'
 import ImageCompressorPage from './pages/ImageCompressorPage'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
@@ -26,6 +30,7 @@ import LandingPage from './pages/LandingPage'
 function App() {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedImage, setSelectedImage] = useState(null)
+  const [menuOpen, setMenuOpen] = useState(false)
   const [quality, setQuality] = useState(80)
   const [compressedImage, setCompressedImage] = useState(null)
   const compressImage = () => {
@@ -181,6 +186,27 @@ const downloadCompressedImage = () => {
       name: 'Percentage Calculator',
       description: 'Calculate percentages, percentage changes, increases and decreases easily.',
     },
+    {
+      icon: '🧾',
+      name: 'Invoice Generator',
+      description: 'Create professional invoices quickly and download them as PDF.',
+    },
+    {
+     icon: '📄',
+     name: 'PDF Editor',
+     description: 'Edit PDF files with text, images, signatures, shapes and highlights.',
+    },
+    {
+     icon: '📄',
+     name: 'PDF to DOCX',
+     description: 'Convert PDF files into editable Word documents.',
+    },
+    {
+     icon: '🖼️',
+     name: 'JPG to PDF',
+     description: 'Convert multiple images into a PDF document.',
+    },
+
   ]
 const filteredTools = tools.filter((tool) =>
   (tool.name + ' ' + tool.description)
@@ -210,37 +236,56 @@ const path = window.location.pathname
   return (
     <div className="app">
       <header className="header">
-        <div className="logo">
-          <span className="logo-icon">⚡</span>
-          <span>KumpiHub</span>
-        </div>
+  <div className="logo">
+    <span className="logo-icon">⚡</span>
+    <span>KumpiHub</span>
+  </div>
 
-        <nav className="nav">
-          <a href="#home">Home</a>
-          <a href="#tools">Tools</a>
-          <a href="#about">About</a>
-          <a href="#blog">Blog</a>
-          <a href="#contact">Contact</a>
-        </nav>
+  <nav className={`nav ${menuOpen ? 'nav-open' : ''}`}>
+    <a href="#home" onClick={() => setMenuOpen(false)}>
+      Home
+    </a>
 
-        <button className="bookmark-button">★ Bookmark</button>
-        <button className="menu-button">☰</button>
-      </header>
+    <a href="#tools" onClick={() => setMenuOpen(false)}>
+      Tools
+    </a>
+
+    <a href="#about" onClick={() => setMenuOpen(false)}>
+      About
+    </a>
+
+    <a href="#blog" onClick={() => setMenuOpen(false)}>
+      Blog
+    </a>
+
+    <a href="#contact" onClick={() => setMenuOpen(false)}>
+      Contact
+    </a>
+  </nav>
+
+  <button className="bookmark-button">
+    ★ Bookmark
+  </button>
+
+  <button
+    type="button"
+    className="menu-button"
+    onClick={() => setMenuOpen((prev) => !prev)}
+    aria-label="Toggle menu"
+    aria-expanded={menuOpen}
+  >
+    ☰
+  </button>
+</header>
 
       <main>
         <section className="hero" id="home">
-          <div className="hero-badge">● 10+ FREE ONLINE TOOLS</div>
 
           <h1>
             All the tools you need,
+            <br />
             <span> in one place.</span>
           </h1>
-
-          <p>
-            Free, fast and easy-to-use online tools that make
-            <br className="desktop-break" />
-            your daily tasks simpler and smarter.
-          </p>
 
           <div className="search-box">
             <span className="search-icon">⌕</span>
@@ -254,13 +299,12 @@ const path = window.location.pathname
   Search
 </button>
           </div>
+<p className="hero-description">
+  Free, fast and easy-to-use online tools that make
+  <br className="desktop-break" />
+  your daily tasks simpler and smarter.
+</p>
 
-          <div className="features">
-            <div>✓ <span>100% Free</span></div>
-            <div>♙ <span>No Sign Up</span></div>
-            <div>◈ <span>Secure & Fast</span></div>
-            <div>▣ <span>Works on All Devices</span></div>
-          </div>
         </section>
          {selectedTool ? (
   <div className="tool-workspace">
@@ -327,7 +371,19 @@ const path = window.location.pathname
     <UnitConverter /> 
     
 ) : selectedTool === 'Percentage Calculator' ? (
-    <PercentageCalculator />    
+    <PercentageCalculator /> 
+    
+) : selectedTool === 'Invoice Generator' ? (
+    <InvoiceGenerator /> 
+
+) : selectedTool === 'PDF Editor' ? (
+  <PDFEditor />  
+
+) : selectedTool === 'PDF to DOCX' ? (
+  <PDFToDOCX /> 
+  
+ ) : selectedTool === 'JPG to PDF' ? (
+  <JPGToPDF /> 
 
   ) : (
 
@@ -346,12 +402,12 @@ const path = window.location.pathname
  </div>
 </div>
          ) : null}
-
+        <div className="ad-space">
+        <span>Advertisement</span>
+        </div>
         <section className="tools-section" id="tools">
           <div className="section-title">
-            <div className="section-badge">● FEATURED TOOLS</div>
             <h2>Popular Tools</h2>
-            <p>Choose from our most popular tools below</p>
           </div>
 
           <div className="tools-grid">

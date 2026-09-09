@@ -79,13 +79,7 @@ function ImageCompressor() {
   return (
     <div className="selected-tool">
 
-      <div className="tool-icon">🖼️</div>
-
-      <h2>Image Compressor</h2>
-
-      <p className="tool-subtitle">
-        Compress your images while keeping great quality.
-      </p>
+      
 
       <div className="upload-area">
 

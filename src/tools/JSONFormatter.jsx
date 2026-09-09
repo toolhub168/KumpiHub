@@ -75,15 +75,7 @@ function JSONFormatter() {
   return (
     <div className="json-formatter">
 
-      <div className="tool-page-icon">
-        {'{}'}
-      </div>
-
-      <h2>JSON Formatter</h2>
-
-      <p>
-        Format, validate and minify JSON quickly and easily.
-      </p>
+     
 
       <div className="json-editor-section">
 
@@ -177,28 +169,7 @@ Example:
         </div>
       )}
 
-      <div className="json-info">
-
-        <div>
-          <span>⚡</span>
-          <strong>Fast</strong>
-          <small>Instant formatting</small>
-        </div>
-
-        <div>
-          <span>🔒</span>
-          <strong>Private</strong>
-          <small>Processed in browser</small>
-        </div>
-
-        <div>
-          <span>🆓</span>
-          <strong>Free</strong>
-          <small>No sign up required</small>
-        </div>
-
-      </div>
-
+     
     </div>
   )
 }

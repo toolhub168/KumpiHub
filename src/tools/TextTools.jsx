@@ -60,13 +60,7 @@ function TextTools() {
   return (
     <div className="tool-page text-tools-page">
 
-      <div className="tool-page-icon">📝</div>
-
-      <h2>Text Tools</h2>
-
-      <p>
-        Format, analyze and transform your text.
-      </p>
+     
 
       <textarea
         className="text-tools-input"

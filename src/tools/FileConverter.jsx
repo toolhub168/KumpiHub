@@ -138,14 +138,7 @@ function FileConverter() {
   return (
     <div className="tool-page file-converter-page">
 
-      <div className="tool-page-icon">🔄</div>
-
-      <h2>File Converter</h2>
-
-      <p>
-        Convert images between JPG, PNG and WEBP formats.
-      </p>
-
+      
       {!selectedFile ? (
 
         <div className="file-upload-area">

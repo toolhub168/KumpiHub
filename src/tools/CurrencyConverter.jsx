@@ -209,23 +209,7 @@ function CurrencyConverter() {
   return (
     <div className="currency-converter-page">
 
-      {/* Icon */}
-
-      <div className="tool-page-icon">
-        💱
-      </div>
-
-
-      {/* Title */}
-
-      <h2>
-        Currency Converter
-      </h2>
-
-      <p className="currency-subtitle">
-        Convert currencies using the latest available exchange rates.
-      </p>
-
+     
 
       {/* Converter Box */}
 

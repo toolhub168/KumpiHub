@@ -14,6 +14,10 @@ import UnitConverter from '../tools/UnitConverter'
 import LoanCalculator from '../tools/LoanCalculator'
 import CurrencyConverter from '../tools/CurrencyConverter'
 import PercentageCalculator from '../tools/PercentageCalculator'
+import InvoiceGenerator from '../tools/InvoiceGenerator'
+import PDFEditor from '../tools/PDFEditor'
+import PDFToDOCX from '../tools/PDFToDOCX'
+import JPGToPDF from '../tools/JPGToPDF'
 
 const toolsData = {
 
@@ -343,8 +347,128 @@ const toolsData = {
         answer: 'Yes. KumpiHub Percentage Calculator is free to use.'
       }
     ]
-  }
-
+  },
+    'invoice-generator': {
+    name: 'Invoice Generator',
+    seoTitle: 'Free Invoice Generator Online',
+    seoDescription: 'Create professional invoices online for free with KumpiHub Invoice Generator.',
+    description: 'Create professional invoices quickly and easily with KumpiHub Invoice Generator. Add business details, customer information, items and pricing, then generate your invoice.',
+    component: <InvoiceGenerator />,
+    howToUse: [
+      'Enter your business information.',
+      'Enter your customer information.',
+      'Add the products or services to the invoice.',
+      'Review the invoice details.',
+      'Generate and download your invoice.'
+    ],
+    faqs: [
+      {
+        question: 'Is the Invoice Generator free?',
+        answer: 'Yes. KumpiHub Invoice Generator is free to use.'
+      },
+      {
+        question: 'Can I use the Invoice Generator on my phone?',
+        answer: 'Yes. The Invoice Generator is designed to work on both mobile devices and computers.'
+      },
+      {
+        question: 'Do I need to create an account?',
+        answer: 'No. You can use the KumpiHub Invoice Generator without signing up.'
+      }
+    ]
+  },
+   
+  'pdf-editor': {
+  name: 'PDF Editor',
+  seoTitle: 'Free PDF Editor Online',
+  seoDescription: 'Edit PDF files online for free with KumpiHub PDF Editor.',
+  description: 'Edit your PDF by adding text, images, signatures, shapes and highlights.',
+  component: <PDFEditor />,
+  howToUse: [
+    'Upload your PDF file.',
+    'Add images, text, signatures, shapes or highlights.',
+    'Move and position your elements on the PDF.',
+    'Review your edits.',
+    'Download your edited PDF.'
+  ],
+  faqs: [
+    {
+      question: 'Is the PDF Editor free?',
+      answer: 'Yes. KumpiHub PDF Editor is free to use.'
+    },
+    {
+      question: 'Can I add an image anywhere on my PDF?',
+      answer: 'Yes. You can position an image anywhere on the PDF page.'
+    },
+    {
+      question: 'Can I add text and signatures?',
+      answer: 'Yes. You can add text and signatures to your PDF.'
+    },
+    {
+      question: 'Can I highlight parts of a PDF?',
+      answer: 'Yes. You can add highlights to your PDF.'
+    }
+  ]
+},
+'pdf-to-docx': {
+    name: 'PDF to DOCX',
+    seoTitle: 'Free PDF to DOCX Converter Online',
+    seoDescription: 'Convert PDF files to editable DOCX Word documents online for free with KumpiHub.',
+    description: 'Convert PDF files into editable Word documents quickly and easily with KumpiHub PDF to DOCX.',
+    component: <PDFToDOCX />,
+    howToUse: [
+      'Choose a PDF file from your device.',
+      'Click Convert to DOCX.',
+      'Wait while the PDF is converted.',
+      'Download your DOCX Word document.'
+    ],
+    faqs: [
+      {
+        question: 'Is the PDF to DOCX converter free?',
+        answer: 'Yes. KumpiHub PDF to DOCX is free to use.'
+      },
+      {
+        question: 'Can I edit the converted DOCX file?',
+        answer: 'Yes. The converted file can be opened and edited in Microsoft Word or other compatible document editors.'
+      },
+      {
+        question: 'Can I use it on my phone?',
+        answer: 'Yes. The tool works on both mobile devices and computers.'
+      }
+    ]
+  },
+'jpg-to-pdf': {
+  name: 'JPG to PDF',
+  seoTitle: 'Free JPG to PDF Converter Online',
+  seoDescription:
+    'Convert JPG, JPEG and PNG images into PDF files online for free with KumpiHub.',
+  description:
+    'Convert multiple JPG, JPEG and PNG images into a PDF document quickly and easily with KumpiHub JPG to PDF.',
+  component: <JPGToPDF />,
+  howToUse: [
+    'Choose one or more JPG, JPEG or PNG images.',
+    'Reorder or rotate your images if needed.',
+    'Choose your PDF page size and orientation.',
+    'Click Create PDF.',
+    'Download your PDF file.'
+  ],
+  faqs: [
+    {
+      question: 'Is the JPG to PDF converter free?',
+      answer:
+        'Yes. KumpiHub JPG to PDF is free to use.'
+    },
+    {
+      question: 'Can I convert multiple images into one PDF?',
+      answer:
+        'Yes. You can select multiple images and combine them into one PDF document.'
+    },
+    {
+      question: 'Can I use JPG to PDF on my phone?',
+      answer:
+        'Yes. The tool works on both mobile phones and computers.'
+    }
+  ]
+},
 }
 
 export default toolsData
