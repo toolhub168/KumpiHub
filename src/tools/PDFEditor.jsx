@@ -483,21 +483,17 @@ pdfjsLib.GlobalWorkerOptions.workerSrc =
      
 
       <div className="pdf-editor-toolbar">
-        <button
-          type="button"
-          className="pdf-editor-tool-button"
-          onClick={() => pdfInputRef.current?.click()}
-        >
-          📄 Upload PDF
-        </button>
+       
+       <label className="pdf-editor-tool-button">
+  📄 Upload PDF
 
-        <input
-          ref={pdfInputRef}
-          type="file"
-          accept="application/pdf"
-          onChange={handlePDFChange}
-          hidden
-        />
+  <input
+    ref={pdfInputRef}
+    type="file"
+    accept="application/pdf"
+    onChange={handlePDFChange}
+  />
+</label>
 
         <button
           type="button"
