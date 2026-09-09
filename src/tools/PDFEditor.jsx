@@ -1,10 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
-import * as pdfjsLib from 'pdfjs-dist'
 import { jsPDF } from 'jspdf'
 import './PDFEditor.css'
 
-pdfjsLib.GlobalWorkerOptions.workerSrc =
-  `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.mjs`
+
 
 function PDFEditor() {
   const [pdfFile, setPdfFile] = useState(null)
@@ -31,6 +29,11 @@ function PDFEditor() {
   const handlePDFChange = async (event) => {
     const file = event.target.files?.[0]
     if (!file) return
+
+    const pdfjsLib = await import('pdfjs-dist')
+
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+  `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.mjs`
 
     setPdfFile(file)
     setObjects([])
