@@ -25,10 +25,15 @@ function JPGToPDF() {
     setStatus('')
   }
 
-  const handleInputChange = (e) => {
-    handleFiles(e.target.files)
-    e.target.value = ''
+ const handleInputChange = (e) => {
+  const files = e.target.files
+
+  if (!files || files.length === 0) {
+    return
   }
+
+  handleFiles(files)
+}
 
   const removeImage = (id) => {
     setImages((prev) => {
@@ -195,7 +200,8 @@ function JPGToPDF() {
 
           <input
             type="file"
-            accept="image/jpeg,image/png,image/jpg"
+            accept="image/*"
+
             multiple
             onChange={handleInputChange}
           />
@@ -218,7 +224,8 @@ function JPGToPDF() {
                 + Add More
                 <input
                   type="file"
-                  accept="image/jpeg,image/png,image/jpg"
+                  accept="image/*"
+
                   multiple
                   onChange={handleInputChange}
                 />
