@@ -14,7 +14,7 @@ import UnitConverter from '../tools/UnitConverter'
 import LoanCalculator from '../tools/LoanCalculator'
 import CurrencyConverter from '../tools/CurrencyConverter'
 import PercentageCalculator from '../tools/PercentageCalculator'
-// import InvoiceGenerator from '../tools/InvoiceGenerator'
+import InvoiceGenerator from '../tools/InvoiceGenerator'
 // import PDFEditor from '../tools/PDFEditor'
 // import PDFToDOCX from '../tools/PDFToDOCX'
 // import JPGToPDF from '../tools/JPGToPDF'
@@ -345,6 +345,26 @@ const toolsData = {
       {
         question: 'Is the Percentage Calculator free?',
         answer: 'Yes. KumpiHub Percentage Calculator is free to use.'
+      }
+    ]
+  },
+  'invoice-generator': {
+    name: 'Invoice Generator',
+    seoTitle: 'Free Invoice Generator Online',
+    seoDescription: 'Create professional invoices online for free with KumpiHub Invoice Generator.',
+    description: 'Create professional invoices quickly and easily with KumpiHub Invoice Generator.',
+    component: <InvoiceGenerator />,
+    howToUse: [
+      'Enter your business information.',
+      'Enter your customer information.',
+      'Add the products or services to the invoice.',
+      'Review the invoice details.',
+      'Generate and download your invoice.'
+    ],
+    faqs: [
+      {
+        question: 'Is the Invoice Generator free?',
+        answer: 'Yes. KumpiHub Invoice Generator is free to use.'
       }
     ]
   },
