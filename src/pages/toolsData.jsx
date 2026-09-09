@@ -15,7 +15,7 @@ import LoanCalculator from '../tools/LoanCalculator'
 import CurrencyConverter from '../tools/CurrencyConverter'
 import PercentageCalculator from '../tools/PercentageCalculator'
 import InvoiceGenerator from '../tools/InvoiceGenerator'
-import PDFEditor from '../tools/PDFEditor'
+// import PDFEditor from '../tools/PDFEditor'
 import PDFToDOCX from '../tools/PDFToDOCX'
 import JPGToPDF from '../tools/JPGToPDF'
 
@@ -368,26 +368,7 @@ const toolsData = {
       }
     ]
   },
-  'pdf-editor': {
-    name: 'PDF Editor',
-    seoTitle: 'Free PDF Editor Online',
-    seoDescription: 'Edit PDF files online for free with KumpiHub PDF Editor.',
-    description: 'Edit your PDF by adding text, images, signatures, shapes and highlights.',
-    component: <PDFEditor />,
-    howToUse: [
-      'Upload your PDF file.',
-      'Add images, text, signatures, shapes or highlights.',
-      'Move and position your elements on the PDF page.',
-      'Review your edits.',
-      'Download your edited PDF.'
-    ],
-    faqs: [
-      {
-        question: 'Is the PDF Editor free?',
-        answer: 'Yes. KumpiHub PDF Editor is free to use.'
-      }
-    ]
-  },
+ 
   'pdf-to-docx': {
   name: 'PDF to DOCX',
   slug: 'pdf-to-docx',
