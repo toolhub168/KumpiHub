@@ -27,10 +27,10 @@ function PDFEditor() {
 if (!file) return
 
   try {
-    const pdfjsLib = await import('pdfjs-dist/legacy/build/pdf.mjs')
+    const pdfjsLib = await import('pdfjs-dist/build/pdf')
 
    pdfjsLib.GlobalWorkerOptions.workerSrc =
-    `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/legacy/build/pdf.worker.min.mjs`
+    `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`
 
     setPdfFile(file)
     setObjects([])
