@@ -29,8 +29,8 @@ if (!file) return
   try {
     const pdfjsLib = await import('pdfjs-dist/legacy/build/pdf.mjs')
 
-    pdfjsLib.GlobalWorkerOptions.workerSrc =
-      `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.mjs`
+   pdfjsLib.GlobalWorkerOptions.workerSrc =
+    `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/legacy/build/pdf.worker.min.mjs`
 
     setPdfFile(file)
     setObjects([])
