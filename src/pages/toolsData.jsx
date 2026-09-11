@@ -332,7 +332,7 @@ const toolsData = {
   'percentage-calculator': {
     name: 'Percentage Calculator',
     seoTitle: 'Free Percentage Calculator Online',
-    seoDescription: 'Calculate percentages, percentage changes, increases and decreases easily.',
+    seoDescription: 'Calculate percentages changes, increases and decreases easily.',
     description: 'Calculate percentages quickly and easily with KumpiHub Percentage Calculator.',
     component: <PercentageCalculator />,
     howToUse: [

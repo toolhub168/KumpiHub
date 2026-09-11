@@ -12,31 +12,7 @@ function PDFEditor() {
   const [objects, setObjects] = useState([])
   const [selectedId, setSelectedId] = useState(null)
 
-  const [zoom, setZoom] = useState(100)
-  const [displayScale, setDisplayScale] = useState(1)
-  useEffect(() => {
-  if (!pdfPages.length) return
-
-  const calculateDisplayScale = () => {
-    const wrapper = document.querySelector('.pdf-editor-canvas-wrapper')
-    const page = pdfPages[currentPage - 1]
-
-    if (!wrapper || !page) return
-
-    const availableWidth = wrapper.clientWidth - 16
-    const scale = Math.min(1, availableWidth / page.width)
-
-    setDisplayScale(scale)
-  }
-
-  calculateDisplayScale()
-
-  window.addEventListener('resize', calculateDisplayScale)
-
-  return () => {
-    window.removeEventListener('resize', calculateDisplayScale)
-  }
-}, [pdfPages, currentPage])
+  const [zoom, setZoom] = useState(50)
 
   const [signatureOpen, setSignatureOpen] = useState(false)
   const [signatureDrawing, setSignatureDrawing] = useState(false)
@@ -45,6 +21,25 @@ function PDFEditor() {
   const photoInputRef = useRef(null)
   const signatureCanvasRef = useRef(null)
   const interactionRef = useRef(null)
+  const canvasWrapperRef = useRef(null)
+  const pinchRef = useRef({
+  active: false,
+  startDistance: 0,
+  startZoom: 50,
+})
+      useEffect(() => {
+  if (!pdfPages.length) return
+
+  const wrapper = canvasWrapperRef.current
+  if (!wrapper) return
+
+  const centerPDF = () => {
+    wrapper.scrollLeft =
+      (wrapper.scrollWidth - wrapper.clientWidth) / 2
+  }
+
+  requestAnimationFrame(centerPDF)
+}, [pdfPages, currentPage])
 
  const handlePDFChange = async (event) => {
   const file = event.target.files?.[0]
@@ -430,12 +425,60 @@ if (!file) return
   ========================= */
 
   const zoomOut = () => {
-    setZoom((value) => Math.max(50, value - 25))
+    setZoom((value) => Math.max(20, value - 10))
   }
 
   const zoomIn = () => {
-    setZoom((value) => Math.min(200, value + 25))
+    setZoom((value) => Math.min(200, value + 10))
   }
+
+  const getTouchDistance = (touches) => {
+  const dx = touches[0].clientX - touches[1].clientX
+  const dy = touches[0].clientY - touches[1].clientY
+
+  return Math.sqrt(dx * dx + dy * dy)
+}
+
+const handleTouchStart = (event) => {
+  if (event.touches.length !== 2) return
+
+  event.preventDefault()
+
+  pinchRef.current = {
+    active: true,
+    startDistance: getTouchDistance(event.touches),
+    startZoom: zoom,
+  }
+}
+
+const handleTouchMove = (event) => {
+  if (!pinchRef.current.active || event.touches.length !== 2) {
+    return
+  }
+
+  event.preventDefault()
+
+  const currentDistance = getTouchDistance(event.touches)
+
+  const ratio =
+    currentDistance / pinchRef.current.startDistance
+
+  const newZoom = Math.min(
+    200,
+    Math.max(
+      20,
+      pinchRef.current.startZoom * ratio
+    )
+  )
+
+  setZoom(Math.round(newZoom))
+}
+
+const handleTouchEnd = (event) => {
+  if (event.touches.length < 2) {
+    pinchRef.current.active = false
+  }
+}
 
   /* =========================
      DOWNLOAD PDF
@@ -629,7 +672,7 @@ if (!file) return
     <button
       type="button"
       onClick={zoomOut}
-      disabled={zoom <= 50}
+      disabled={zoom <= 20}
     >
       −
     </button>
@@ -646,15 +689,21 @@ if (!file) return
   </div>
 </div>
 
-          <div className="pdf-editor-canvas-wrapper">
+         <div
+  ref={canvasWrapperRef}
+  className="pdf-editor-canvas-wrapper"
+  >
             <div
               className="pdf-editor-page"
               style={{
                 width: currentPageData.width,
                 height: currentPageData.height,
-                transform: `scale(${(zoom / 100) * displayScale})`,
+                transform: `scale(${zoom / 100})`,
               }}
               onPointerDown={deselect}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
             >
               <img
                 src={currentPageData.image}

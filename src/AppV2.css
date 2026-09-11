@@ -2684,6 +2684,7 @@
 @media (max-width: 600px) {
   .tool-card {
     min-height: 0 !important;
+    height: auto;
     padding: 12px 14px;
   }
 
@@ -2696,6 +2697,10 @@
 
   .tool-card h3 {
     margin-bottom: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
   }
 }
 .open-tool {

@@ -182,7 +182,7 @@ const downloadCompressedImage = () => {
     {
       icon: '📊',
       name: 'Percentage Calculator',
-      description: 'Calculate percentages, percentage changes, increases and decreases easily.',
+      description: 'Calculate percentages changes, increases and decreases easily.',
     },
     {
       icon: '🧾',
