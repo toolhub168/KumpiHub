@@ -13,6 +13,30 @@ function PDFEditor() {
   const [selectedId, setSelectedId] = useState(null)
 
   const [zoom, setZoom] = useState(100)
+  const [displayScale, setDisplayScale] = useState(1)
+  useEffect(() => {
+  if (!pdfPages.length) return
+
+  const calculateDisplayScale = () => {
+    const wrapper = document.querySelector('.pdf-editor-canvas-wrapper')
+    const page = pdfPages[currentPage - 1]
+
+    if (!wrapper || !page) return
+
+    const availableWidth = wrapper.clientWidth - 16
+    const scale = Math.min(1, availableWidth / page.width)
+
+    setDisplayScale(scale)
+  }
+
+  calculateDisplayScale()
+
+  window.addEventListener('resize', calculateDisplayScale)
+
+  return () => {
+    window.removeEventListener('resize', calculateDisplayScale)
+  }
+}, [pdfPages, currentPage])
 
   const [signatureOpen, setSignatureOpen] = useState(false)
   const [signatureDrawing, setSignatureDrawing] = useState(false)
@@ -628,7 +652,7 @@ if (!file) return
               style={{
                 width: currentPageData.width,
                 height: currentPageData.height,
-                transform: `scale(${zoom / 100})`,
+                transform: `scale(${(zoom / 100) * displayScale})`,
               }}
               onPointerDown={deselect}
             >
