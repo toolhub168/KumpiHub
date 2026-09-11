@@ -48,6 +48,16 @@
   font-weight: 600;
   cursor: pointer;
   transition: 0.2s;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+
+}
+.pdf-editor-tool-button input {
+  display: none;
 }
 
 .pdf-editor-tool-button:hover:not(:disabled) {

@@ -15,7 +15,7 @@ import LoanCalculator from '../tools/LoanCalculator'
 import CurrencyConverter from '../tools/CurrencyConverter'
 import PercentageCalculator from '../tools/PercentageCalculator'
 import InvoiceGenerator from '../tools/InvoiceGenerator'
-// import PDFEditor from '../tools/PDFEditor'
+import PDFEditor from '../tools/PDFEditor'
 // import PDFToDOCX from '../tools/PDFToDOCX'
 import JPGToPDF from '../tools/JPGToPDF'
 
@@ -365,6 +365,29 @@ const toolsData = {
       {
         question: 'Is the Invoice Generator free?',
         answer: 'Yes. KumpiHub Invoice Generator is free to use.'
+      }
+    ]
+  },
+  'pdf-editor': {
+    name: 'PDF Editor',
+    seoTitle: 'Free Online PDF Editor',
+    seoDescription: 'Edit PDF files online for free with KumpiHub.',
+    description: 'Add photos, text and signatures to your PDF documents online.',
+    component: <PDFEditor />,
+    howToUse: [
+      'Upload your PDF file.',
+      'Add photos, text or signatures.',
+      'Move and resize added elements.',
+      'Download your edited PDF.'
+    ],
+    faqs: [
+      {
+        question: 'Is the PDF Editor free?',
+        answer: 'Yes. KumpiHub PDF Editor is free to use.'
+      },
+      {
+        question: 'Can I edit a PDF on my phone?',
+        answer: 'Yes. The PDF Editor works on supported mobile and desktop browsers.'
       }
     ]
   },
