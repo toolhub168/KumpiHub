@@ -16,7 +16,7 @@ import CurrencyConverter from '../tools/CurrencyConverter'
 import PercentageCalculator from '../tools/PercentageCalculator'
 import InvoiceGenerator from '../tools/InvoiceGenerator'
 import PDFEditor from '../tools/PDFEditor'
-// import PDFToDOCX from '../tools/PDFToDOCX'
+import PDFToDOCX from '../tools/PDFToDOCX'
 import JPGToPDF from '../tools/JPGToPDF'
 
 const toolsData = {
@@ -391,6 +391,40 @@ const toolsData = {
       }
     ]
   },
+  'pdf-to-docx': {
+  name: 'PDF to DOCX',
+  slug: 'pdf-to-docx',
+  seoTitle: 'PDF to DOCX Converter Online',
+  seoDescription:
+    'Convert PDF files to DOCX online for free with KumpiHub.',
+  description:
+    'Convert PDF files into editable DOCX documents quickly and easily.',
+  component: <PDFToDOCX />,
+  howToUse: [
+    'Upload your PDF file.',
+    'Click Convert to DOCX.',
+    'Wait for the conversion to finish.',
+    'Download your DOCX file.',
+  ],
+  faqs: [
+    {
+      question: 'Can I convert PDF to DOCX for free?',
+      answer:
+        'Yes. KumpiHub provides a free PDF to DOCX conversion tool.',
+    },
+    {
+      question: 'Do I need to install software?',
+      answer:
+        'No. You can convert PDF files to DOCX directly in your browser.',
+    },
+    {
+      question: 'Can I use PDF to DOCX on mobile?',
+      answer:
+        'Yes. The tool works on supported mobile and desktop browsers.',
+    },
+  ],
+},
+
  
 'jpg-to-pdf': {
   name: 'JPG to PDF',
