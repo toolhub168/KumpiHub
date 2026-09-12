@@ -5,7 +5,7 @@ import { saveAs } from 'file-saver'
 import './PDFToDOCX.css'
 
 pdfjsLib.GlobalWorkerOptions.workerSrc =
-  `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.mjs`
+  `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`
 
 function PDFToDOCX() {
   const [file, setFile] = useState(null)
