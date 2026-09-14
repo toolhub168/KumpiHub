@@ -18,6 +18,7 @@ import InvoiceGenerator from '../tools/InvoiceGenerator'
 import PDFEditor from '../tools/PDFEditor'
 import PDFToDOCX from '../tools/PDFToDOCX'
 import JPGToPDF from '../tools/JPGToPDF'
+import Base64Tool from '../tools/Base64Tool'
 
 const toolsData = {
 
@@ -458,6 +459,39 @@ const toolsData = {
         'Yes. It is designed to work on both mobile and desktop browsers.',
     },
   ],
+},
+'base64-tool': {
+  name: 'Base64 Tool',
+  slug: 'base64-tool',
+  seoTitle: 'Free Base64 Encoder and Decoder Online',
+  seoDescription:
+    'Encode and decode text using Base64 online for free with KumpiHub.',
+  description:
+    'Encode text to Base64 or decode Base64 back to text quickly and easily.',
+  component: <Base64Tool />,
+  howToUse: [
+    'Choose Encode or Decode.',
+    'Enter or paste your text.',
+    'Click the Encode or Decode button.',
+    'Copy your result.'
+  ],
+  faqs: [
+    {
+      question: 'Is the Base64 Tool free?',
+      answer:
+        'Yes. KumpiHub Base64 Tool is free to use.'
+    },
+    {
+      question: 'Can I use the Base64 Tool on mobile?',
+      answer:
+        'Yes. The tool works on supported mobile and desktop browsers.'
+    },
+    {
+      question: 'Can I encode and decode Base64?',
+      answer:
+        'Yes. You can both encode text to Base64 and decode Base64 to text.'
+    }
+  ]
 },
 }
 export default toolsData

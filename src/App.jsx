@@ -22,6 +22,7 @@ import ImageCompressor from './tools/ImageCompressor'
 import PDFEditor from './tools/PDFEditor'
 import PDFToDOCX from './tools/PDFToDOCX'
 import JPGToPDF from './tools/JPGToPDF'
+import Base64Tool from './tools/Base64Tool'
 import URLRedirect from './URLRedirect'
 import LandingPage from './pages/LandingPage'
 
@@ -204,6 +205,11 @@ const downloadCompressedImage = () => {
      name: 'JPG to PDF',
      description: 'Convert multiple images into a PDF document.',
     },
+    {
+     icon: '🔐',
+     name: 'Base64 Tool',
+     description: 'Encode and decode text using Base64.',
+    },
 
   ]
 const filteredTools = tools.filter((tool) =>
@@ -380,8 +386,11 @@ const path = window.location.pathname
 ) : selectedTool === 'PDF to DOCX' ? (
   <PDFToDOCX /> 
   
- ) : selectedTool === 'JPG to PDF' ? (
+) : selectedTool === 'JPG to PDF' ? (
   <JPGToPDF /> 
+
+) : selectedTool === 'Base64 Tool' ? (
+  <Base64Tool />
 
   ) : (
 

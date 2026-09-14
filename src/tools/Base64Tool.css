@@ -1,0 +1,171 @@
+.base64-tool {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* Mode switch */
+.base64-mode-switch {
+  display: flex;
+  width: fit-content;
+  margin: 0 auto 16px;
+  padding: 4px;
+  background: #f1efff;
+  border-radius: 12px;
+  gap: 4px;
+}
+
+.base64-mode-switch button {
+  border: none;
+  background: transparent;
+  color: #6b63a8;
+  padding: 9px 24px;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.base64-mode-switch button:hover {
+  color: #5a43c8;
+}
+
+.base64-mode-switch button.active {
+  background: linear-gradient(135deg, #6845d8, #4779e8);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(91, 76, 190, 0.22);
+}
+
+/* Fields */
+.base64-field {
+  margin-bottom: 12px;
+}
+
+.base64-field label {
+  display: block;
+  margin-bottom: 8px;
+  color: #34324a;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.base64-field textarea {
+  display: block;
+  width: 100%;
+  min-height: 115px;
+  padding: 10px 12px;
+  border: 1px solid #ddd9ef;
+  border-radius: 14px;
+  background: #ffffff;
+  color: #29273a;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.6;
+  resize: vertical;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.base64-field textarea:focus {
+  border-color: #7357db;
+  box-shadow: 0 0 0 3px rgba(115, 87, 219, 0.1);
+}
+
+.base64-field textarea::placeholder {
+  color: #aaa6b8;
+}
+
+/* Convert button */
+.base64-convert-btn {
+  display: block;
+  width: 100%;
+  margin: 4px 0 18px;
+  padding: 11px 17px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #6845d8, #4779e8);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(91, 76, 190, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.base64-convert-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(91, 76, 190, 0.25);
+}
+
+.base64-convert-btn:active {
+  transform: translateY(0);
+}
+
+/* Output header */
+.base64-output-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.base64-output-header label {
+  margin-bottom: 0;
+}
+
+/* Copy button */
+.base64-copy-btn {
+  border: none;
+  background: #eeeafd;
+  color: #6245c7;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.base64-copy-btn:hover {
+  background: #e4defb;
+}
+
+/* Output */
+.base64-field textarea.base64-output {
+  background: #faf9ff;
+}
+
+/* Error */
+.base64-error {
+  margin: -4px 0 16px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #fff1f1;
+  color: #c03939;
+  font-size: 13px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .base64-tool {
+    max-width: 100%;
+  }
+
+  .base64-mode-switch {
+    margin-bottom: 18px;
+  }
+
+  .base64-mode-switch button {
+    padding: 8px 20px;
+  }
+
+  .base64-field textarea {
+    min-height: 100px;
+    border-radius: 12px;
+  }
+
+  .base64-convert-btn {
+    padding: 11px 16px;
+  }
+}
