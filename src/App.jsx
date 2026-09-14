@@ -1,6 +1,29 @@
 import { useState } from 'react'
 import './AppV2.css'
 
+import videoDownloaderIcon from './assets/icons/video-downloader.png'
+import imageCompressorIcon from './assets/icons/image-compressor.png'
+import imageResizerIcon from './assets/icons/image-resizer.png'
+import pdfToolsIcon from './assets/icons/pdf-tools.png'
+import pdfEditorIcon from './assets/icons/pdf-editor.png'
+import pdfToDocxIcon from './assets/icons/pdf-to-docx.png'
+import jpgToPdfIcon from './assets/icons/jpg-to-pdf.png'
+import urlShortenerIcon from './assets/icons/url-shortener.png'
+import textToolsIcon from './assets/icons/text-tools.png'
+import fileConverterIcon from './assets/icons/file-converter.png'
+import colorPickerIcon from './assets/icons/color-picker.png'
+import passwordGeneratorIcon from './assets/icons/password-generator.png'
+import qrCodeGeneratorIcon from './assets/icons/qr-code-generator.png'
+import nameGeneratorIcon from './assets/icons/name-generator.png'
+import jsonFormatterIcon from './assets/icons/json-formatter.png'
+import unitConverterIcon from './assets/icons/unit-converter.png'
+import loanCalculatorIcon from './assets/icons/loan-calculator.png'
+import currencyConverterIcon from './assets/icons/currency-converter.png'
+import percentageCalculatorIcon from './assets/icons/percentage-calculator.png'
+import invoiceGeneratorIcon from './assets/icons/invoice-generator.png'
+import base64ToolIcon from './assets/icons/base64-tool.png'
+import metaTagToolIcon from './assets/icons/meta-tag-tool.png'
+
 
 import VideoDownloader from './tools/VideoDownloader'
 import PDFTools from './tools/PDFTools'
@@ -23,6 +46,7 @@ import PDFEditor from './tools/PDFEditor'
 import PDFToDOCX from './tools/PDFToDOCX'
 import JPGToPDF from './tools/JPGToPDF'
 import Base64Tool from './tools/Base64Tool'
+import MetaTagTool from './tools/MetaTagTool'
 import URLRedirect from './URLRedirect'
 import LandingPage from './pages/LandingPage'
 
@@ -106,109 +130,114 @@ const downloadCompressedImage = () => {
   const [selectedTool, setSelectedTool] = useState(null)
   const tools = [
     {
-      icon: '📥',
+      icon: videoDownloaderIcon,
       name: 'Video Downloader',
       description: 'Download videos from supported platforms.',
     },
     {
-      icon: '🖼️',
+      icon: imageCompressorIcon,
       name: 'Image Compressor',
       description: 'Compress images without losing quality.',
     },
     {
-      icon: '✂️',
+      icon: imageResizerIcon,
       name: 'Image Resizer',
       description: 'Resize images to any size you need.',
     },
     {
-      icon: '📄',
+      icon: pdfToolsIcon,
       name: 'PDF Tools',
       description: 'Merge, split, convert and compress PDF files.',
     },
     {
-      icon: '🔗',
+      icon: urlShortenerIcon,
       name: 'URL Shortener',
       description: 'Shorten long URLs and track clicks.',
     },
     {
-      icon: '🔤',
+      icon: textToolsIcon,
       name: 'Text Tools',
       description: 'Format, analyze and transform your text.',
     },
     {
-      icon: '🔄',
+      icon: fileConverterIcon,
       name: 'File Converter',
       description: 'Convert files between common formats.',
     },
     {
-      icon: '🎨',
+      icon: colorPickerIcon,
       name: 'Color Picker',
       description: 'Pick colors and get HEX codes.',
     },
     {
-      icon: '🔐',
+      icon: passwordGeneratorIcon,
       name: 'Password Generator',
       description: 'Generate strong and secure passwords.',
     },
     {
-      icon: '▦',
+      icon: qrCodeGeneratorIcon,
       name: 'QR Code Generator',
       description: 'Create QR codes for links and text.',
     },
     {
-      icon: '🏷️',
+      icon: nameGeneratorIcon,
       name: 'Name Generator',
       description: 'Generate unique names for usernames, gaming, business and creators.',
     },
     {
-     icon: '📋',
+     icon: jsonFormatterIcon,
      name: 'JSON Formatter',
      description: 'Format, validate and beautify JSON data.',
     },
     {
-     icon: '🔄',
+     icon: unitConverterIcon,
      name: 'Unit Converter',
      description: 'Convert length, weight, temperature and time units.',
     },
     {
-     icon: '🏦',
+     icon: loanCalculatorIcon,
      name: 'Loan Calculator',
      description: 'Calculate monthly payments, interest and repayment schedule.',
     },
     {
-     icon: '💱',
+     icon: currencyConverterIcon,
      name: 'Currency Converter',
      description: 'Convert currencies using the latest available exchange rates.',
     },
     {
-      icon: '📊',
+      icon: percentageCalculatorIcon,
       name: 'Percentage Calculator',
       description: 'Calculate percentages changes, increases and decreases easily.',
     },
     {
-      icon: '🧾',
+      icon: invoiceGeneratorIcon,
       name: 'Invoice Generator',
       description: 'Create professional invoices quickly and download them as PDF.',
     },
     {
-     icon: '📄',
+     icon: pdfEditorIcon,
      name: 'PDF Editor',
      description: 'Edit PDF files with text, images, signatures, shapes and highlights.',
     },
     {
-     icon: '📄',
+     icon: pdfToDocxIcon,
      name: 'PDF to DOCX',
      description: 'Convert PDF files into editable Word documents.',
     },
     {
-     icon: '🖼️',
+     icon: jpgToPdfIcon,
      name: 'JPG to PDF',
      description: 'Convert multiple images into a PDF document.',
     },
     {
-     icon: '🔐',
+     icon: base64ToolIcon,
      name: 'Base64 Tool',
      description: 'Encode and decode text using Base64.',
+    },
+    {
+     icon: metaTagToolIcon,
+     name: 'Meta Tag Tool',
+     description: 'Generate SEO meta tags for your website.',
     },
 
   ]
@@ -392,6 +421,9 @@ const path = window.location.pathname
 ) : selectedTool === 'Base64 Tool' ? (
   <Base64Tool />
 
+) : selectedTool === 'Meta Tag Tool' ? (
+  <MetaTagTool />  
+
   ) : (
 
     <div className="selected-tool">
@@ -430,7 +462,9 @@ const path = window.location.pathname
       .replace(/\//g, '-')}`
 }
   >
-    <div className="tool-icon">{tool.icon}</div>
+    <div className="tool-icon">
+  <img src={tool.icon} alt={tool.name} />
+</div>
 
     <h3>{tool.name}</h3>
 

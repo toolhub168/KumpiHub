@@ -1,0 +1,201 @@
+.meta-tag-tool {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* Fields */
+.meta-tag-fields {
+  width: 100%;
+}
+
+.meta-tag-field {
+  margin-bottom: 12px;
+}
+
+.meta-tag-field label,
+.meta-tag-output-header label {
+  display: block;
+  margin-bottom: 6px;
+  color: #34324a;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.meta-tag-field input,
+.meta-tag-field textarea,
+.meta-tag-field select {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #c9c4df;
+  border-radius: 11px;
+  background: #ffffff;
+  color: #29273a;
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+  box-shadow: 0 1px 3px rgba(70, 55, 130, 0.06);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.meta-tag-field input,
+.meta-tag-field select {
+  height: 40px;
+  padding: 0 12px;
+}
+
+.meta-tag-field textarea {
+  min-height: 78px;
+  padding: 10px 12px;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.meta-tag-field input::placeholder,
+.meta-tag-field textarea::placeholder {
+  color: #aaa6b8;
+}
+
+.meta-tag-field input:focus,
+.meta-tag-field textarea:focus,
+.meta-tag-field select:focus {
+  border-color: #7357db;
+  box-shadow: 0 0 0 3px rgba(115, 87, 219, 0.1);
+}
+
+/* Two-column rows */
+.meta-tag-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* Generate button */
+.meta-tag-generate-btn {
+  display: block;
+  width: 100%;
+  margin: 4px 0 16px;
+  padding: 9px 16px;
+  border: none;
+  border-radius: 11px;
+  background: linear-gradient(135deg, #6845d8, #4779e8);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(91, 76, 190, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.meta-tag-generate-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(91, 76, 190, 0.25);
+}
+
+.meta-tag-generate-btn:active {
+  transform: translateY(0);
+}
+
+/* Output */
+.meta-tag-output-section {
+  width: 100%;
+}
+
+.meta-tag-output-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.meta-tag-output-header label {
+  margin-bottom: 0;
+}
+
+.meta-tag-copy-btn {
+  border: none;
+  background: #eeeafd;
+  color: #6245c7;
+  padding: 6px 13px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.meta-tag-copy-btn:hover {
+  background: #e4defb;
+}
+
+.meta-tag-output {
+  display: block;
+  width: 100%;
+  min-height: 145px;
+  padding: 10px 12px;
+  box-sizing: border-box;
+  border: 1px solid #ddd9ef;
+  border-radius: 12px;
+  background: #faf9ff;
+  color: #29273a;
+  font-family: monospace;
+  font-size: 12px;
+  line-height: 1.6;
+  resize: vertical;
+  outline: none;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .meta-tag-tool {
+    max-width: 100%;
+  }
+
+  .meta-tag-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .meta-tag-field input,
+  .meta-tag-field select {
+    height: 38px;
+  }
+
+  .meta-tag-field textarea {
+    min-height: 70px;
+  }
+
+  .meta-tag-output {
+    min-height: 125px;
+  }
+
+  .meta-tag-generate-btn {
+    padding: 9px 16px;
+  }
+  .meta-tag-field {
+    display: grid;
+    grid-template-columns: 85px 1fr;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 10px;
+  }
+
+  .meta-tag-field label {
+    margin-bottom: 0;
+    white-space: nowrap;
+    font-size: 12px;
+  }
+
+  .meta-tag-field textarea {
+    min-height: 58px;
+  }
+
+  .meta-tag-row {
+    display: block;
+  }
+
+  .meta-tag-row .meta-tag-field {
+    display: grid;
+  }
+
+}

@@ -19,6 +19,7 @@ import PDFEditor from '../tools/PDFEditor'
 import PDFToDOCX from '../tools/PDFToDOCX'
 import JPGToPDF from '../tools/JPGToPDF'
 import Base64Tool from '../tools/Base64Tool'
+import MetaTagTool from '../tools/MetaTagTool'
 
 const toolsData = {
 
@@ -493,5 +494,39 @@ const toolsData = {
     }
   ]
 },
+'meta-tag-tool': {
+  name: 'Meta Tag Tool',
+  slug: 'meta-tag-tool',
+  seoTitle: 'Free Meta Tag Tool Online',
+  seoDescription:
+    'Generate SEO meta tags for your website quickly and easily with KumpiHub.',
+  description:
+    'Create title, description, keywords, author, canonical, and robots meta tags for your website.',
+  component: <MetaTagTool />,
+  howToUse: [
+    'Enter your website information.',
+    'Choose your preferred robots setting.',
+    'Click the Generate Meta Tags button.',
+    'Copy the generated HTML meta tags.'
+  ],
+  faqs: [
+    {
+      question: 'What is a meta tag?',
+      answer:
+        'A meta tag provides information about a webpage to search engines and browsers.'
+    },
+    {
+      question: 'Is the Meta Tag Tool free?',
+      answer:
+        'Yes. KumpiHub Meta Tag Tool is free to use.'
+    },
+    {
+      question: 'Can I use the generated tags on my website?',
+      answer:
+        'Yes. You can copy the generated tags and place them inside the head section of your HTML page.'
+    }
+  ]
+},
+
 }
 export default toolsData
