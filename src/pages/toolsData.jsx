@@ -20,6 +20,7 @@ import PDFToDOCX from '../tools/PDFToDOCX'
 import JPGToPDF from '../tools/JPGToPDF'
 import Base64Tool from '../tools/Base64Tool'
 import MetaTagTool from '../tools/MetaTagTool'
+import LogoGenerator from '../tools/LogoGenerator'
 
 const toolsData = {
 
@@ -524,6 +525,40 @@ const toolsData = {
       question: 'Can I use the generated tags on my website?',
       answer:
         'Yes. You can copy the generated tags and place them inside the head section of your HTML page.'
+    }
+  ]
+},
+'logo-generator': {
+  name: 'Logo Generator',
+  slug: 'logo-generator',
+  seoTitle: 'Free Logo Generator Online',
+  seoDescription:
+    'Create simple logo designs online for free with KumpiHub Logo Generator.',
+  description:
+    'Create multiple logo variations using your brand name, style, icon and color, then download your favorite logo as a PNG image.',
+  component: <LogoGenerator />,
+  howToUse: [
+    'Enter your brand name.',
+    'Choose a logo style, icon and color.',
+    'Click Generate Logos.',
+    'Choose your favorite logo variation.',
+    'Download your logo as a PNG image.'
+  ],
+  faqs: [
+    {
+      question: 'Is the Logo Generator free?',
+      answer:
+        'Yes. KumpiHub Logo Generator is free to use.'
+    },
+    {
+      question: 'Do I need an AI account?',
+      answer:
+        'No. The Logo Generator works directly in your browser and does not require an AI account.'
+    },
+    {
+      question: 'Can I download my logo?',
+      answer:
+        'Yes. You can download your selected logo as a PNG image.'
     }
   ]
 },

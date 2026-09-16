@@ -47,6 +47,7 @@ import PDFToDOCX from './tools/PDFToDOCX'
 import JPGToPDF from './tools/JPGToPDF'
 import Base64Tool from './tools/Base64Tool'
 import MetaTagTool from './tools/MetaTagTool'
+import LogoGenerator from './tools/LogoGenerator'
 import URLRedirect from './URLRedirect'
 import LandingPage from './pages/LandingPage'
 
@@ -239,6 +240,11 @@ const downloadCompressedImage = () => {
      name: 'Meta Tag Tool',
      description: 'Generate SEO meta tags for your website.',
     },
+    {
+     icon: '✦',
+     name: 'Logo Generator',
+     description: 'Create simple logo designs and download them as PNG.',
+    },
 
   ]
 const filteredTools = tools.filter((tool) =>
@@ -423,6 +429,10 @@ const path = window.location.pathname
 
 ) : selectedTool === 'Meta Tag Tool' ? (
   <MetaTagTool />  
+
+) : selectedTool === 'Logo Generator' ? (
+  <LogoGenerator />
+ 
 
   ) : (
 

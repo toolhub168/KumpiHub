@@ -1,5 +1,5 @@
 import dotenv from 'dotenv'
-dotenv.config({ path: '.env.local' })
+dotenv.config({ path: '../.env.local' })
 import express from 'express'
 import cors from 'cors'
 import fs from 'fs'
@@ -42,6 +42,7 @@ function getMonthlyQuota() {
 }
 
 const app = express()
+getMonthlyQuota()
 console.log(
   'FastSaver API key loaded:',
   Boolean(process.env.FASTSAVER_API_KEY)
@@ -120,6 +121,7 @@ res.json({
   }
 })
 app.get('/api/download-file', async (req, res) => {
+  console.log('DOWNLOAD-FILE ENDPOINT CALLED')
   const { url } = req.query
 
   if (!url) {
@@ -155,25 +157,53 @@ if (quota.count >= MONTHLY_LIMIT) {
       'attachment; filename="toolhub-video.mp4"'
     )
 
-   const buffer = await videoResponse.arrayBuffer()
+   const updatedQuota = getMonthlyQuota()
 
-const quota = getMonthlyQuota()
+console.log('Before count:', updatedQuota)
 
-if (quota.count < MONTHLY_LIMIT) {
-  quota.count += 1
+if (updatedQuota.count < MONTHLY_LIMIT) {
+  updatedQuota.count += 1
 
   fs.writeFileSync(
     quotaFile,
-    JSON.stringify(quota, null, 2)
+    JSON.stringify(updatedQuota, null, 2)
   )
+
+  console.log('After count:', updatedQuota)
 }
 
-res.setHeader(
-  'Content-Length',
-  buffer.byteLength
-)
 
-res.send(Buffer.from(buffer))
+const contentLength = videoResponse.headers.get('content-length')
+
+if (contentLength) {
+  res.setHeader('Content-Length', contentLength)
+}
+
+if (!videoResponse.body) {
+  throw new Error('Video stream is not available')
+}
+
+const reader = videoResponse.body.getReader()
+
+const { Readable } = await import('stream')
+
+const stream = new Readable({
+  async read() {
+    try {
+      const { done, value } = await reader.read()
+
+      if (done) {
+        this.push(null)
+      } else {
+        this.push(Buffer.from(value))
+      }
+    } catch (error) {
+      this.destroy(error)
+    }
+  },
+})
+
+stream.pipe(res)
   } catch (error) {
     console.error('Download file error:', error)
 
