@@ -1,0 +1,378 @@
+/* =================================
+   KumpiHub - Text Diff
+   ================================= */
+
+.text-diff {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 4px 0 16px;
+  color: #172033;
+  box-sizing: border-box;
+}
+
+/* Header */
+
+.text-diff-header {
+  margin-bottom: 14px;
+}
+
+.text-diff-header h2 {
+  margin: 0;
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  color: #172033;
+}
+
+.text-diff-header p {
+  margin: 4px 0 0;
+  color: #7a8497;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* =================================
+   Input Areas
+   ================================= */
+
+.text-diff-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.text-diff-box {
+  background: #ffffff;
+  border: 1px solid #777a76;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(45, 55, 72, 0.05);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.text-diff-box:focus-within {
+  border-color: #8da8ff;
+  box-shadow: 0 5px 20px rgba(79, 124, 255, 0.10);
+}
+
+.text-diff-box-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 12px;
+  background: #f8faff;
+  border-bottom: 1px solid #e9edf5;
+}
+
+.text-diff-box-header span:first-child {
+  font-size: 13px;
+  font-weight: 650;
+  color: #26334b;
+}
+
+.text-diff-box-header span:last-child {
+  font-size: 11px;
+  color: #8b95a8;
+}
+
+.text-diff-box textarea {
+  display: block;
+  width: 100%;
+  min-height: 185px;
+  padding: 7px 14px 14px;
+  border: none;
+  outline: none;
+  resize: vertical;
+  background: #ffffff;
+  color: #2d3748;
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+.text-diff-box textarea::placeholder {
+  color: #a5adbb;
+}
+
+.text-diff-box textarea:focus {
+  background: #fcfdff;
+}
+
+/* =================================
+   Actions
+   ================================= */
+
+.text-diff-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 13px 0;
+}
+
+.text-diff-actions button,
+.text-diff-copy {
+  border: none;
+  border-radius: 9px;
+  padding: 9px 18px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.text-diff-actions button:hover,
+.text-diff-copy:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+/* Compare */
+
+.text-diff-primary {
+  color: #ffffff;
+  background: linear-gradient(135deg, #4f7cff, #7657e8);
+  box-shadow: 0 4px 12px rgba(79, 124, 255, 0.20);
+}
+
+.text-diff-primary:hover {
+  box-shadow: 0 6px 16px rgba(79, 124, 255, 0.26);
+}
+
+/* Clear */
+
+.text-diff-secondary {
+  color: #4a5568;
+  background: #edf1f7;
+}
+
+.text-diff-secondary:hover {
+  background: #e6ebf3;
+}
+
+/* =================================
+   Result
+   ================================= */
+
+.text-diff-result {
+  background: #ffffff;
+  border: 1px solid #e4e9f2;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(45, 55, 72, 0.05);
+}
+
+.text-diff-result-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 12px;
+  background: #f8faff;
+  border-bottom: 1px solid #e9edf5;
+}
+
+.text-diff-result-header h3 {
+  margin: 0 0 5px;
+  font-size: 14px;
+  font-weight: 650;
+  color: #27344d;
+}
+
+.text-diff-legend {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 10px;
+}
+
+/* Legend */
+
+.legend-added,
+.legend-removed {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.legend-added::before,
+.legend-removed::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.legend-added {
+  color: #16805a;
+}
+
+.legend-added::before {
+  background: #36c98b;
+}
+
+.legend-removed {
+  color: #c44755;
+}
+
+.legend-removed::before {
+  background: #ef6b78;
+}
+
+/* Copy */
+
+.text-diff-copy {
+  padding: 7px 12px;
+  color: #4f63c8;
+  background: #eef2ff;
+  white-space: nowrap;
+}
+
+.text-diff-copy:hover:not(:disabled) {
+  background: #e6ebff;
+}
+
+/* =================================
+   Diff Content
+   ================================= */
+
+.text-diff-content {
+  padding: 15px;
+  min-height: 80px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
+  font-size: 12.5px;
+  line-height: 1.75;
+  color: #3b4659;
+}
+
+.diff-same {
+  color: #3b4659;
+}
+
+.diff-added {
+  padding: 1px 3px;
+  border-radius: 3px;
+  background: #dff8eb;
+  color: #14754f;
+}
+
+.diff-removed {
+  padding: 1px 3px;
+  border-radius: 3px;
+  background: #ffe3e6;
+  color: #b53c4b;
+  text-decoration: line-through;
+}
+
+/* No changes */
+
+.text-diff-no-change {
+  text-align: center;
+  padding: 22px 10px;
+  color: #16805a;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Disabled */
+
+.text-diff-copy:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* =================================
+   Mobile
+   ================================= */
+
+@media (max-width: 700px) {
+
+  .text-diff {
+    padding: 2px 0 12px;
+  }
+
+  .text-diff-header {
+    margin-bottom: 11px;
+  }
+
+  .text-diff-header h2 {
+    font-size: 21px;
+  }
+
+  .text-diff-header p {
+    font-size: 12px;
+  }
+
+  .text-diff-inputs {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+
+  .text-diff-box {
+    border-radius: 12px;
+  }
+
+  .text-diff-box-header {
+    padding: 8px 11px;
+  }
+
+  .text-diff-box-header span:first-child {
+    font-size: 12px;
+  }
+
+  .text-diff-box textarea {
+    min-height: 110px;
+    padding: 3px 7px 7px;
+    font-size: 13px;
+  }
+
+  .text-diff-actions {
+    margin: 11px 0;
+    gap: 7px;
+  }
+
+  .text-diff-actions button {
+    flex: 1;
+    padding: 9px 12px;
+  }
+
+  .text-diff-result-header {
+    padding: 9px 10px;
+    gap: 8px;
+  }
+
+  .text-diff-result-header h3 {
+    font-size: 13px;
+  }
+
+  .text-diff-legend {
+    gap: 7px;
+    font-size: 9px;
+  }
+
+  .text-diff-copy {
+    padding: 7px 10px;
+    font-size: 12px;
+  }
+
+  .text-diff-content {
+    padding: 12px;
+    font-size: 11.5px;
+    line-height: 1.7;
+  }
+}

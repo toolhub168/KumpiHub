@@ -48,6 +48,7 @@ import JPGToPDF from './tools/JPGToPDF'
 import Base64Tool from './tools/Base64Tool'
 import MetaTagTool from './tools/MetaTagTool'
 import LogoGenerator from './tools/LogoGenerator'
+import TextDiff from './tools/TextDiff'
 import URLRedirect from './URLRedirect'
 import LandingPage from './pages/LandingPage'
 
@@ -245,6 +246,12 @@ const downloadCompressedImage = () => {
      name: 'Logo Generator',
      description: 'Create simple logo designs and download them as PNG.',
     },
+    {
+      icon: textToolsIcon,
+      name: 'Text Diff',
+      description: 'Compare two texts and find the differences.',
+    },
+
 
   ]
 const filteredTools = tools.filter((tool) =>
@@ -432,6 +439,9 @@ const path = window.location.pathname
 
 ) : selectedTool === 'Logo Generator' ? (
   <LogoGenerator />
+
+) : selectedTool === 'Text Diff' ? (
+    <TextDiff />
  
 
   ) : (

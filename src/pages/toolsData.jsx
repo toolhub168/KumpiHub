@@ -21,6 +21,7 @@ import JPGToPDF from '../tools/JPGToPDF'
 import Base64Tool from '../tools/Base64Tool'
 import MetaTagTool from '../tools/MetaTagTool'
 import LogoGenerator from '../tools/LogoGenerator'
+import TextDiff from '../tools/TextDiff'
 
 const toolsData = {
 
@@ -559,6 +560,40 @@ const toolsData = {
       question: 'Can I download my logo?',
       answer:
         'Yes. You can download your selected logo as a PNG image.'
+    }
+  ]
+},
+'text-diff': {
+  name: 'Text Diff',
+  slug: 'text-diff',
+  seoTitle: 'Free Text Diff Tool Online',
+  seoDescription:
+    'Compare two texts and find differences online for free with KumpiHub.',
+  description:
+    'Compare two versions of text and quickly identify added and removed content.',
+  component: <TextDiff />,
+  howToUse: [
+    'Paste the original text.',
+    'Paste the new text.',
+    'Click Compare.',
+    'Review the highlighted differences.',
+    'Copy the comparison result if needed.'
+  ],
+  faqs: [
+    {
+      question: 'Is the Text Diff tool free?',
+      answer:
+        'Yes. KumpiHub Text Diff is free to use.'
+    },
+    {
+      question: 'Can I compare text on mobile?',
+      answer:
+        'Yes. The Text Diff tool works on supported mobile and desktop browsers.'
+    },
+    {
+      question: 'Do I need to upload my text?',
+      answer:
+        'No. Text comparison is performed directly in your browser.'
     }
   ]
 },
