@@ -22,6 +22,8 @@ import Base64Tool from '../tools/Base64Tool'
 import MetaTagTool from '../tools/MetaTagTool'
 import LogoGenerator from '../tools/LogoGenerator'
 import TextDiff from '../tools/TextDiff'
+import UUIDGenerator from '../tools/UUIDGenerator'
+import HashGenerator from '../tools/HashGenerator'
 
 const toolsData = {
 
@@ -597,6 +599,76 @@ const toolsData = {
     }
   ]
 },
-
+'uuid-generator': {
+  name: 'UUID Generator',
+  slug: 'uuid-generator',
+  seoTitle: 'Free UUID Generator Online',
+  seoDescription:
+    'Generate UUIDs online for free with KumpiHub.',
+  description:
+    'Generate unique UUID v4 identifiers instantly in your browser.',
+  component: <UUIDGenerator />,
+  howToUse: [
+    'Choose how many UUIDs you want to generate.',
+    'Click Generate UUID.',
+    'Copy an individual UUID or copy all UUIDs.',
+    'Use the generated UUIDs in your projects or applications.'
+  ],
+  faqs: [
+    {
+      question: 'What is a UUID?',
+      answer:
+        'A UUID is a unique identifier commonly used to identify data, records, users, files, and other objects.'
+    },
+    {
+      question: 'Is the UUID Generator free?',
+      answer:
+        'Yes. KumpiHub UUID Generator is free to use.'
+    },
+    {
+      question: 'Does the UUID Generator need a server?',
+      answer:
+        'No. UUIDs are generated directly in your browser.'
+    }
+  ]
+},
+'hash-generator': {
+  name: 'Hash Generator',
+  slug: 'hash-generator',
+  seoTitle: 'Free Hash Generator Online',
+  seoDescription:
+    'Generate SHA-256, SHA-384, and SHA-512 hashes online for free with KumpiHub.',
+  description:
+    'Generate cryptographic hashes directly in your browser using SHA-256, SHA-384, and SHA-512.',
+  component: <HashGenerator />,
+  howToUse: [
+    'Enter or paste your text.',
+    'Choose a hash algorithm.',
+    'Click Generate Hash.',
+    'Copy the generated hash.'
+  ],
+  faqs: [
+    {
+      question: 'What is a hash?',
+      answer:
+        'A hash is a fixed-length value generated from data using a hash function. It is commonly used for data integrity and identification.'
+    },
+    {
+      question: 'Which hash algorithms are supported?',
+      answer:
+        'KumpiHub Hash Generator currently supports SHA-256, SHA-384, and SHA-512.'
+    },
+    {
+      question: 'Is the Hash Generator free?',
+      answer:
+        'Yes. KumpiHub Hash Generator is free to use.'
+    },
+    {
+      question: 'Does the Hash Generator need a server?',
+      answer:
+        'No. Hashes are generated directly in your browser.'
+    }
+  ]
+},
 }
 export default toolsData

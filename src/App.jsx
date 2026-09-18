@@ -49,6 +49,8 @@ import Base64Tool from './tools/Base64Tool'
 import MetaTagTool from './tools/MetaTagTool'
 import LogoGenerator from './tools/LogoGenerator'
 import TextDiff from './tools/TextDiff'
+import UUIDGenerator from './tools/UUIDGenerator'
+import HashGenerator from './tools/HashGenerator'
 import URLRedirect from './URLRedirect'
 import LandingPage from './pages/LandingPage'
 
@@ -247,10 +249,21 @@ const downloadCompressedImage = () => {
      description: 'Create simple logo designs and download them as PNG.',
     },
     {
-      icon: textToolsIcon,
-      name: 'Text Diff',
-      description: 'Compare two texts and find the differences.',
+     icon: textToolsIcon,
+     name: 'Text Diff',
+     description: 'Compare two texts and find the differences.',
     },
+    {
+     icon: '✦',
+     name: 'UUID Generator',
+     description: 'Generate unique UUIDs instantly for your projects.',
+    },
+    {
+     icon: '✦',
+     name: 'Hash Generator',
+     description: 'Generate SHA hashes instantly in your browser.',
+    },
+
 
 
   ]
@@ -442,6 +455,12 @@ const path = window.location.pathname
 
 ) : selectedTool === 'Text Diff' ? (
     <TextDiff />
+
+) : selectedTool === 'UUID Generator' ? (
+    <UUIDGenerator />  
+    
+) : selectedTool === 'Hash Generator' ? (
+  <HashGenerator />    
  
 
   ) : (

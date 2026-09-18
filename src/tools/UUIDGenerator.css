@@ -1,0 +1,256 @@
+.uuid-generator {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 10px 0 20px;
+  color: #172033;
+}
+
+.uuid-header {
+  margin-bottom: 16px;
+}
+
+.uuid-header h2 {
+  margin: 0;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.uuid-header p {
+  margin: 5px 0 0;
+  color: #718096;
+  font-size: 14px;
+}
+
+.uuid-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  background: #ffffff;
+  border: 2px solid #dce3f0;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(45, 55, 72, 0.06);
+}
+
+.uuid-count {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.uuid-actions {
+  display: flex;
+  gap: 9px;
+}
+
+
+.uuid-count label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #5f6b7a;
+}
+
+.uuid-count select {
+  height: 32px;
+  min-width: 120px;
+  padding: 0 38px 0 38px;
+  border: 1px solid #a3a8b0;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #172033;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  text-align-last: center;
+  outline: none;
+}
+
+.uuid-count select:focus {
+  border-color: #6f8cff;
+  box-shadow: 0 0 0 3px rgba(79, 124, 255, 0.1);
+}
+
+.uuid-generate-button,
+.uuid-clear-button {
+  height: 42px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.uuid-generate-button {
+  color: #ffffff;
+  background: linear-gradient(135deg, #4f7cff, #7357e8);
+  box-shadow: 0 5px 14px rgba(79, 124, 255, 0.2);
+}
+
+.uuid-clear-button {
+  color: #4f5d73;
+  background: #eef2f8;
+}
+
+.uuid-generate-button:hover,
+.uuid-clear-button:hover {
+  transform: translateY(-1px);
+}
+
+.uuid-generate-button:active,
+.uuid-clear-button:active {
+  transform: translateY(0);
+}
+
+.uuid-result {
+  margin-top: 14px;
+  background: #ffffff;
+  border: 2px solid #dce3f0;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(45, 55, 72, 0.06);
+}
+
+.uuid-result-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 11px 14px;
+  background: #f8faff;
+  border-bottom: 1px solid #e8ecf4;
+}
+
+.uuid-result-header span {
+  font-size: 13px;
+  font-weight: 700;
+  color: #344054;
+}
+
+.uuid-result-header button,
+.uuid-item button {
+  border: none;
+  border-radius: 8px;
+  padding: 7px 11px;
+  background: #edf2ff;
+  color: #4f6fe8;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.uuid-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.uuid-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  border-bottom: 1px solid #edf0f5;
+}
+
+.uuid-item:last-child {
+  border-bottom: none;
+}
+
+.uuid-item span {
+  min-width: 0;
+  overflow-x: auto;
+  white-space: nowrap;
+  color: #27364d;
+  font-family: monospace;
+  font-size: 13px;
+}
+
+.uuid-empty {
+  margin-top: 14px;
+  padding: 28px 15px;
+  text-align: center;
+  background: #ffffff;
+  border: 2px dashed #dce3f0;
+  border-radius: 14px;
+}
+
+.uuid-empty-icon {
+  width: 42px;
+  height: 42px;
+  margin: 0 auto 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #eef3ff, #f1edff);
+  color: #5d70e8;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.uuid-empty p {
+  margin: 0;
+  color: #718096;
+  font-size: 13px;
+}
+
+@media (max-width: 700px) {
+  .uuid-generator {
+    padding: 7px 0 15px;
+  }
+
+  .uuid-header h2 {
+    font-size: 22px;
+  }
+
+  .uuid-header p {
+    font-size: 13px;
+  }
+
+  .uuid-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+    padding: 11px;
+  }
+
+  .uuid-count select {
+    width: 100%;
+  }
+
+  .uuid-actions {
+    display: flex;
+    justify-content: center;
+    gap: 9px;
+    width: 100%;
+  }
+
+  .uuid-generate-button,
+  .uuid-clear-button {
+    width: auto;
+    min-width: 130px;
+    padding: 0 16px;
+  }
+
+  .uuid-item {
+    padding: 9px 11px;
+  }
+
+  .uuid-item span {
+    font-size: 11px;
+  }
+
+  .uuid-item button {
+    flex-shrink: 0;
+    padding: 6px 9px;
+  }
+}
