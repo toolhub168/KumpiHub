@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import './AppV2.css'
 
-import videoDownloaderIcon from './assets/icons/video-downloader.png'
 import imageCompressorIcon from './assets/icons/image-compressor.png'
 import imageResizerIcon from './assets/icons/image-resizer.png'
 import pdfToolsIcon from './assets/icons/pdf-tools.png'
@@ -25,7 +24,6 @@ import base64ToolIcon from './assets/icons/base64-tool.png'
 import metaTagToolIcon from './assets/icons/meta-tag-tool.png'
 
 
-import VideoDownloader from './tools/VideoDownloader'
 import PDFTools from './tools/PDFTools'
 import ImageResizer from './tools/ImageResizer'
 import URLShortener from './tools/URLShortener'
@@ -133,11 +131,7 @@ const downloadCompressedImage = () => {
 
   const [selectedTool, setSelectedTool] = useState(null)
   const tools = [
-    {
-      icon: videoDownloaderIcon,
-      name: 'Video Downloader',
-      description: 'Download videos from supported platforms.',
-    },
+    
     {
       icon: imageCompressorIcon,
       name: 'Image Compressor',
@@ -383,11 +377,7 @@ const path = window.location.pathname
 
     <div className="tool-workspace-content">
 
-  {selectedTool === 'Video Downloader' ? (
-
-    <VideoDownloader />
-
-) : selectedTool === 'Image Compressor' ? (
+  {selectedTool === 'Image Compressor' ? (
     <ImageCompressor />
 
 ) : selectedTool === 'PDF Tools' ? (

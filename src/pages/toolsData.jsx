@@ -1,4 +1,3 @@
-import VideoDownloader from '../tools/VideoDownloader'
 import ImageCompressor from '../tools/ImageCompressor'
 import ImageResizer from '../tools/ImageResizer'
 import PDFTools from '../tools/PDFTools'
@@ -27,29 +26,6 @@ import HashGenerator from '../tools/HashGenerator'
 
 const toolsData = {
 
-  'video-downloader': {
-    name: 'Video Downloader',
-    seoTitle: 'Free Video Downloader Online',
-    seoDescription: 'Download videos online quickly and easily with KumpiHub Video Downloader.',
-    description: 'KumpiHub Video Downloader helps you download supported online videos quickly and easily.',
-    component: <VideoDownloader />,
-    howToUse: [
-      'Paste the video URL.',
-      'Click the Download button.',
-      'Choose the available download option.',
-      'Save the video to your device.'
-    ],
-    faqs: [
-      {
-        question: 'Is KumpiHub Video Downloader free?',
-        answer: 'Yes. KumpiHub Video Downloader is free to use.'
-      },
-      {
-        question: 'Can I use it on my phone?',
-        answer: 'Yes. The tool works on both mobile devices and computers.'
-      }
-    ]
-  },
 
   'image-compressor': {
     name: 'Image Compressor',
