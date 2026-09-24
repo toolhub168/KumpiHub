@@ -1,0 +1,183 @@
+.html-formatter {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px 20px;
+  box-sizing: border-box;
+}
+
+.html-formatter-header {
+  margin-bottom: 16px;
+}
+
+.html-formatter-header h2 {
+  margin: 0 0 6px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.html-formatter-header p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.html-formatter-section {
+  margin-bottom: 14px;
+}
+
+.html-formatter-section label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.html-formatter-textarea {
+  width: 100%;
+  min-height: 230px;
+  padding: 14px;
+  box-sizing: border-box;
+
+  border: 1.5px solid #788697;
+  border-radius: 12px;
+
+  background: #ffffff;
+  color: #1f2937;
+
+  font-family: "Consolas", "Monaco", monospace;
+  font-size: 14px;
+  line-height: 1.55;
+
+  resize: vertical;
+  outline: none;
+
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+.html-formatter-textarea::placeholder {
+  color: #94a3b8;
+}
+
+.html-formatter-textarea:focus {
+  border-color: #6366f1;
+  box-shadow:
+    0 0 0 3px rgba(99, 102, 241, 0.10),
+    0 3px 10px rgba(15, 23, 42, 0.05);
+}
+
+.html-formatter-textarea.output {
+  background: #ffffff;
+  color: #111827;
+}
+
+.html-formatter-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.html-btn,
+.html-copy-btn {
+  border: none;
+  border-radius: 9px;
+  padding: 9px 15px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #eef1f7;
+  color: #374151;
+  transition: 0.2s ease;
+}
+
+.html-btn:hover,
+.html-copy-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.html-btn.primary {
+  background: linear-gradient(135deg, #4f7cff, #7357e8);
+  color: white;
+}
+
+.html-btn.danger {
+  color: #dc2626;
+  background: #fff1f2;
+}
+
+.html-output-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 7px;
+}
+
+.html-output-header label {
+  margin-bottom: 0;
+}
+
+.html-copy-btn {
+  padding: 6px 12px;
+  background: #eef2ff;
+  color: #4f46e5;
+}
+
+.html-copy-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Phone */
+@media (max-width: 600px) {
+  .html-formatter {
+    padding: 0 12px 12px;
+  }
+
+  .html-formatter-header {
+    margin-bottom: 10px;
+  }
+
+  .html-formatter-header h2 {
+    font-size: 20px;
+    margin-bottom: 3px;
+  }
+
+  .html-formatter-header p {
+    font-size: 12px;
+  }
+
+  .html-formatter-section {
+    margin-bottom: 8px;
+  }
+
+  .html-formatter-section label {
+    margin-bottom: 4px;
+    font-size: 12px;
+  }
+
+  .html-formatter-textarea {
+    min-height: 170px;
+    padding: 10px;
+    border-radius: 9px;
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .html-formatter-actions {
+    gap: 5px;
+    margin-bottom: 8px;
+  }
+
+  .html-btn,
+  .html-copy-btn {
+    padding: 7px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+  }
+
+  .html-output-header {
+    margin-bottom: 4px;
+  }
+}

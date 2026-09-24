@@ -26,6 +26,8 @@ import HashGenerator from '../tools/HashGenerator'
 import FaviconGenerator from '../tools/FaviconGenerator'
 import SVGOptimizer from '../tools/SVGOptimizer'
 import ImageToSVG from '../tools/ImageToSVG'
+import CSSFormatter from '../tools/CSSFormatter'
+import HTMLFormatter from '../tools/HTMLFormatter'
 
 const toolsData = {
 
@@ -755,6 +757,85 @@ const toolsData = {
         'No. The conversion is performed directly in your browser.'
     }
   ]
+},
+'css-formatter': {
+  name: 'CSS Formatter',
+  slug: 'css-formatter',
+
+  seoTitle: 'Free CSS Formatter Online',
+
+  seoDescription:
+    'Format, beautify and minify CSS code online for free with KumpiHub.',
+
+  description:
+    'Format, beautify and minify CSS code quickly and easily directly in your browser.',
+
+  component: <CSSFormatter />,
+
+  howToUse: [
+    'Paste your CSS code into the input box.',
+    'Click Format CSS to beautify your code.',
+    'Use Minify CSS to reduce the CSS file size.',
+    'Copy your formatted or minified CSS.'
+  ],
+
+  faqs: [
+    {
+      question: 'Is the CSS Formatter free?',
+      answer:
+        'Yes. KumpiHub CSS Formatter is free to use.'
+    },
+
+    {
+      question: 'Can I format CSS on mobile?',
+      answer:
+        'Yes. The CSS Formatter works on supported mobile and desktop browsers.'
+    },
+
+    {
+      question: 'Does the CSS Formatter need a server?',
+      answer:
+        'No. CSS formatting and minifying are performed directly in your browser.'
+    }
+  ]
+},
+"html-formatter": {
+  name: "HTML Formatter",
+  slug: "html-formatter",
+
+  seoTitle: "Free HTML Formatter Online",
+
+  seoDescription:
+    "Format, beautify and minify HTML code online for free with KumpiHub.",
+
+  description:
+    "Format, beautify and minify HTML code quickly and easily directly in your browser.",
+
+  component: <HTMLFormatter />,
+
+  howToUse: [
+    "Paste your HTML code into the input box.",
+    "Click Format HTML to beautify your code.",
+    "Use Minify HTML to reduce the HTML size.",
+    "Copy your formatted or minified HTML.",
+  ],
+
+  faqs: [
+    {
+      question: "Is the HTML Formatter free?",
+      answer: "Yes. KumpiHub HTML Formatter is free to use.",
+    },
+    {
+      question: "Can I format HTML on mobile?",
+      answer:
+        "Yes. The HTML Formatter works on supported mobile and desktop browsers.",
+    },
+    {
+      question: "Does the HTML Formatter need a server?",
+      answer:
+        "No. HTML formatting and minifying are performed directly in your browser.",
+    },
+  ],
 },
 }
 export default toolsData

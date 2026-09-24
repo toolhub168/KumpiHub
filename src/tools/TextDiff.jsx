@@ -84,8 +84,7 @@ function TextDiff() {
     <div className="text-diff">
       <div className="text-diff-header">
         <div>
-          <h2>Text Diff</h2>
-          <p>Compare two texts and find the differences.</p>
+
         </div>
       </div>
 

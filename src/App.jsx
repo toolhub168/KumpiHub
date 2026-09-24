@@ -52,6 +52,8 @@ import HashGenerator from './tools/HashGenerator'
 import FaviconGenerator from './tools/FaviconGenerator'
 import SVGOptimizer from './tools/SVGOptimizer'
 import ImageToSVG from './tools/ImageToSVG'
+import CSSFormatter from './tools/CSSFormatter'
+import HTMLFormatter from './tools/HTMLFormatter'
 import URLRedirect from './URLRedirect'
 import LandingPage from './pages/LandingPage'
 
@@ -276,10 +278,16 @@ const downloadCompressedImage = () => {
      name: 'Image to SVG',
      description: 'Convert PNG, JPG, JPEG and WebP images to SVG.',
     },
-
-
-
-
+    {
+     icon: '✦',
+     name: 'CSS Formatter',
+     description: 'Format, beautify and minify CSS code instantly.',
+    },
+    {
+     icon: "✦",
+     name: "HTML Formatter",
+     description: "Format, beautify and minify HTML code instantly.",
+    },
 
 
   ]
@@ -480,11 +488,16 @@ const path = window.location.pathname
 ) : selectedTool === 'SVG Optimizer' ? (
   <SVGOptimizer />  
 
- ) : selectedTool === 'Image to SVG' ? (
+) : selectedTool === 'Image to SVG' ? (
   <ImageToSVG />
- 
- 
 
+) : selectedTool === 'CSS Formatter' ? (
+  <CSSFormatter />
+  
+) : selectedTool === "HTML Formatter" ? (
+  <HTMLFormatter />  
+ 
+ 
   ) : (
 
     <div className="selected-tool">
