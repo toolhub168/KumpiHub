@@ -1,0 +1,351 @@
+.favicon-generator {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.favicon-main-card,
+.favicon-download-card {
+  background: #ffffff;
+  border: 1px solid #e7eaf2;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 8px 30px rgba(30, 41, 59, 0.06);
+}
+
+/* Upload */
+
+.favicon-upload-area {
+  min-height: 230px;
+  border: 2px dashed #cfd5e3;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.favicon-upload-area:hover {
+  border-color: #7c3aed;
+  background: #faf9ff;
+}
+
+.favicon-upload-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #7c3aed
+  );
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.favicon-upload-area h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #1f2937;
+}
+
+.favicon-upload-area p {
+  margin: 6px 0 16px;
+  color: #7b8190;
+  font-size: 14px;
+}
+
+.favicon-upload-btn {
+  border: none;
+  padding: 11px 22px;
+  border-radius: 11px;
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #7c3aed
+  );
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.favicon-upload-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 7px 18px rgba(79, 70, 229, 0.22);
+}
+
+/* Preview */
+
+.favicon-preview {
+  width: 190px;
+  height: 190px;
+  margin: 0 auto 14px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  background:
+    linear-gradient(45deg, #eeeeee 25%, transparent 25%),
+    linear-gradient(-45deg, #eeeeee 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #eeeeee 75%),
+    linear-gradient(-45deg, transparent 75%, #eeeeee 75%);
+
+  background-size: 24px 24px;
+  background-position:
+    0 0,
+    0 12px,
+    12px -12px,
+    -12px 0;
+}
+
+.favicon-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.favicon-file-name {
+  text-align: center;
+  color: #606775;
+  font-size: 14px;
+  margin-bottom: 16px;
+  word-break: break-word;
+}
+
+.favicon-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.favicon-change-btn,
+.favicon-clear-btn {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 17px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 500;
+}
+
+.favicon-change-btn {
+  background: #eef2ff;
+  color: #4f46e5;
+}
+
+.favicon-clear-btn {
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+.favicon-change-btn:hover,
+.favicon-clear-btn:hover {
+  transform: translateY(-1px);
+}
+
+/* Download */
+
+.favicon-download-card {
+  margin-top: 18px;
+}
+
+.favicon-download-card h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #1f2937;
+}
+
+.favicon-size-description {
+  margin: 6px 0 18px;
+  color: #7b8190;
+  font-size: 14px;
+}
+
+.favicon-size-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.favicon-size-btn {
+  position: relative;
+  min-height: 76px;
+  border: 1px solid #e1e5ee;
+  border-radius: 14px;
+  background: #f8f9fc;
+  cursor: pointer;
+  font-family: inherit;
+  transition: 0.2s ease;
+}
+
+.favicon-size-btn:hover {
+  border-color: #8b5cf6;
+  transform: translateY(-1px);
+}
+
+.favicon-size-btn span {
+  display: block;
+  font-size: 15px;
+  font-weight: 650;
+  color: #252b36;
+}
+
+.favicon-size-btn small {
+  display: block;
+  margin-top: 5px;
+  color: #8a909d;
+  font-size: 12px;
+}
+
+.favicon-size-btn.selected {
+  border: 2px solid #6d4aff;
+  background: #f5f2ff;
+  box-shadow: 0 5px 16px rgba(109, 74, 255, 0.12);
+}
+
+.favicon-selected {
+  position: absolute;
+  top: 7px;
+  right: 8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #6d4aff;
+  color: #ffffff;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Download button */
+
+.favicon-download-btn {
+  width: 100%;
+  margin-top: 18px;
+  padding: 13px 20px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #7c3aed
+  );
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.favicon-download-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.22);
+}
+
+.favicon-download-btn:disabled {
+  background: #d8dbe3;
+  color: #8b909b;
+  cursor: not-allowed;
+}
+
+/* Error */
+
+.favicon-error {
+  margin: 12px 0 0;
+  color: #d93025;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Phone */
+
+@media (max-width: 600px) {
+  .favicon-main-card,
+  .favicon-download-card {
+    padding: 16px;
+    border-radius: 17px;
+  }
+
+  .favicon-upload-area {
+    min-height: 205px;
+  }
+
+  .favicon-preview {
+    width: 160px;
+    height: 160px;
+  }
+
+  /*
+    Keep 3 columns on phone,
+    same as computer
+  */
+  .favicon-size-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .favicon-size-btn {
+    min-height: 70px;
+    padding: 8px 4px;
+  }
+
+  .favicon-size-btn span {
+    font-size: 12px;
+  }
+
+  .favicon-size-btn small {
+    font-size: 10px;
+  }
+
+  .favicon-selected {
+    width: 15px;
+    height: 15px;
+    top: 4px;
+    right: 4px;
+    font-size: 8px;
+  }
+  .favicon-download-card {
+    margin-top: -5px;
+  }
+
+  .favicon-download-card h2 {
+    font-size: 15px;
+    margin-bottom: 3px;
+  }
+
+  .favicon-size-description {
+    font-size: 12px;
+    margin: 3px 0 12px;
+  }
+
+  .favicon-download-btn {
+    font-size: 13px;
+    padding: 11px 16px;
+    margin-top: 12px;
+  }
+ .favicon-actions {
+  gap: 7px;
+  margin-top: -5px;
+}
+
+.favicon-change-btn,
+.favicon-clear-btn {
+  padding: 7px 12px;
+  font-size: 12px;
+  border-radius: 8px;
+}
+
+}
+

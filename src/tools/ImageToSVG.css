@@ -1,0 +1,252 @@
+.image-to-svg {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.image-svg-upload-card,
+.image-svg-result-card {
+  background: #ffffff;
+  border: 1px solid #e7eaf2;
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 7px 25px rgba(30, 41, 59, 0.06);
+}
+
+/* Upload */
+
+.image-svg-upload-area {
+  min-height: 190px;
+  border: 2px dashed #cfd5e3;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.image-svg-upload-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.image-svg-upload-area h3 {
+  margin: 0;
+  font-size: 17px;
+  color: #1f2937;
+}
+
+.image-svg-upload-area p {
+  margin: 4px 0 10px;
+  color: #7b8190;
+  font-size: 12px;
+}
+
+.image-svg-upload-btn {
+  border: none;
+  padding: 9px 17px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Result */
+
+.image-svg-result-card {
+  margin-top: 4px;
+}
+
+.image-svg-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.image-svg-header h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #1f2937;
+}
+
+.image-svg-header p {
+  margin: 2px 0 0;
+  color: #7b8190;
+  font-size: 11px;
+  word-break: break-word;
+}
+
+.image-svg-clear-btn {
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: #f3f4f6;
+  color: #4b5563;
+  font-family: inherit;
+  font-size: 11px;
+}
+
+/* Preview */
+
+.image-svg-preview {
+  width: 100%;
+  height: 210px;
+  border: 1px solid #e3e7ef;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #f7f8fc;
+}
+
+.image-svg-vector {
+  width: 92%;
+  height: 92%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-svg-vector svg {
+  max-width: 100%;
+  max-height: 190px;
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+.image-svg-processing {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+/* Buttons */
+
+.image-svg-change-btn,
+.image-svg-download-btn {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.image-svg-change-btn {
+  margin-top: 8px;
+  padding: 8px;
+  background: #f3f4f6;
+  color: #4b5563;
+  font-size: 12px;
+}
+
+.image-svg-download-btn {
+  margin-top: 7px;
+  padding: 11px;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Error */
+
+.image-svg-error {
+  margin: 7px 0 0;
+  text-align: center;
+  color: #d93025;
+  font-size: 11px;
+}
+
+/* Phone */
+
+@media (max-width: 600px) {
+
+  .image-to-svg {
+    max-width: 100%;
+  }
+
+  .image-svg-upload-card,
+  .image-svg-result-card {
+    padding: 13px;
+    border-radius: 15px;
+  }
+
+  .image-svg-upload-area {
+    min-height: 175px;
+    border-radius: 12px;
+  }
+
+  .image-svg-upload-icon {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 6px;
+  }
+
+  .image-svg-upload-area h3 {
+    font-size: 16px;
+  }
+
+  .image-svg-upload-area p {
+    margin: 3px 0 8px;
+    font-size: 11px;
+  }
+
+  .image-svg-upload-btn {
+    padding: 8px 15px;
+    font-size: 12px;
+  }
+
+  .image-svg-result-card {
+    margin-top: 2px;
+  }
+
+  .image-svg-header {
+    margin-bottom: 7px;
+  }
+
+  .image-svg-header h2 {
+    font-size: 16px;
+  }
+
+  .image-svg-preview {
+    height: 175px;
+  }
+
+  .image-svg-vector svg {
+    max-width: 94%;
+    max-height: 155px;
+  }
+
+  .image-svg-change-btn {
+    margin-top: 6px;
+    padding: 7px;
+  }
+
+  .image-svg-download-btn {
+    margin-top: 6px;
+    padding: 10px;
+  }
+}
+ .image-svg-preview-image {
+  max-width: 94%;
+  max-height: 155px;
+  width: auto;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}

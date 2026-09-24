@@ -49,8 +49,12 @@ import LogoGenerator from './tools/LogoGenerator'
 import TextDiff from './tools/TextDiff'
 import UUIDGenerator from './tools/UUIDGenerator'
 import HashGenerator from './tools/HashGenerator'
+import FaviconGenerator from './tools/FaviconGenerator'
+import SVGOptimizer from './tools/SVGOptimizer'
+import ImageToSVG from './tools/ImageToSVG'
 import URLRedirect from './URLRedirect'
 import LandingPage from './pages/LandingPage'
+
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('')
@@ -257,6 +261,24 @@ const downloadCompressedImage = () => {
      name: 'Hash Generator',
      description: 'Generate SHA hashes instantly in your browser.',
     },
+    {
+     icon: '✦',
+     name: 'Favicon Generator',
+     description: 'Create favicon icons from your image in multiple sizes.',
+    },
+    {
+     icon: '✦',
+     name: 'SVG Optimizer',
+     description: 'Optimize SVG files and reduce their file size.',
+    },
+    {
+     icon: '✦',
+     name: 'Image to SVG',
+     description: 'Convert PNG, JPG, JPEG and WebP images to SVG.',
+    },
+
+
+
 
 
 
@@ -450,7 +472,17 @@ const path = window.location.pathname
     <UUIDGenerator />  
     
 ) : selectedTool === 'Hash Generator' ? (
-  <HashGenerator />    
+  <HashGenerator /> 
+  
+) : selectedTool === 'Favicon Generator' ? (
+  <FaviconGenerator />  
+
+) : selectedTool === 'SVG Optimizer' ? (
+  <SVGOptimizer />  
+
+ ) : selectedTool === 'Image to SVG' ? (
+  <ImageToSVG />
+ 
  
 
   ) : (

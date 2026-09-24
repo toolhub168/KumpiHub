@@ -23,6 +23,9 @@ import LogoGenerator from '../tools/LogoGenerator'
 import TextDiff from '../tools/TextDiff'
 import UUIDGenerator from '../tools/UUIDGenerator'
 import HashGenerator from '../tools/HashGenerator'
+import FaviconGenerator from '../tools/FaviconGenerator'
+import SVGOptimizer from '../tools/SVGOptimizer'
+import ImageToSVG from '../tools/ImageToSVG'
 
 const toolsData = {
 
@@ -643,6 +646,113 @@ const toolsData = {
       question: 'Does the Hash Generator need a server?',
       answer:
         'No. Hashes are generated directly in your browser.'
+    }
+  ]
+},
+'favicon-generator': {
+  name: 'Favicon Generator',
+  slug: 'favicon-generator',
+  seoTitle: 'Free Favicon Generator Online',
+  seoDescription:
+    'Create favicon icons from PNG, JPG and WebP images online for free with KumpiHub.',
+  description:
+    'Create favicon images in multiple sizes from your logo or image directly in your browser.',
+  component: <FaviconGenerator />,
+  howToUse: [
+    'Upload a PNG, JPG or WebP image.',
+    'Preview your image.',
+    'Choose the favicon size you need.',
+    'Download your favicon as a PNG file.'
+  ],
+  faqs: [
+    {
+      question: 'Is the Favicon Generator free?',
+      answer:
+        'Yes. KumpiHub Favicon Generator is free to use.'
+    },
+    {
+      question: 'Do I need to upload my image to a server?',
+      answer:
+        'No. The favicon is generated directly in your browser.'
+    },
+    {
+      question: 'Which favicon sizes are supported?',
+      answer:
+        'You can generate 16×16, 32×32, 48×48, 180×180, 192×192 and 512×512 PNG icons.'
+    }
+  ]
+},
+'svg-optimizer': {
+  name: 'SVG Optimizer',
+  slug: 'svg-optimizer',
+  seoTitle: 'Free SVG Optimizer Online',
+  seoDescription:
+    'Optimize SVG files online and reduce file size for faster websites with KumpiHub.',
+  description:
+    'Optimize SVG files directly in your browser, reduce unnecessary code and download a smaller SVG file.',
+  component: <SVGOptimizer />,
+  howToUse: [
+    'Upload an SVG file.',
+    'Let KumpiHub optimize the SVG code.',
+    'Review the original and optimized file sizes.',
+    'Download your optimized SVG file.'
+  ],
+  faqs: [
+    {
+      question: 'Is the SVG Optimizer free?',
+      answer:
+        'Yes. KumpiHub SVG Optimizer is free to use.'
+    },
+    {
+      question: 'Are my SVG files uploaded to a server?',
+      answer:
+        'No. The SVG optimization is performed directly in your browser.'
+    },
+    {
+      question: 'Will the SVG image remain the same?',
+      answer:
+        'The optimizer removes unnecessary code and whitespace while keeping the SVG structure and visual content.'
+    }
+  ]
+},
+'image-to-svg': {
+  name: 'Image to SVG',
+  slug: 'image-to-svg',
+
+  seoTitle: 'Free Image to SVG Converter Online',
+
+  seoDescription:
+    'Convert PNG, JPG, JPEG and WebP images to SVG online for free with KumpiHub.',
+
+  description:
+    'Convert PNG, JPG, JPEG and WebP images to SVG directly in your browser.',
+
+  component: <ImageToSVG />,
+
+  howToUse: [
+    'Upload a PNG, JPG, JPEG or WebP image.',
+    'The image is automatically converted to SVG.',
+    'Preview the converted SVG image.',
+    'Download your SVG file.'
+  ],
+
+  faqs: [
+    {
+      question: 'Is the Image to SVG converter free?',
+      answer:
+        'Yes. KumpiHub Image to SVG is free to use.'
+    },
+
+    {
+      question: 'Which image formats are supported?',
+      answer:
+        'PNG, JPG, JPEG and WebP images are supported.'
+    },
+
+    {
+      question: 'Are my images uploaded to a server?',
+      answer:
+        'No. The conversion is performed directly in your browser.'
     }
   ]
 },
