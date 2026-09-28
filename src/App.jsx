@@ -54,6 +54,7 @@ import SVGOptimizer from './tools/SVGOptimizer'
 import ImageToSVG from './tools/ImageToSVG'
 import CSSFormatter from './tools/CSSFormatter'
 import HTMLFormatter from './tools/HTMLFormatter'
+import CVBuilder from './tools/CVBuilder'
 import URLRedirect from './URLRedirect'
 import LandingPage from './pages/LandingPage'
 
@@ -288,6 +289,12 @@ const downloadCompressedImage = () => {
      name: "HTML Formatter",
      description: "Format, beautify and minify HTML code instantly.",
     },
+    {
+     icon: "✦",
+     name: "CV Builder",
+     description: "Create stylish professional CVs online for free.",
+    },
+
 
 
   ]
@@ -496,6 +503,9 @@ const path = window.location.pathname
   
 ) : selectedTool === "HTML Formatter" ? (
   <HTMLFormatter />  
+
+) : selectedTool === "CV Builder" ? (
+  <CVBuilder />  
  
  
   ) : (

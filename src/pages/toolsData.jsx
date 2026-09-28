@@ -28,6 +28,7 @@ import SVGOptimizer from '../tools/SVGOptimizer'
 import ImageToSVG from '../tools/ImageToSVG'
 import CSSFormatter from '../tools/CSSFormatter'
 import HTMLFormatter from '../tools/HTMLFormatter'
+import CVBuilder from '../tools/CVBuilder'
 
 const toolsData = {
 
@@ -834,6 +835,51 @@ const toolsData = {
       question: "Does the HTML Formatter need a server?",
       answer:
         "No. HTML formatting and minifying are performed directly in your browser.",
+    },
+  ],
+},
+"cv-builder": {
+  name: "CV Builder",
+  slug: "cv-builder",
+
+  seoTitle: "Free CV Builder Online",
+
+  seoDescription:
+    "Create a professional CV online for free with KumpiHub CV Builder.",
+
+  description:
+    "Create a professional CV online for free with customizable templates, photo support and live editing.",
+
+  component: <CVBuilder />,
+
+  howToUse: [
+    "Choose a CV template.",
+    "Enter your personal information directly on the CV.",
+    "Add your experience, education and skills.",
+    "Add a profile photo if needed.",
+    "Customize the CV color and review your CV.",
+  ],
+
+  faqs: [
+    {
+      question: "Is the CV Builder free?",
+      answer:
+        "Yes. KumpiHub CV Builder is free to use.",
+    },
+    {
+      question: "Can I create a CV on my phone?",
+      answer:
+        "Yes. The CV Builder works on supported mobile and desktop browsers.",
+    },
+    {
+      question: "Do I need an account to create a CV?",
+      answer:
+        "No. You can create your CV directly in your browser without an account.",
+    },
+    {
+      question: "Are my CV details uploaded to a server?",
+      answer:
+        "The CV is edited directly in your browser.",
     },
   ],
 },
