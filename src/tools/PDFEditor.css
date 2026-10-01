@@ -1,26 +1,9 @@
 .pdf-editor {
   width: 100%;
-  max-width: 1100px;
+  max-width: none;
   margin: 0 auto;
   padding: 20px;
   box-sizing: border-box;
-}
-
-.pdf-editor-header {
-  text-align: center;
-  margin-bottom: 18px;
-}
-
-.pdf-editor-header h2 {
-  margin: 0;
-  font-size: 28px;
-  color: #111827;
-}
-
-.pdf-editor-header p {
-  margin: 7px 0 0;
-  color: #6b7280;
-  font-size: 14px;
 }
 
 /* =========================
@@ -33,29 +16,36 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 }
 
 .pdf-editor-tool-button,
 .pdf-editor-download {
   min-height: 42px;
   padding: 0 16px;
+
   border: 1px solid #dbe3ef;
   border-radius: 10px;
+
   background: white;
   color: #111827;
+
   font-size: 14px;
   font-weight: 600;
+
   cursor: pointer;
+
   transition: 0.2s;
 
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  box-sizing: border-box;
 
+  text-align: center;
+
+  box-sizing: border-box;
 }
+
 .pdf-editor-tool-button input {
   display: none;
 }
@@ -87,15 +77,22 @@
 
 .pdf-editor-empty {
   min-height: 360px;
+
   border: 2px dashed #d5deeb;
   border-radius: 18px;
+
   background: #f8fafc;
+
   display: flex;
   flex-direction: column;
+
   align-items: center;
   justify-content: center;
+
   text-align: center;
+
   padding: 30px;
+
   box-sizing: border-box;
 }
 
@@ -106,48 +103,65 @@
 
 .pdf-editor-empty h3 {
   margin: 0;
+
   font-size: 20px;
+
   color: #111827;
 }
 
 .pdf-editor-empty p {
   max-width: 430px;
+
   margin: 8px 0 18px;
+
   color: #6b7280;
+
   line-height: 1.6;
 }
 
 .pdf-editor-empty button {
   border: 0;
   border-radius: 10px;
+
   background: #2563eb;
   color: white;
+
   padding: 11px 20px;
+
   font-weight: 600;
+
   cursor: pointer;
 }
 
 /* =========================
-   PAGE NAVIGATION
+   CONTROLS
 ========================= */
 
 .pdf-editor-controls {
   position: relative;
+
   width: 100%;
   max-width: 900px;
-  height: 42px;
-  margin: 0 auto 10px;
+
+  height: 32px;
+
+  margin: 0 auto 2px;
+
   display: flex;
+
   align-items: center;
   justify-content: center;
 }
 
 .pdf-editor-page-navigation {
   position: absolute;
+
   left: 0;
 
   display: flex;
+
   align-items: center;
+
   gap: 5px;
 }
 
@@ -156,10 +170,13 @@
   height: 28px;
 
   border: 1px solid #dbe3ef;
+
   border-radius: 7px;
+
   background: white;
 
   font-size: 15px;
+
   cursor: pointer;
 }
 
@@ -170,16 +187,26 @@
 
 .pdf-editor-page-navigation span {
   font-size: 12px;
+
   font-weight: 600;
+
   color: #6b7280;
+
   white-space: nowrap;
 }
 
+/* =========================
+   ZOOM
+========================= */
+
 .pdf-editor-zoom {
   display: flex;
+
   align-items: center;
   justify-content: center;
+
   gap: 8px;
+
   margin: 0;
 }
 
@@ -188,19 +215,34 @@
   height: 30px;
 
   border: 1px solid #dbe3ef;
+
   border-radius: 7px;
+
   background: white;
 
   font-size: 18px;
+
   cursor: pointer;
+}
+
+.pdf-editor-zoom button:hover:not(:disabled) {
+  background: #eff6ff;
+}
+
+.pdf-editor-zoom button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
 .pdf-editor-zoom span {
   min-width: 45px;
+
   text-align: center;
 
   font-size: 13px;
+
   font-weight: 700;
+
   color: #374151;
 }
 
@@ -210,32 +252,64 @@
 
 .pdf-editor-canvas-wrapper {
   width: 100%;
+  height: auto;
+  min-height: 0;
+
   overflow: auto;
+
   display: flex;
   justify-content: center;
-  padding: 30px;
+  align-items: flex-start;
+
+  padding: 12px 20px 20px;
+
   box-sizing: border-box;
+
   background: #e5e7eb;
+
   border-radius: 16px;
-  min-height: 400px;
+
+  touch-action: none;
 }
+
+/* =========================
+   PDF PAGE
+========================= */
 
 .pdf-editor-page {
   position: relative;
+
   flex-shrink: 0;
+
   transform-origin: top center;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+
+  background: white;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 12px 35px
+    rgba(15, 23, 42, 0.14);
+
   user-select: none;
-  touch-action: pan-x pan-y;
+
+  touch-action: none;
+
+  margin: 0 auto;
 }
 
 .pdf-editor-page-image {
   position: absolute;
+
   inset: 0;
+
   width: 100%;
   height: 100%;
+
   display: block;
+
   pointer-events: none;
+
   user-select: none;
 }
 
@@ -245,8 +319,11 @@
 
 .pdf-editor-object {
   position: absolute;
+
   box-sizing: border-box;
+
   touch-action: none;
+
   user-select: none;
 }
 
@@ -261,10 +338,15 @@
 .pdf-editor-object-image {
   width: 100%;
   height: 100%;
+
   object-fit: contain;
+
   display: block;
+
   cursor: move;
+
   user-select: none;
+
   touch-action: none;
 }
 
@@ -279,17 +361,28 @@
 .pdf-editor-text-object {
   width: 100%;
   height: 100%;
+
   padding: 6px;
   margin: 0;
+
   border: none;
   outline: none;
+
   background: transparent;
+
   resize: none;
+
   overflow: hidden;
+
   font-family: inherit;
+
   color: #111827;
+
   box-sizing: border-box;
+
+  touch-action: none;
 }
+
 .pdf-editor-text-object:focus {
   border: none;
   outline: none;
@@ -297,17 +390,12 @@
 }
 
 /* =========================
-   DELETE X
+   DELETE
 ========================= */
 
 .pdf-editor-delete {
   position: absolute;
 
-  /*
-    Simple X.
-    Not a red circle.
-    Very close to the top-right corner.
-  */
   top: -18px;
   right: -3px;
 
@@ -319,96 +407,93 @@
 
   border: 0;
   border-radius: 0;
+
   background: transparent;
 
   color: #111827;
+
   font-size: 22px;
+
   font-weight: 700;
+
   line-height: 20px;
 
   display: flex;
+
   align-items: center;
   justify-content: center;
 
   cursor: pointer;
+
   z-index: 30;
 }
 
 .pdf-editor-delete:hover {
   color: #dc2626;
+
   transform: scale(1.08);
 }
 
 /* =========================
-   RESIZE HANDLES
+   RESIZE
 ========================= */
 
 .resize-handle {
   position: absolute;
+
   width: 16px;
   height: 16px;
+
   border-radius: 50%;
+
   background: white;
+
   border: 2px solid #2563eb;
+
   box-sizing: border-box;
+
   z-index: 20;
 }
 
 .resize-handle.top-right {
   top: -7px;
   right: -7px;
+
   cursor: nesw-resize;
 }
 
 .resize-handle.bottom-left {
   bottom: -7px;
   left: -7px;
+
   cursor: nesw-resize;
 }
 
 .resize-handle.bottom-right {
   bottom: -7px;
   right: -7px;
+
   cursor: nwse-resize;
 }
 
 /* =========================
-   ZOOM
+   DOWNLOAD
 ========================= */
 
-.pdf-editor-zoom {
+.pdf-editor-download-area {
+  width: 100%;
+
   display: flex;
-  align-items: center;
+
   justify-content: center;
-  gap: 12px;
-  margin-top: 18px;
+  align-items: center;
+
+  margin-top: 16px;
 }
 
-.pdf-editor-zoom button {
-  width: 40px;
-  height: 36px;
-  border: 1px solid #dbe3ef;
-  border-radius: 9px;
-  background: white;
-  font-size: 22px;
-  cursor: pointer;
-}
-
-.pdf-editor-zoom button:hover:not(:disabled) {
-  background: #eff6ff;
-}
-
-.pdf-editor-zoom button:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-
-.pdf-editor-zoom span {
-  min-width: 55px;
-  text-align: center;
-  font-size: 14px;
-  font-weight: 700;
-  color: #374151;
+.pdf-editor-download {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* =========================
@@ -417,83 +502,120 @@
 
 .signature-modal {
   position: fixed;
+
   inset: 0;
+
   z-index: 1000;
 
-  background: rgba(15, 23, 42, 0.55);
+  background:
+    rgba(15, 23, 42, 0.55);
 
   display: flex;
+
   align-items: center;
   justify-content: center;
 
   padding: 20px;
+
   box-sizing: border-box;
 }
 
 .signature-modal-content {
   width: min(760px, 100%);
+
   background: white;
+
   border-radius: 18px;
+
   padding: 20px;
+
   box-sizing: border-box;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+
+  box-shadow:
+    0 20px 60px
+    rgba(0, 0, 0, 0.25);
 }
 
 .signature-modal-header {
   display: flex;
+
   align-items: center;
+
   justify-content: space-between;
+
   margin-bottom: 14px;
 }
 
 .signature-modal-header h3 {
   margin: 0;
+
   font-size: 20px;
+
   color: #111827;
 }
 
 .signature-modal-header button {
   width: 34px;
   height: 34px;
+
   border: 0;
+
   background: transparent;
+
   font-size: 26px;
+
   cursor: pointer;
 }
 
 .signature-canvas {
   width: 100%;
+
   height: 250px;
+
   display: block;
 
   background: white;
+
   border: 2px dashed #cbd5e1;
+
   border-radius: 12px;
 
   touch-action: none;
+
   cursor: crosshair;
 }
 
 .signature-actions {
   display: flex;
+
   justify-content: flex-end;
+
   gap: 10px;
+
   margin-top: 14px;
 }
 
 .signature-actions button {
   min-height: 40px;
+
   padding: 0 16px;
+
   border-radius: 9px;
+
   border: 1px solid #dbe3ef;
+
   background: white;
+
   font-weight: 600;
+
   cursor: pointer;
 }
 
 .signature-actions button:last-child {
   background: #2563eb;
+
   border-color: #2563eb;
+
   color: white;
 }
 
@@ -502,45 +624,51 @@
 ========================= */
 
 @media (max-width: 700px) {
-  .pdf-editor {
-    padding: 12px;
-  }
 
   /* =========================
-     HEADER
+     REMOVE LANDING PAGE
+     OUTER SPACE
   ========================= */
 
-  .pdf-editor-header {
-    margin-bottom: 12px;
-  }
+  .pdf-editor {
+    width: calc(100% + 48px);
 
-  .pdf-editor-header h2 {
-    font-size: 23px;
-  }
+    max-width: none;
 
-  .pdf-editor-header p {
-    font-size: 12px;
-    margin-top: 5px;
+    margin-left: -24px;
+    margin-right: -24px;
+
+    padding: 0;
+
+    box-sizing: border-box;
   }
 
   /* =========================
-     TOP TOOLBAR
-     3 TOOLS IN ONE ROW
+     TOOLBAR
   ========================= */
 
   .pdf-editor-toolbar {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    grid-template-columns:
+      repeat(4, minmax(0, 1fr));
+
     gap: 5px;
 
     width: 100%;
-    margin-bottom: 10px;
+
+    padding: 0 8px;
+
+    margin-bottom: 8px;
+
+    box-sizing: border-box;
   }
 
-  .pdf-editor-upload-button,
   .pdf-editor-tool-button {
     width: 100%;
+
     min-width: 0;
+
     height: 34px;
     min-height: 34px;
 
@@ -549,41 +677,35 @@
     border-radius: 7px;
 
     font-size: 10px;
+
     font-weight: 600;
 
     white-space: nowrap;
+
     overflow: hidden;
+
     text-overflow: ellipsis;
   }
 
-  .pdf-editor-tools-row {
-    display: contents;
-  }
-
-
   /* =========================
-     PAGE + ZOOM CONTROLS
+     CONTROLS
   ========================= */
 
   .pdf-editor-controls {
     width: 100%;
-    height: 38px;
 
-    margin: 0 auto 8px;
+    height: 30px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin: 0 0 2px;
 
-    position: relative;
+    padding: 0 8px;
+
+    box-sizing: border-box;
   }
 
   .pdf-editor-page-navigation {
-    position: absolute;
-    left: 0;
+    left: 8px;
 
-    display: flex;
-    align-items: center;
     gap: 4px;
   }
 
@@ -600,18 +722,10 @@
 
   .pdf-editor-page-navigation span {
     font-size: 11px;
-    font-weight: 600;
-
-    white-space: nowrap;
   }
 
   .pdf-editor-zoom {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
     gap: 6px;
-    margin: 0;
   }
 
   .pdf-editor-zoom button {
@@ -629,44 +743,56 @@
     min-width: 42px;
 
     font-size: 12px;
-    font-weight: 700;
-
-    text-align: center;
   }
 
   /* =========================
-     PDF AREA
+     PDF VIEWER
   ========================= */
 
   .pdf-editor-canvas-wrapper {
-  width: 100%;
-  height: 70vh;
+    width: 100%;
 
-  padding: 16px 8px;
+    height: auto;
 
-  min-height: 300px;
+    min-height: 0;
 
-  display: block;
+    padding: 0 12px 12px;
 
-  overflow: auto;
+    margin: 0;
 
-  border-radius: 12px;
-  box-sizing: border-box;
-}
+    display: flex;
 
-.pdf-editor-page {
-  margin-left: auto;
-  margin-right: auto;
-  transform-origin: top center;
-}
+    justify-content: center;
 
+    align-items: flex-start;
+
+    overflow: hidden;
+
+    border-radius: 0;
+
+    box-sizing: border-box;
+
+    background: #e5e7eb;
+
+    touch-action: none;
+  }
+
+  .pdf-editor-page {
+    margin: 0 auto;
+
+    transform-origin: top center;
+
+    flex-shrink: 0;
+  }
 
   /* =========================
-     EMPTY STATE
+     EMPTY
   ========================= */
 
   .pdf-editor-empty {
     min-height: 300px;
+
+    margin: 0 8px;
 
     padding: 20px;
 
@@ -683,16 +809,18 @@
 
   .pdf-editor-empty p {
     font-size: 12px;
+
     line-height: 1.5;
   }
 
   .pdf-editor-empty button {
     padding: 10px 18px;
+
     font-size: 13px;
   }
 
   /* =========================
-     PDF OBJECTS
+     OBJECTS
   ========================= */
 
   .pdf-editor-delete {
@@ -703,6 +831,7 @@
     height: 19px;
 
     font-size: 21px;
+
     line-height: 19px;
   }
 
@@ -732,25 +861,28 @@
 
   .pdf-editor-download-area {
     width: 100%;
-    margin-top: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+    padding: 0 8px;
+
+    margin-top: 10px;
+
+    box-sizing: border-box;
   }
 
   .pdf-editor-download {
     width: 100%;
+
     min-height: 40px;
+
     padding: 0 16px;
+
     border-radius: 9px;
+
     font-size: 12px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
   }
 
   /* =========================
-     SIGNATURE MODAL
+     SIGNATURE
   ========================= */
 
   .signature-modal {
@@ -782,6 +914,7 @@
 
   .signature-canvas {
     width: 100%;
+
     height: 190px;
 
     border-radius: 10px;
@@ -789,6 +922,7 @@
 
   .signature-actions {
     display: flex;
+
     gap: 8px;
 
     margin-top: 10px;
@@ -801,17 +935,4 @@
 
     font-size: 12px;
   }
-}
-/* Center Download PDF button on desktop */
-.pdf-editor-download-area {
-  width: 100%;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center;
-  margin-top: 16px;
-}
-
-.pdf-editor-download {
-  margin-left: auto !important;
-  margin-right: auto !important;
 }

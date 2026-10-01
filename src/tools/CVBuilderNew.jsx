@@ -117,6 +117,11 @@ const dragStartRef = useRef({
   panX: 0,
   panY: 0,
 });
+const editingRef = useRef(false);
+const editingViewRef = useRef({
+  zoom: 1,
+  pan: { x: 0, y: 0 },
+});
 
   const update = (key, value) => {
     setCV((prev) => ({
@@ -192,6 +197,90 @@ const resetZoom = () => {
   }
 
   setPan({ x: 0, y: 0 });
+};
+const handleCanvasFocus = (e) => {
+  const target = e.target;
+
+  if (!target.matches("input, textarea")) return;
+
+  const canvas = canvasRef.current;
+  const stage = canvas?.querySelector(".cv-builder-stage");
+
+  if (!canvas || !stage) return;
+
+  if (!editingRef.current) {
+    editingRef.current = true;
+
+    editingViewRef.current = {
+      zoom,
+      pan: { ...pan },
+    };
+  }
+
+  const canvasRect = canvas.getBoundingClientRect();
+  const stageRect = stage.getBoundingClientRect();
+  const targetRect = target.getBoundingClientRect();
+
+  const targetCenterX =
+    targetRect.left + targetRect.width / 2;
+
+  const targetCenterY =
+    targetRect.top + targetRect.height / 2;
+
+  const canvasCenterX =
+    canvasRect.left + canvasRect.width / 2;
+
+  const canvasCenterY =
+    canvasRect.top + canvasRect.height / 2;
+
+  const currentZoom = zoom;
+
+  const localX =
+    (targetCenterX - stageRect.left) / currentZoom;
+
+  const localY =
+    (targetCenterY - stageRect.top) / currentZoom;
+
+  const focusZoom = Math.min(
+    1.5,
+    Math.max(0.8, Math.max(currentZoom, 1.1))
+  );
+
+  const nextPan = {
+    x:
+      canvasCenterX -
+      canvasRect.left -
+      localX * focusZoom,
+
+    y:
+      canvasCenterY -
+      canvasRect.top -
+      localY * focusZoom,
+  };
+
+  setZoom(Number(focusZoom.toFixed(2)));
+  setPan(nextPan);
+};
+
+const handleCanvasBlur = (e) => {
+  const nextTarget = e.relatedTarget;
+
+  // Moving directly from one field to another
+  // should NOT reset the view.
+  if (
+    nextTarget &&
+    nextTarget.matches &&
+    nextTarget.matches("input, textarea")
+  ) {
+    return;
+  }
+
+  if (!editingRef.current) return;
+
+  editingRef.current = false;
+
+  setZoom(editingViewRef.current.zoom);
+  setPan(editingViewRef.current.pan);
 };
 const handleDownloadPDF = async () => {
   const element = document.querySelector(
@@ -284,6 +373,21 @@ const handleDownloadPDF = async () => {
         requestAnimationFrame(resolve);
       });
     });
+    // Wait for all images to finish loading before exporting
+    const images = Array.from(element.querySelectorAll("img"));
+
+    await Promise.all(
+      images.map((img) => {
+        if (img.complete) {
+          return img.decode ? img.decode().catch(() => {}) : Promise.resolve();
+        }
+
+        return new Promise((resolve) => {
+          img.onload = () => resolve();
+          img.onerror = () => resolve();
+        });
+      })
+    );
 
     const dataUrl = await toPng(element, {
       width: 794,
@@ -515,13 +619,16 @@ const handlePointerUp = (e) => {
 
     {template === 1 && (
   <div
-    ref={canvasRef}
-    className="cv-builder-canvas"
-    onPointerDown={handlePointerDown}
-    onPointerMove={handlePointerMove}
-    onPointerUp={handlePointerUp}
-    onPointerCancel={handlePointerUp}
+  ref={canvasRef}
+  className="cv-builder-canvas"
+  onPointerDown={handlePointerDown}
+  onPointerMove={handlePointerMove}
+  onPointerUp={handlePointerUp}
+  onPointerCancel={handlePointerUp}
+  onFocus={handleCanvasFocus}
+  onBlur={handleCanvasBlur}
   >
+
     <div
       className="cv-builder-stage"
       style={{
@@ -936,6 +1043,8 @@ const handlePointerUp = (e) => {
     onPointerMove={handlePointerMove}
     onPointerUp={handlePointerUp}
     onPointerCancel={handlePointerUp}
+    onFocus={handleCanvasFocus}
+    onBlur={handleCanvasBlur}
   >
     <div
       className="cv-builder-stage"
@@ -961,6 +1070,8 @@ const handlePointerUp = (e) => {
     onPointerMove={handlePointerMove}
     onPointerUp={handlePointerUp}
     onPointerCancel={handlePointerUp}
+    onFocus={handleCanvasFocus}
+    onBlur={handleCanvasBlur}
   >
     <div
       className="cv-builder-stage"
