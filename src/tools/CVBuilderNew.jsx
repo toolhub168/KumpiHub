@@ -111,19 +111,13 @@ const pinchRef = useRef({
 const pointersRef = useRef(new Map());
 const canvasRef = useRef(null);
 const draggingRef = useRef(false);
+const twoFingerGestureRef = useRef(false);
 const dragStartRef = useRef({
   x: 0,
   y: 0,
   panX: 0,
   panY: 0,
 });
-const editingRef = useRef(false);
-const editingViewRef = useRef({
-  zoom: 1,
-  pan: { x: 0, y: 0 },
-});
-const focusModeRef = useRef(false);
-
 
   const update = (key, value) => {
     setCV((prev) => ({
@@ -200,93 +194,10 @@ const resetZoom = () => {
 
   setPan({ x: 0, y: 0 });
 };
-const handleCanvasFocus = (e) => {
-  const target = e.target;
-
-  if (!target.matches("input, textarea")) return;
-
-  // Focus mode only on mobile
-  if (window.innerWidth > 600) {
-    return;
-  }
-
-  const canvas = canvasRef.current;
-
-  if (!canvas) return;
-
-  if (!editingRef.current) {
-    editingRef.current = true;
-
-    editingViewRef.current = {
-      zoom,
-      pan: { ...pan },
-    };
-  }
-
-  focusModeRef.current = true;
-
-  const focusZoom = Math.min(
-    1.15,
-    Math.max(0.8, zoom)
-  );
-
-  setZoom(Number(focusZoom.toFixed(2)));
-
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      const canvasRect = canvas.getBoundingClientRect();
-      const targetRect = target.getBoundingClientRect();
-
-      const targetCenterX =
-        targetRect.left + targetRect.width / 2;
-
-      const targetCenterY =
-        targetRect.top + targetRect.height / 2;
-
-      const canvasCenterX =
-        canvasRect.left + canvasRect.width / 2;
-
-      const canvasCenterY =
-        canvasRect.top + canvasRect.height * 0.38;
-
-
-      const moveX =
-        canvasCenterX - targetCenterX;
-
-      const moveY =
-        canvasCenterY - targetCenterY;
-
-      setPan((current) => ({
-        x: current.x + moveX,
-        y: current.y + moveY,
-      }));
-    });
-  });
-};
-
-
-const handleCanvasBlur = (e) => {
-  const nextTarget = e.relatedTarget;
-
-  // Moving directly from one field to another
-  // should NOT reset the view.
-  if (
-    nextTarget &&
-    nextTarget.matches &&
-    nextTarget.matches("input, textarea")
-  ) {
-    return;
-  }
-  if (window.innerWidth > 600) return;
-  if (!editingRef.current) return;
-
-  editingRef.current = false;
-  focusModeRef.current = false;
-
-  setZoom(editingViewRef.current.zoom);
-  setPan(editingViewRef.current.pan);
-};
 const handleDownloadPDF = async () => {
+  const scrollX = window.scrollX;
+  const scrollY = window.scrollY;
+
   const element = document.querySelector(
     ".cv-builder-stage .cv3-paper, " +
     ".cv-builder-stage .cv-template2-paper, " +
@@ -377,21 +288,22 @@ const handleDownloadPDF = async () => {
         requestAnimationFrame(resolve);
       });
     });
-    // Wait for all images to finish loading before exporting
     const images = Array.from(element.querySelectorAll("img"));
 
-    await Promise.all(
-      images.map((img) => {
-        if (img.complete) {
-          return img.decode ? img.decode().catch(() => {}) : Promise.resolve();
-        }
+await Promise.all(
+  images.map((img) => {
+    if (img.complete) {
+      return img.decode
+        ? img.decode().catch(() => {})
+        : Promise.resolve();
+    }
 
-        return new Promise((resolve) => {
-          img.onload = () => resolve();
-          img.onerror = () => resolve();
-        });
-      })
-    );
+    return new Promise((resolve) => {
+      img.onload = () => resolve();
+      img.onerror = () => resolve();
+    });
+  })
+);
 
     const dataUrl = await toPng(element, {
       width: 794,
@@ -425,12 +337,17 @@ const handleDownloadPDF = async () => {
     console.error("PDF export failed:", error);
     alert("Failed to create PDF. Please try again.");
   } finally {
-    style.remove();
+  style.remove();
 
-    if (stage) {
-      stage.style.transform = oldTransform;
-    }
+  if (stage) {
+    stage.style.transform = oldTransform;
   }
+
+  requestAnimationFrame(() => {
+    window.scrollTo(scrollX, scrollY);
+  });
+}
+
 };
 
 
@@ -449,12 +366,13 @@ const handlePointerDown = (e) => {
     );
 
     pinchRef.current = {
-      active: true,
-      startDistance: distance,
-      startZoom: zoom,
-    };
+     active: true,
+     startDistance: distance,
+     startZoom: zoom,
+   };
 
-    draggingRef.current = false;
+     twoFingerGestureRef.current = true;
+     draggingRef.current = false;
     return;
   }
 
@@ -528,6 +446,7 @@ const handlePointerMove = (e) => {
 const handlePointerUp = (e) => {
   pointersRef.current.delete(e.pointerId);
 
+  // Two-finger zoom: do NOT snap the PDF back
   if (pinchRef.current.active) {
     if (pointersRef.current.size < 2) {
       pinchRef.current.active = false;
@@ -553,40 +472,27 @@ const handlePointerUp = (e) => {
   const paperWidth = 794 * zoom;
   const paperHeight = 1123 * zoom;
 
-  const normalMaxX =
-  paperWidth > rect.width
-    ? (paperWidth - rect.width) / 2
-    : 0;
+  const maxX =
+    paperWidth > rect.width
+      ? (paperWidth - rect.width) / 2
+      : 0;
 
-const normalMaxY =
-  paperHeight > rect.height
-    ? (paperHeight - rect.height) / 2
-    : 0;
+  const maxY =
+    paperHeight > rect.height
+      ? (paperHeight - rect.height) / 2
+      : 0;
 
-// Focus mode allows the user to move the CV
-// much farther outside the visible screen.
-const extraMoveX = rect.width * 0.8;
-const extraMoveY = rect.height * 0.8;
-
-const maxX = focusModeRef.current
-  ? normalMaxX + extraMoveX
-  : normalMaxX;
-
-const maxY = focusModeRef.current
-  ? normalMaxY + extraMoveY
-  : normalMaxY;
+  // One-finger drag: keep the current snap-back behavior
+  if (twoFingerGestureRef.current) {
+  twoFingerGestureRef.current = false;
+  return;
+}
 
 setPan((current) => ({
-  x: Math.max(
-    -maxX,
-    Math.min(maxX, current.x)
-  ),
-
-  y: Math.max(
-    -maxY,
-    Math.min(maxY, current.y)
-  ),
+  x: Math.max(-maxX, Math.min(maxX, current.x)),
+  y: Math.max(-maxY, Math.min(maxY, current.y)),
 }));
+
 };
 
  return (
@@ -643,16 +549,13 @@ setPan((current) => ({
 
     {template === 1 && (
   <div
-  ref={canvasRef}
-  className="cv-builder-canvas"
-  onPointerDown={handlePointerDown}
-  onPointerMove={handlePointerMove}
-  onPointerUp={handlePointerUp}
-  onPointerCancel={handlePointerUp}
-  onFocus={handleCanvasFocus}
-  onBlur={handleCanvasBlur}
+    ref={canvasRef}
+    className="cv-builder-canvas"
+    onPointerDown={handlePointerDown}
+    onPointerMove={handlePointerMove}
+    onPointerUp={handlePointerUp}
+    onPointerCancel={handlePointerUp}
   >
-
     <div
       className="cv-builder-stage"
       style={{
@@ -1067,8 +970,6 @@ setPan((current) => ({
     onPointerMove={handlePointerMove}
     onPointerUp={handlePointerUp}
     onPointerCancel={handlePointerUp}
-    onFocus={handleCanvasFocus}
-    onBlur={handleCanvasBlur}
   >
     <div
       className="cv-builder-stage"
@@ -1094,8 +995,6 @@ setPan((current) => ({
     onPointerMove={handlePointerMove}
     onPointerUp={handlePointerUp}
     onPointerCancel={handlePointerUp}
-    onFocus={handleCanvasFocus}
-    onBlur={handleCanvasBlur}
   >
     <div
       className="cv-builder-stage"
