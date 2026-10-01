@@ -28,7 +28,7 @@ import SVGOptimizer from '../tools/SVGOptimizer'
 import ImageToSVG from '../tools/ImageToSVG'
 import CSSFormatter from '../tools/CSSFormatter'
 import HTMLFormatter from '../tools/HTMLFormatter'
-import CVBuilder from '../tools/CVBuilder'
+import CVBuilderNew from '../tools/CVBuilderNew'
 
 const toolsData = {
 
@@ -838,33 +838,35 @@ const toolsData = {
     },
   ],
 },
-"cv-builder": {
-  name: "CV Builder",
-  slug: "cv-builder",
 
-  seoTitle: "Free CV Builder Online",
+"cv-builder-new": {
+  name: "CV Builder New",
+  slug: "cv-builder-new",
+
+  seoTitle: "Free Professional CV Builder Online",
 
   seoDescription:
-    "Create a professional CV online for free with KumpiHub CV Builder.",
+    "Create a clean and professional CV online for free with KumpiHub.",
 
   description:
-    "Create a professional CV online for free with customizable templates, photo support and live editing.",
+    "Create a clean, structured and professional CV with a fixed A4 layout directly in your browser.",
 
-  component: <CVBuilder />,
+  component: <CVBuilderNew />,
 
   howToUse: [
-    "Choose a CV template.",
-    "Enter your personal information directly on the CV.",
-    "Add your experience, education and skills.",
-    "Add a profile photo if needed.",
-    "Customize the CV color and review your CV.",
+    "Enter your name and position.",
+    "Update your contact information.",
+    "Edit your skills, strengths and languages.",
+    "Add your personal information and education.",
+    "Update your work experience and about section.",
+    "Review your CV before downloading it.",
   ],
 
   faqs: [
     {
-      question: "Is the CV Builder free?",
+      question: "Is the new CV Builder free?",
       answer:
-        "Yes. KumpiHub CV Builder is free to use.",
+        "Yes. KumpiHub CV Builder New is free to use.",
     },
     {
       question: "Can I create a CV on my phone?",
@@ -872,14 +874,14 @@ const toolsData = {
         "Yes. The CV Builder works on supported mobile and desktop browsers.",
     },
     {
-      question: "Do I need an account to create a CV?",
+      question: "Do I need an account?",
       answer:
-        "No. You can create your CV directly in your browser without an account.",
+        "No. You can create and edit your CV directly in your browser.",
     },
     {
-      question: "Are my CV details uploaded to a server?",
+      question: "Does it use a server?",
       answer:
-        "The CV is edited directly in your browser.",
+        "No. The CV content is edited directly in your browser.",
     },
   ],
 },

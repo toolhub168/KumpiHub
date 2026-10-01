@@ -54,7 +54,7 @@ import SVGOptimizer from './tools/SVGOptimizer'
 import ImageToSVG from './tools/ImageToSVG'
 import CSSFormatter from './tools/CSSFormatter'
 import HTMLFormatter from './tools/HTMLFormatter'
-import CVBuilder from './tools/CVBuilder'
+import CVBuilderNew from './tools/CVBuilderNew'
 import URLRedirect from './URLRedirect'
 import LandingPage from './pages/LandingPage'
 
@@ -291,8 +291,8 @@ const downloadCompressedImage = () => {
     },
     {
      icon: "✦",
-     name: "CV Builder",
-     description: "Create stylish professional CVs online for free.",
+     name: "CV Builder New",
+     description: "Create a clean and professional CV with a structured layout.",
     },
 
 
@@ -503,9 +503,9 @@ const path = window.location.pathname
   
 ) : selectedTool === "HTML Formatter" ? (
   <HTMLFormatter />  
-
-) : selectedTool === "CV Builder" ? (
-  <CVBuilder />  
+  
+) : selectedTool === "CV Builder New" ? (
+  <CVBuilderNew />  
  
  
   ) : (
