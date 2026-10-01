@@ -122,6 +122,8 @@ const editingViewRef = useRef({
   zoom: 1,
   pan: { x: 0, y: 0 },
 });
+const focusModeRef = useRef(false);
+
 
   const update = (key, value) => {
     setCV((prev) => ({
@@ -203,10 +205,14 @@ const handleCanvasFocus = (e) => {
 
   if (!target.matches("input, textarea")) return;
 
-  const canvas = canvasRef.current;
-  const stage = canvas?.querySelector(".cv-builder-stage");
+  // Focus mode only on mobile
+  if (window.innerWidth > 600) {
+    return;
+  }
 
-  if (!canvas || !stage) return;
+  const canvas = canvasRef.current;
+
+  if (!canvas) return;
 
   if (!editingRef.current) {
     editingRef.current = true;
@@ -217,50 +223,47 @@ const handleCanvasFocus = (e) => {
     };
   }
 
-  const canvasRect = canvas.getBoundingClientRect();
-  const stageRect = stage.getBoundingClientRect();
-  const targetRect = target.getBoundingClientRect();
-
-  const targetCenterX =
-    targetRect.left + targetRect.width / 2;
-
-  const targetCenterY =
-    targetRect.top + targetRect.height / 2;
-
-  const canvasCenterX =
-    canvasRect.left + canvasRect.width / 2;
-
-  const canvasCenterY =
-    canvasRect.top + canvasRect.height / 2;
-
-  const currentZoom = zoom;
-
-  const localX =
-    (targetCenterX - stageRect.left) / currentZoom;
-
-  const localY =
-    (targetCenterY - stageRect.top) / currentZoom;
+  focusModeRef.current = true;
 
   const focusZoom = Math.min(
-    1.5,
-    Math.max(0.8, Math.max(currentZoom, 1.1))
+    1.15,
+    Math.max(0.8, zoom)
   );
 
-  const nextPan = {
-    x:
-      canvasCenterX -
-      canvasRect.left -
-      localX * focusZoom,
-
-    y:
-      canvasCenterY -
-      canvasRect.top -
-      localY * focusZoom,
-  };
-
   setZoom(Number(focusZoom.toFixed(2)));
-  setPan(nextPan);
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      const canvasRect = canvas.getBoundingClientRect();
+      const targetRect = target.getBoundingClientRect();
+
+      const targetCenterX =
+        targetRect.left + targetRect.width / 2;
+
+      const targetCenterY =
+        targetRect.top + targetRect.height / 2;
+
+      const canvasCenterX =
+        canvasRect.left + canvasRect.width / 2;
+
+      const canvasCenterY =
+        canvasRect.top + canvasRect.height * 0.38;
+
+
+      const moveX =
+        canvasCenterX - targetCenterX;
+
+      const moveY =
+        canvasCenterY - targetCenterY;
+
+      setPan((current) => ({
+        x: current.x + moveX,
+        y: current.y + moveY,
+      }));
+    });
+  });
 };
+
 
 const handleCanvasBlur = (e) => {
   const nextTarget = e.relatedTarget;
@@ -274,10 +277,11 @@ const handleCanvasBlur = (e) => {
   ) {
     return;
   }
-
+  if (window.innerWidth > 600) return;
   if (!editingRef.current) return;
 
   editingRef.current = false;
+  focusModeRef.current = false;
 
   setZoom(editingViewRef.current.zoom);
   setPan(editingViewRef.current.pan);
@@ -549,20 +553,40 @@ const handlePointerUp = (e) => {
   const paperWidth = 794 * zoom;
   const paperHeight = 1123 * zoom;
 
-  const maxX =
-    paperWidth > rect.width
-      ? (paperWidth - rect.width) / 2
-      : 0;
+  const normalMaxX =
+  paperWidth > rect.width
+    ? (paperWidth - rect.width) / 2
+    : 0;
 
-  const maxY =
-    paperHeight > rect.height
-      ? (paperHeight - rect.height) / 2
-      : 0;
+const normalMaxY =
+  paperHeight > rect.height
+    ? (paperHeight - rect.height) / 2
+    : 0;
 
-  setPan((current) => ({
-    x: Math.max(-maxX, Math.min(maxX, current.x)),
-    y: Math.max(-maxY, Math.min(maxY, current.y)),
-  }));
+// Focus mode allows the user to move the CV
+// much farther outside the visible screen.
+const extraMoveX = rect.width * 0.8;
+const extraMoveY = rect.height * 0.8;
+
+const maxX = focusModeRef.current
+  ? normalMaxX + extraMoveX
+  : normalMaxX;
+
+const maxY = focusModeRef.current
+  ? normalMaxY + extraMoveY
+  : normalMaxY;
+
+setPan((current) => ({
+  x: Math.max(
+    -maxX,
+    Math.min(maxX, current.x)
+  ),
+
+  y: Math.max(
+    -maxY,
+    Math.min(maxY, current.y)
+  ),
+}));
 };
 
  return (
