@@ -29,6 +29,7 @@ import ImageToSVG from '../tools/ImageToSVG'
 import CSSFormatter from '../tools/CSSFormatter'
 import HTMLFormatter from '../tools/HTMLFormatter'
 import CVBuilderNew from '../tools/CVBuilderNew'
+import JavaScriptFormatter from '../tools/JavaScriptFormatter'
 
 const toolsData = {
 
@@ -885,5 +886,45 @@ const toolsData = {
     },
   ],
 },
+"javascript-formatter": {
+  name: "JavaScript Formatter",
+  slug: "javascript-formatter",
+
+  seoTitle: "Free JavaScript Formatter Online",
+
+  seoDescription:
+    "Format, beautify and minify JavaScript code online for free with KumpiHub.",
+
+  description:
+    "Format, beautify and minify JavaScript code quickly and easily directly in your browser.",
+
+  component: <JavaScriptFormatter />,
+
+  howToUse: [
+    "Paste your JavaScript code into the input box.",
+    "Click Format JS to format and beautify your code.",
+    "Use Minify to reduce the JavaScript code size.",
+    "Copy your formatted or minified JavaScript.",
+  ],
+
+  faqs: [
+    {
+      question: "Is the JavaScript Formatter free?",
+      answer:
+        "Yes. KumpiHub JavaScript Formatter is free to use.",
+    },
+    {
+      question: "Can I format JavaScript on mobile?",
+      answer:
+        "Yes. The JavaScript Formatter works on supported mobile and desktop browsers.",
+    },
+    {
+      question: "Does the JavaScript Formatter need a server?",
+      answer:
+        "No. JavaScript formatting and minifying are performed directly in your browser.",
+    },
+  ],
+},
+
 }
 export default toolsData

@@ -22,6 +22,16 @@ import percentageCalculatorIcon from './assets/icons/percentage-calculator.png'
 import invoiceGeneratorIcon from './assets/icons/invoice-generator.png'
 import base64ToolIcon from './assets/icons/base64-tool.png'
 import metaTagToolIcon from './assets/icons/meta-tag-tool.png'
+import logoGeneratorIcon from './assets/icons/logo-generator.png'
+import uuidGeneratorIcon from './assets/icons/uuid-generator.png'
+import hashGeneratorIcon from './assets/icons/hash-generator.png'
+import faviconGeneratorIcon from './assets/icons/favicon-generator.png'
+import svgOptimizerIcon from './assets/icons/svg-optimizer.png'
+import imageToSvgIcon from './assets/icons/image-to-svg.png'
+import cssFormatterIcon from './assets/icons/css-formatter.png'
+import htmlFormatterIcon from './assets/icons/html-formatter.png'
+import cvBuilderNewIcon from './assets/icons/cv-builder.png'
+import javaScriptFormatterIcon from './assets/icons/javascript-formatter.png'
 
 
 import PDFTools from './tools/PDFTools'
@@ -55,6 +65,7 @@ import ImageToSVG from './tools/ImageToSVG'
 import CSSFormatter from './tools/CSSFormatter'
 import HTMLFormatter from './tools/HTMLFormatter'
 import CVBuilderNew from './tools/CVBuilderNew'
+import JavaScriptFormatter from './tools/JavaScriptFormatter'
 import URLRedirect from './URLRedirect'
 import LandingPage from './pages/LandingPage'
 
@@ -245,7 +256,7 @@ const downloadCompressedImage = () => {
      description: 'Generate SEO meta tags for your website.',
     },
     {
-     icon: '✦',
+     icon: logoGeneratorIcon,
      name: 'Logo Generator',
      description: 'Create simple logo designs and download them as PNG.',
     },
@@ -255,44 +266,49 @@ const downloadCompressedImage = () => {
      description: 'Compare two texts and find the differences.',
     },
     {
-     icon: '✦',
+     icon: uuidGeneratorIcon,
      name: 'UUID Generator',
      description: 'Generate unique UUIDs instantly for your projects.',
     },
     {
-     icon: '✦',
+     icon: hashGeneratorIcon,
      name: 'Hash Generator',
      description: 'Generate SHA hashes instantly in your browser.',
     },
     {
-     icon: '✦',
+     icon: faviconGeneratorIcon,
      name: 'Favicon Generator',
      description: 'Create favicon icons from your image in multiple sizes.',
     },
     {
-     icon: '✦',
+     icon: svgOptimizerIcon,
      name: 'SVG Optimizer',
      description: 'Optimize SVG files and reduce their file size.',
     },
     {
-     icon: '✦',
+     icon: imageToSvgIcon,
      name: 'Image to SVG',
      description: 'Convert PNG, JPG, JPEG and WebP images to SVG.',
     },
     {
-     icon: '✦',
+     icon: cssFormatterIcon,
      name: 'CSS Formatter',
      description: 'Format, beautify and minify CSS code instantly.',
     },
     {
-     icon: "✦",
+     icon: htmlFormatterIcon,
      name: "HTML Formatter",
      description: "Format, beautify and minify HTML code instantly.",
     },
     {
-     icon: "✦",
+     icon: cvBuilderNewIcon,
      name: "CV Builder New",
      description: "Create a clean and professional CV with a structured layout.",
+    },
+    {
+     icon: javaScriptFormatterIcon,
+     name: 'JavaScript Formatter',
+     description: 'Format, beautify and minify JavaScript code instantly.',
     },
 
 
@@ -505,7 +521,10 @@ const path = window.location.pathname
   <HTMLFormatter />  
   
 ) : selectedTool === "CV Builder New" ? (
-  <CVBuilderNew />  
+  <CVBuilderNew /> 
+  
+) : selectedTool === "JavaScript Formatter" ? (
+  <JavaScriptFormatter />  
  
  
   ) : (
